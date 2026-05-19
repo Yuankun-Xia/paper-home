@@ -462,84 +462,34 @@
     </section>
 
     <section class="grid" id="paperGrid" aria-label="论文列表">
-      <article class="card" data-topic="intro lora" data-keywords="大模型 边缘智能 联邦学习 端侧微调 LoRA">
-        <img class="cover" src="assets/cover-lora-edge.png" alt="大模型端侧微调与 LoRA 封面">
-        <div class="card-body">
-          <div class="label-row">
-            <span class="label">入门文章</span>
-            <span class="label blue">LoRA</span>
-          </div>
-          <h2>大模型到了端侧，为什么不能直接微调？</h2>
-          <div class="paper"><strong>主题：</strong>从全量微调到 LoRA，再到联邦微调的基本逻辑。</div>
-          <p class="desc">适合作为整个系列的起点：先理解端侧设备的算力、内存、隐私和通信限制，再看参数高效微调为什么会成为主流路线。</p>
-          <div class="links">
-            <a class="link primary" href="https://arxiv.org/abs/2106.09685" target="_blank" rel="noopener">LoRA 论文</a>
-          </div>
-        </div>
-      </article>
-
-      <article class="card" data-topic="intro lyapunov" data-keywords="Lyapunov 边缘联邦 大模型 在线优化 长期约束">
-        <img class="cover" src="assets/cover-lyapunov-edge-fl.png" alt="Lyapunov 优化封面">
-        <div class="card-body">
-          <div class="label-row">
-            <span class="label">方法背景</span>
-            <span class="label alt">Lyapunov</span>
-          </div>
-          <h2>为什么边缘联邦大模型论文都爱用 Lyapunov 优化？</h2>
-          <div class="paper"><strong>主题：</strong>动态无线系统里的在线决策、虚拟队列和长期平均约束。</div>
-          <p class="desc">这一篇不追某一篇论文的细节，而是解释为什么边缘智能论文经常从“长期约束”切入，再把问题转成每轮可求解的调度子问题。</p>
-          <div class="links">
-            <span class="link">方法笔记</span>
-          </div>
-        </div>
-      </article>
-
-      <article class="card" data-topic="lyapunov lora" data-keywords="Federated Fine-Tuning Foundation Models Wireless Networks LoRA 带宽分配 设备调度">
-        <img class="cover" src="assets/cover-lyapunov-scheduling-bandwidth.png" alt="设备调度与带宽分配封面">
+      <article class="card" data-topic="sfl" data-keywords="Split Federated Learning DDQN 凸优化 梯度聚合 切分点 带宽 算力">
+        <img class="cover" src="assets/cover-sfl-ga.png" alt="SFL-GA 与资源管理封面">
         <div class="card-body">
           <div class="label-row">
             <span class="label">论文精读</span>
-            <span class="label alt">Lyapunov</span>
-            <span class="label blue">LoRA</span>
+            <span class="label blue">SFL</span>
           </div>
-          <h2>Lyapunov 如何做设备调度和带宽分配</h2>
-          <div class="paper"><strong>论文：</strong>Federated Fine-Tuning for Pre-Trained Foundation Models Over Wireless Networks, IEEE TWC, 2025.</div>
-          <p class="desc">这篇文章抓住一个核心问题：一轮训练里到底选哪些设备、给每个设备分多少带宽，才能兼顾训练收益和瓶颈上传时延。</p>
+          <h2>Split Federated Learning 如何用 DDQN + 凸优化联合分配算力与带宽</h2>
+          <div class="paper"><strong>论文：</strong>Communication-and-Computation Efficient Split Federated Learning in Wireless Networks: Gradient Aggregation and Resource Management, IEEE TWC, 2026.</div>
+          <p class="desc">文章重点看 SFL-GA 如何减少 smashed data 频繁传输带来的通信开销，并把切分点、带宽和算力放在同一个优化框架里。</p>
           <div class="links">
-            <a class="link primary" href="https://doi.org/10.1109/TWC.2025.3531128" target="_blank" rel="noopener">DOI</a>
+            <a class="link primary" href="https://doi.org/10.1109/TWC.2025.3594006" target="_blank" rel="noopener">DOI</a>
           </div>
         </div>
       </article>
 
-      <article class="card" data-topic="lyapunov lora" data-keywords="Zeroth-Order FedFT 零阶优化 反向传播 联邦微调 无线资源">
-        <img class="cover" src="assets/cover-zo-fedft.png" alt="Zeroth-Order FedFT 封面">
+      <article class="card" data-topic="lora" data-keywords="FedLEASE Adaptive LoRA Experts Allocation Selection Federated Fine-Tuning NeurIPS 2025">
+        <img class="cover" src="assets/cover-fedlease.png" alt="FedLEASE 与 LoRA experts 封面">
         <div class="card-body">
           <div class="label-row">
             <span class="label">论文精读</span>
-            <span class="label blue">LoRA</span>
-            <span class="label alt">Lyapunov</span>
+            <span class="label blue">LoRA Experts</span>
           </div>
-          <h2>Zeroth-Order FedFT：没有反向传播，大模型还能联邦微调吗？</h2>
-          <div class="paper"><strong>论文：</strong>Zeroth-Order Federated Fine-Tuning for Large AI Models in Resource-Constrained Wireless Networks, IEEE TWC, 2026.</div>
-          <p class="desc">它把零阶优化放到端侧大模型联邦微调里，重点不是“省掉反向传播”这一句话，而是训练算法和无线资源优化如何耦合。</p>
+          <h2>一个 LoRA 不够用：FedLEASE 如何让联邦大模型学会选择专家？</h2>
+          <div class="paper"><strong>论文：</strong>Adaptive LoRA Experts Allocation and Selection for Federated Fine-Tuning, NeurIPS 2025.</div>
+          <p class="desc">FedLEASE 的关键问题不是继续压缩参数，而是在客户端任务异构时，让不同客户端拥有更合适的 LoRA expert 组合。</p>
           <div class="links">
-            <a class="link primary" href="https://doi.org/10.1109/TWC.2026.3661365" target="_blank" rel="noopener">DOI</a>
-          </div>
-        </div>
-      </article>
-
-      <article class="card" data-topic="lyapunov" data-keywords="Streaming Data Energy-Efficient Federated Edge Learning 长期能耗 资源分配">
-        <img class="cover" src="assets/cover-streaming-energy.png" alt="Streaming Data 下的长期能耗封面">
-        <div class="card-body">
-          <div class="label-row">
-            <span class="label">论文精读</span>
-            <span class="label alt">Lyapunov</span>
-          </div>
-          <h2>边缘联邦学习为什么要看长期能耗？</h2>
-          <div class="paper"><strong>论文：</strong>Energy-Efficient Federated Edge Learning With Streaming Data: A Lyapunov Optimization Approach, IEEE TCOM, 2025.</div>
-          <p class="desc">Streaming data 场景下，设备不断产生新数据，信道和能耗状态也在变化。论文把学习收益、训练时延和长期能耗放到同一套在线调度框架里。</p>
-          <div class="links">
-            <a class="link primary" href="https://doi.org/10.1109/TCOMM.2024.3443731" target="_blank" rel="noopener">DOI</a>
+            <a class="link primary" href="https://papers.neurips.cc/paper_files/paper/2025/hash/6df1b2b45e64d402588746f79b68b82c-Abstract-Conference.html" target="_blank" rel="noopener">Paper Page</a>
           </div>
         </div>
       </article>
@@ -561,34 +511,84 @@
         </div>
       </article>
 
-      <article class="card" data-topic="lora" data-keywords="FedLEASE Adaptive LoRA Experts Allocation Selection Federated Fine-Tuning NeurIPS 2025">
-        <img class="cover" src="assets/cover-fedlease.png" alt="FedLEASE 与 LoRA experts 封面">
+      <article class="card" data-topic="lyapunov" data-keywords="Streaming Data Energy-Efficient Federated Edge Learning 长期能耗 资源分配">
+        <img class="cover" src="assets/cover-streaming-energy.png" alt="Streaming Data 下的长期能耗封面">
         <div class="card-body">
           <div class="label-row">
             <span class="label">论文精读</span>
-            <span class="label blue">LoRA Experts</span>
+            <span class="label alt">Lyapunov</span>
           </div>
-          <h2>一个 LoRA 不够用：FedLEASE 如何让联邦大模型学会选择专家？</h2>
-          <div class="paper"><strong>论文：</strong>Adaptive LoRA Experts Allocation and Selection for Federated Fine-Tuning, NeurIPS 2025.</div>
-          <p class="desc">FedLEASE 的关键问题不是继续压缩参数，而是在客户端任务异构时，让不同客户端拥有更合适的 LoRA expert 组合。</p>
+          <h2>边缘联邦学习为什么要看长期能耗？</h2>
+          <div class="paper"><strong>论文：</strong>Energy-Efficient Federated Edge Learning With Streaming Data: A Lyapunov Optimization Approach, IEEE TCOM, 2025.</div>
+          <p class="desc">Streaming data 场景下，设备不断产生新数据，信道和能耗状态也在变化。论文把学习收益、训练时延和长期能耗放到同一套在线调度框架里。</p>
           <div class="links">
-            <a class="link primary" href="https://papers.neurips.cc/paper_files/paper/2025/hash/6df1b2b45e64d402588746f79b68b82c-Abstract-Conference.html" target="_blank" rel="noopener">Paper Page</a>
+            <a class="link primary" href="https://doi.org/10.1109/TCOMM.2024.3443731" target="_blank" rel="noopener">DOI</a>
           </div>
         </div>
       </article>
 
-      <article class="card" data-topic="sfl" data-keywords="Split Federated Learning DDQN 凸优化 梯度聚合 切分点 带宽 算力">
-        <img class="cover" src="assets/cover-sfl-ga.png" alt="SFL-GA 与资源管理封面">
+      <article class="card" data-topic="lyapunov lora" data-keywords="Zeroth-Order FedFT 零阶优化 反向传播 联邦微调 无线资源">
+        <img class="cover" src="assets/cover-zo-fedft.png" alt="Zeroth-Order FedFT 封面">
         <div class="card-body">
           <div class="label-row">
             <span class="label">论文精读</span>
-            <span class="label blue">SFL</span>
+            <span class="label blue">LoRA</span>
+            <span class="label alt">Lyapunov</span>
           </div>
-          <h2>Split Federated Learning 如何用 DDQN + 凸优化联合分配算力与带宽</h2>
-          <div class="paper"><strong>论文：</strong>Communication-and-Computation Efficient Split Federated Learning in Wireless Networks: Gradient Aggregation and Resource Management, IEEE TWC, 2026.</div>
-          <p class="desc">文章重点看 SFL-GA 如何减少 smashed data 频繁传输带来的通信开销，并把切分点、带宽和算力放在同一个优化框架里。</p>
+          <h2>Zeroth-Order FedFT：没有反向传播，大模型还能联邦微调吗？</h2>
+          <div class="paper"><strong>论文：</strong>Zeroth-Order Federated Fine-Tuning for Large AI Models in Resource-Constrained Wireless Networks, IEEE TWC, 2026.</div>
+          <p class="desc">它把零阶优化放到端侧大模型联邦微调里，重点不是“省掉反向传播”这一句话，而是训练算法和无线资源优化如何耦合。</p>
           <div class="links">
-            <a class="link primary" href="https://doi.org/10.1109/TWC.2025.3594006" target="_blank" rel="noopener">DOI</a>
+            <a class="link primary" href="https://doi.org/10.1109/TWC.2026.3661365" target="_blank" rel="noopener">DOI</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-topic="lyapunov lora" data-keywords="Federated Fine-Tuning Foundation Models Wireless Networks LoRA 带宽分配 设备调度">
+        <img class="cover" src="assets/cover-lyapunov-scheduling-bandwidth.png" alt="设备调度与带宽分配封面">
+        <div class="card-body">
+          <div class="label-row">
+            <span class="label">论文精读</span>
+            <span class="label alt">Lyapunov</span>
+            <span class="label blue">LoRA</span>
+          </div>
+          <h2>Lyapunov 如何做设备调度和带宽分配</h2>
+          <div class="paper"><strong>论文：</strong>Federated Fine-Tuning for Pre-Trained Foundation Models Over Wireless Networks, IEEE TWC, 2025.</div>
+          <p class="desc">这篇文章抓住一个核心问题：一轮训练里到底选哪些设备、给每个设备分多少带宽，才能兼顾训练收益和瓶颈上传时延。</p>
+          <div class="links">
+            <a class="link primary" href="https://doi.org/10.1109/TWC.2025.3531128" target="_blank" rel="noopener">DOI</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-topic="intro lyapunov" data-keywords="Lyapunov 边缘联邦 大模型 在线优化 长期约束">
+        <img class="cover" src="assets/cover-lyapunov-edge-fl.png" alt="Lyapunov 优化封面">
+        <div class="card-body">
+          <div class="label-row">
+            <span class="label">方法背景</span>
+            <span class="label alt">Lyapunov</span>
+          </div>
+          <h2>为什么边缘联邦大模型论文都爱用 Lyapunov 优化？</h2>
+          <div class="paper"><strong>主题：</strong>动态无线系统里的在线决策、虚拟队列和长期平均约束。</div>
+          <p class="desc">这一篇不追某一篇论文的细节，而是解释为什么边缘智能论文经常从“长期约束”切入，再把问题转成每轮可求解的调度子问题。</p>
+          <div class="links">
+            <span class="link">方法笔记</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-topic="intro lora" data-keywords="大模型 边缘智能 联邦学习 端侧微调 LoRA">
+        <img class="cover" src="assets/cover-lora-edge.png" alt="大模型端侧微调与 LoRA 封面">
+        <div class="card-body">
+          <div class="label-row">
+            <span class="label">入门文章</span>
+            <span class="label blue">LoRA</span>
+          </div>
+          <h2>大模型到了端侧，为什么不能直接微调？</h2>
+          <div class="paper"><strong>主题：</strong>从全量微调到 LoRA，再到联邦微调的基本逻辑。</div>
+          <p class="desc">适合作为整个系列的起点：先理解端侧设备的算力、内存、隐私和通信限制，再看参数高效微调为什么会成为主流路线。</p>
+          <div class="links">
+            <a class="link primary" href="https://arxiv.org/abs/2106.09685" target="_blank" rel="noopener">LoRA 论文</a>
           </div>
         </div>
       </article>
