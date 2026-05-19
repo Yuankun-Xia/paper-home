@@ -1,0 +1,646 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>边缘联邦大模型论文导航</title>
+  <meta name="description" content="公众号论文解读入口：边缘智能、联邦学习、LoRA、Lyapunov 优化与 Split Federated Learning。">
+  <style>
+    :root {
+      --bg: #f7f8f5;
+      --panel: #ffffff;
+      --ink: #202326;
+      --muted: #5e6870;
+      --line: #dfe4de;
+      --accent: #0d766f;
+      --accent-2: #9a5b17;
+      --accent-3: #375a8c;
+      --chip: #edf3f1;
+      --shadow: 0 16px 42px rgba(31, 39, 43, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--bg);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      line-height: 1.65;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .page {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 28px 18px 44px;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 10px 0 22px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .mark {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border: 1px solid #c7d3cf;
+      border-radius: 8px;
+      color: #ffffff;
+      background: #124b46;
+      font-size: 18px;
+      font-weight: 700;
+      flex: 0 0 auto;
+    }
+
+    .brand strong {
+      display: block;
+      font-size: 18px;
+      line-height: 1.25;
+    }
+
+    .brand span {
+      display: block;
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 3px;
+    }
+
+    .meta {
+      color: var(--muted);
+      font-size: 13px;
+      white-space: nowrap;
+    }
+
+    .intro {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+      gap: 28px;
+      align-items: end;
+      padding: 34px 0 24px;
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 760px;
+      font-size: 36px;
+      line-height: 1.18;
+      font-weight: 780;
+      letter-spacing: 0;
+    }
+
+    .lead {
+      max-width: 760px;
+      margin: 16px 0 0;
+      color: #46515a;
+      font-size: 16px;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .stat {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 14px 14px 12px;
+      min-height: 86px;
+      box-shadow: 0 8px 24px rgba(37, 45, 49, 0.04);
+    }
+
+    .stat b {
+      display: block;
+      font-size: 24px;
+      line-height: 1.1;
+    }
+
+    .stat span {
+      display: block;
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .controls {
+      display: grid;
+      grid-template-columns: minmax(220px, 1fr) auto;
+      gap: 14px;
+      align-items: center;
+      margin: 6px 0 20px;
+    }
+
+    .search {
+      width: 100%;
+      height: 44px;
+      border: 1px solid #cfd8d2;
+      border-radius: 8px;
+      padding: 0 14px;
+      color: var(--ink);
+      background: #ffffff;
+      font: inherit;
+      outline: none;
+    }
+
+    .search:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(13, 118, 111, 0.12);
+    }
+
+    .tabs {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 8px;
+    }
+
+    .tab {
+      min-height: 38px;
+      border: 1px solid #cfd8d2;
+      border-radius: 8px;
+      padding: 0 13px;
+      color: #344047;
+      background: #ffffff;
+      font: inherit;
+      cursor: pointer;
+    }
+
+    .tab.is-active {
+      color: #ffffff;
+      border-color: var(--accent);
+      background: var(--accent);
+    }
+
+    .route {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin: 0 0 24px;
+    }
+
+    .route-step {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fffdf8;
+      padding: 14px;
+      min-height: 110px;
+    }
+
+    .route-step b {
+      display: block;
+      font-size: 14px;
+      color: var(--accent-2);
+    }
+
+    .route-step span {
+      display: block;
+      margin-top: 8px;
+      color: #4c555b;
+      font-size: 13px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+      overflow: hidden;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+    }
+
+    .cover {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      background: #dbe3df;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .card-body {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      padding: 16px;
+      flex: 1;
+    }
+
+    .label-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .label {
+      display: inline-flex;
+      align-items: center;
+      min-height: 25px;
+      padding: 2px 9px;
+      border-radius: 999px;
+      color: #1f4f4a;
+      background: var(--chip);
+      font-size: 12px;
+      font-weight: 650;
+    }
+
+    .label.alt {
+      color: #6f3f0d;
+      background: #f7ebdc;
+    }
+
+    .label.blue {
+      color: #294d7d;
+      background: #e9eef6;
+    }
+
+    .card h2 {
+      margin: 0;
+      font-size: 18px;
+      line-height: 1.35;
+      letter-spacing: 0;
+    }
+
+    .paper {
+      color: #39444b;
+      font-size: 14px;
+    }
+
+    .paper strong {
+      color: #1f2529;
+    }
+
+    .desc {
+      color: var(--muted);
+      font-size: 14px;
+      margin: 0;
+    }
+
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-top: auto;
+      padding-top: 4px;
+    }
+
+    .link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 34px;
+      border: 1px solid #cbd7d1;
+      border-radius: 8px;
+      padding: 0 11px;
+      color: #183f3b;
+      background: #ffffff;
+      font-size: 13px;
+      font-weight: 650;
+    }
+
+    .link.primary {
+      color: #ffffff;
+      border-color: var(--accent);
+      background: var(--accent);
+    }
+
+    .empty {
+      display: none;
+      border: 1px dashed #b9c7c2;
+      border-radius: 8px;
+      padding: 24px;
+      color: var(--muted);
+      background: #ffffff;
+      text-align: center;
+    }
+
+    .empty.is-visible {
+      display: block;
+    }
+
+    footer {
+      margin-top: 28px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 920px) {
+      .intro {
+        grid-template-columns: 1fr;
+      }
+
+      .route {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .controls {
+        grid-template-columns: 1fr;
+      }
+
+      .tabs {
+        justify-content: flex-start;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .page {
+        padding: 18px 14px 34px;
+      }
+
+      .topbar {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .meta {
+        white-space: normal;
+      }
+
+      h1 {
+        font-size: 28px;
+      }
+
+      .stats,
+      .route,
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="边缘联邦大模型论文导航">
+        <span class="mark">FL</span>
+        <span>
+          <strong>边缘联邦大模型论文导航</strong>
+          <span>Edge AI · Federated Learning · Resource Optimization</span>
+        </span>
+      </a>
+      <div class="meta">更新：2026.05 · 公众号论文解读入口</div>
+    </header>
+
+    <section class="intro" aria-labelledby="page-title">
+      <div>
+        <h1 id="page-title">把边缘智能、联邦微调和资源调度放到一张路线图里</h1>
+        <p class="lead">这里整理公众号中已经拆解的论文和方法笔记。主线从端侧大模型为什么需要联邦微调开始，继续延伸到 LoRA、Lyapunov 在线优化、长期能耗约束、Split Federated Learning，以及 LoRA experts 这类更细的个性化微调机制。</p>
+      </div>
+      <div class="stats" aria-label="论文导航统计">
+        <div class="stat"><b>8</b><span>篇重点论文与方法解读</span></div>
+        <div class="stat"><b>4</b><span>条主线：LoRA、Lyapunov、SFL、资源优化</span></div>
+        <div class="stat"><b>1</b><span>条适合持续更新的阅读路径</span></div>
+      </div>
+    </section>
+
+    <section class="controls" aria-label="筛选论文">
+      <input class="search" id="searchInput" type="search" placeholder="搜索论文、关键词或方法，例如 LoRA、Lyapunov、SFL">
+      <div class="tabs" role="tablist" aria-label="论文分类">
+        <button class="tab is-active" type="button" data-filter="all">全部</button>
+        <button class="tab" type="button" data-filter="intro">入门</button>
+        <button class="tab" type="button" data-filter="lora">LoRA</button>
+        <button class="tab" type="button" data-filter="lyapunov">Lyapunov</button>
+        <button class="tab" type="button" data-filter="sfl">SFL</button>
+      </div>
+    </section>
+
+    <section class="route" aria-label="推荐阅读路径">
+      <div class="route-step">
+        <b>1. 先看问题背景</b>
+        <span>为什么大模型要走向边缘，为什么端侧不能简单全量微调。</span>
+      </div>
+      <div class="route-step">
+        <b>2. 再看参数高效微调</b>
+        <span>LoRA 如何降低端侧训练与通信负担，以及一个 LoRA 为什么可能不够。</span>
+      </div>
+      <div class="route-step">
+        <b>3. 进入资源调度</b>
+        <span>用 Lyapunov 处理长期时延、能耗、带宽和设备选择约束。</span>
+      </div>
+      <div class="route-step">
+        <b>4. 扩展到模型切分</b>
+        <span>Split Federated Learning 如何把大模型拆到端侧和边缘服务器协同训练。</span>
+      </div>
+    </section>
+
+    <section class="grid" id="paperGrid" aria-label="论文列表">
+      <article class="card" data-topic="intro lora" data-keywords="大模型 边缘智能 联邦学习 端侧微调 LoRA">
+        <img class="cover" src="assets/cover-lora-edge.png" alt="大模型端侧微调与 LoRA 封面">
+        <div class="card-body">
+          <div class="label-row">
+            <span class="label">入门文章</span>
+            <span class="label blue">LoRA</span>
+          </div>
+          <h2>大模型到了端侧，为什么不能直接微调？</h2>
+          <div class="paper"><strong>主题：</strong>从全量微调到 LoRA，再到联邦微调的基本逻辑。</div>
+          <p class="desc">适合作为整个系列的起点：先理解端侧设备的算力、内存、隐私和通信限制，再看参数高效微调为什么会成为主流路线。</p>
+          <div class="links">
+            <a class="link primary" href="https://arxiv.org/abs/2106.09685" target="_blank" rel="noopener">LoRA 论文</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-topic="intro lyapunov" data-keywords="Lyapunov 边缘联邦 大模型 在线优化 长期约束">
+        <img class="cover" src="assets/cover-lyapunov-edge-fl.png" alt="Lyapunov 优化封面">
+        <div class="card-body">
+          <div class="label-row">
+            <span class="label">方法背景</span>
+            <span class="label alt">Lyapunov</span>
+          </div>
+          <h2>为什么边缘联邦大模型论文都爱用 Lyapunov 优化？</h2>
+          <div class="paper"><strong>主题：</strong>动态无线系统里的在线决策、虚拟队列和长期平均约束。</div>
+          <p class="desc">这一篇不追某一篇论文的细节，而是解释为什么边缘智能论文经常从“长期约束”切入，再把问题转成每轮可求解的调度子问题。</p>
+          <div class="links">
+            <span class="link">方法笔记</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-topic="lyapunov lora" data-keywords="Federated Fine-Tuning Foundation Models Wireless Networks LoRA 带宽分配 设备调度">
+        <img class="cover" src="assets/cover-lyapunov-scheduling-bandwidth.png" alt="设备调度与带宽分配封面">
+        <div class="card-body">
+          <div class="label-row">
+            <span class="label">论文精读</span>
+            <span class="label alt">Lyapunov</span>
+            <span class="label blue">LoRA</span>
+          </div>
+          <h2>Lyapunov 如何做设备调度和带宽分配</h2>
+          <div class="paper"><strong>论文：</strong>Federated Fine-Tuning for Pre-Trained Foundation Models Over Wireless Networks, IEEE TWC, 2025.</div>
+          <p class="desc">这篇文章抓住一个核心问题：一轮训练里到底选哪些设备、给每个设备分多少带宽，才能兼顾训练收益和瓶颈上传时延。</p>
+          <div class="links">
+            <a class="link primary" href="https://doi.org/10.1109/TWC.2025.3531128" target="_blank" rel="noopener">DOI</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-topic="lyapunov lora" data-keywords="Zeroth-Order FedFT 零阶优化 反向传播 联邦微调 无线资源">
+        <img class="cover" src="assets/cover-zo-fedft.png" alt="Zeroth-Order FedFT 封面">
+        <div class="card-body">
+          <div class="label-row">
+            <span class="label">论文精读</span>
+            <span class="label blue">LoRA</span>
+            <span class="label alt">Lyapunov</span>
+          </div>
+          <h2>Zeroth-Order FedFT：没有反向传播，大模型还能联邦微调吗？</h2>
+          <div class="paper"><strong>论文：</strong>Zeroth-Order Federated Fine-Tuning for Large AI Models in Resource-Constrained Wireless Networks, IEEE TWC, 2026.</div>
+          <p class="desc">它把零阶优化放到端侧大模型联邦微调里，重点不是“省掉反向传播”这一句话，而是训练算法和无线资源优化如何耦合。</p>
+          <div class="links">
+            <a class="link primary" href="https://doi.org/10.1109/TWC.2026.3661365" target="_blank" rel="noopener">DOI</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-topic="lyapunov" data-keywords="Streaming Data Energy-Efficient Federated Edge Learning 长期能耗 资源分配">
+        <img class="cover" src="assets/cover-streaming-energy.png" alt="Streaming Data 下的长期能耗封面">
+        <div class="card-body">
+          <div class="label-row">
+            <span class="label">论文精读</span>
+            <span class="label alt">Lyapunov</span>
+          </div>
+          <h2>边缘联邦学习为什么要看长期能耗？</h2>
+          <div class="paper"><strong>论文：</strong>Energy-Efficient Federated Edge Learning With Streaming Data: A Lyapunov Optimization Approach, IEEE TCOM, 2025.</div>
+          <p class="desc">Streaming data 场景下，设备不断产生新数据，信道和能耗状态也在变化。论文把学习收益、训练时延和长期能耗放到同一套在线调度框架里。</p>
+          <div class="links">
+            <a class="link primary" href="https://doi.org/10.1109/TCOMM.2024.3443731" target="_blank" rel="noopener">DOI</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-topic="lyapunov sfl" data-keywords="Semi-Asynchronous Federated Split Learning Computing-Limited Devices Lyapunov 模型切分">
+        <img class="cover" src="assets/cover-semi-async-sfl.png" alt="半异步联邦分割学习封面">
+        <div class="card-body">
+          <div class="label-row">
+            <span class="label">论文精读</span>
+            <span class="label alt">Lyapunov</span>
+            <span class="label blue">SFL</span>
+          </div>
+          <h2>模型太大、设备太弱怎么办？</h2>
+          <div class="paper"><strong>论文：</strong>Semi-Asynchronous Federated Split Learning for Computing-Limited Devices in Wireless Networks, IEEE TWC, 2025.</div>
+          <p class="desc">当模型本身大到端侧设备跑不动，联邦学习就需要和模型切分结合。文章重点看半异步协同训练如何继续处理长期能耗和在线调度。</p>
+          <div class="links">
+            <a class="link primary" href="https://doi.org/10.1109/TWC.2025.3546448" target="_blank" rel="noopener">DOI</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-topic="lora" data-keywords="FedLEASE Adaptive LoRA Experts Allocation Selection Federated Fine-Tuning NeurIPS 2025">
+        <img class="cover" src="assets/cover-fedlease.png" alt="FedLEASE 与 LoRA experts 封面">
+        <div class="card-body">
+          <div class="label-row">
+            <span class="label">论文精读</span>
+            <span class="label blue">LoRA Experts</span>
+          </div>
+          <h2>一个 LoRA 不够用：FedLEASE 如何让联邦大模型学会选择专家？</h2>
+          <div class="paper"><strong>论文：</strong>Adaptive LoRA Experts Allocation and Selection for Federated Fine-Tuning, NeurIPS 2025.</div>
+          <p class="desc">FedLEASE 的关键问题不是继续压缩参数，而是在客户端任务异构时，让不同客户端拥有更合适的 LoRA expert 组合。</p>
+          <div class="links">
+            <a class="link primary" href="https://papers.neurips.cc/paper_files/paper/2025/hash/6df1b2b45e64d402588746f79b68b82c-Abstract-Conference.html" target="_blank" rel="noopener">Paper Page</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-topic="sfl" data-keywords="Split Federated Learning DDQN 凸优化 梯度聚合 切分点 带宽 算力">
+        <img class="cover" src="assets/cover-sfl-ga.png" alt="SFL-GA 与资源管理封面">
+        <div class="card-body">
+          <div class="label-row">
+            <span class="label">论文精读</span>
+            <span class="label blue">SFL</span>
+          </div>
+          <h2>Split Federated Learning 如何用 DDQN + 凸优化联合分配算力与带宽</h2>
+          <div class="paper"><strong>论文：</strong>Communication-and-Computation Efficient Split Federated Learning in Wireless Networks: Gradient Aggregation and Resource Management, IEEE TWC, 2026.</div>
+          <p class="desc">文章重点看 SFL-GA 如何减少 smashed data 频繁传输带来的通信开销，并把切分点、带宽和算力放在同一个优化框架里。</p>
+          <div class="links">
+            <a class="link primary" href="https://doi.org/10.1109/TWC.2025.3594006" target="_blank" rel="noopener">DOI</a>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <p class="empty" id="emptyState">没有匹配的论文。可以换一个关键词，例如 Lyapunov、LoRA、SFL 或能耗。</p>
+
+    <footer>
+      页面适合作为公众号菜单“论文”入口。后续新增文章时，只需要在这个文件里追加一张卡片，并把公众号菜单 URL 指向部署后的页面地址。
+    </footer>
+  </main>
+
+  <script>
+    const tabs = Array.from(document.querySelectorAll(".tab"));
+    const cards = Array.from(document.querySelectorAll(".card"));
+    const searchInput = document.getElementById("searchInput");
+    const emptyState = document.getElementById("emptyState");
+    let activeFilter = "all";
+
+    function normalize(text) {
+      return text.toLowerCase().trim();
+    }
+
+    function applyFilters() {
+      const query = normalize(searchInput.value);
+      let visibleCount = 0;
+
+      cards.forEach((card) => {
+        const topic = card.dataset.topic || "";
+        const keywords = normalize(card.dataset.keywords || "");
+        const text = normalize(card.textContent + " " + keywords);
+        const topicMatch = activeFilter === "all" || topic.includes(activeFilter);
+        const queryMatch = query === "" || text.includes(query);
+        const visible = topicMatch && queryMatch;
+
+        card.hidden = !visible;
+        if (visible) visibleCount += 1;
+      });
+
+      emptyState.classList.toggle("is-visible", visibleCount === 0);
+    }
+
+    tabs.forEach((tab) => {
+      tab.addEventListener("click", () => {
+        tabs.forEach((item) => item.classList.remove("is-active"));
+        tab.classList.add("is-active");
+        activeFilter = tab.dataset.filter;
+        applyFilters();
+      });
+    });
+
+    searchInput.addEventListener("input", applyFilters);
+  </script>
+</body>
+</html>
