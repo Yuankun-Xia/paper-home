@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>边缘智能大模型论文导航</title>
+  <title>边缘联邦大模型论文导航</title>
   <meta name="description" content="公众号论文解读入口：边缘智能、联邦学习、LoRA、Lyapunov 优化与 Split Federated Learning。">
   <style>
     :root {
@@ -210,7 +210,7 @@
 
     .filters {
       display: grid;
-      grid-template-columns: repeat(5, minmax(130px, 1fr));
+      grid-template-columns: repeat(4, minmax(130px, 1fr));
       gap: 10px;
       margin: 0 0 20px;
     }
@@ -247,7 +247,7 @@
 
     .route-strip {
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
       gap: 12px;
       margin: 0 0 22px;
     }
@@ -756,17 +756,17 @@
       <a class="brand" href="#" aria-label="边缘联邦大模型论文导航">
         <span class="mark">FL</span>
         <span>
-          <strong>边缘智能大模型论文导航</strong>
+          <strong>边缘联邦大模型论文导航</strong>
           <span>Edge AI · Federated Learning · Resource Optimization</span>
         </span>
       </a>
-      <div class="meta">更新：2026.05 · 公众号论文解读入口</div>
+      <div class="meta">更新：2026.05.23 · 公众号论文解读入口</div>
     </header>
 
     <section class="intro" aria-labelledby="page-title">
       <div>
-        <h1 id="page-title">边缘智能大模型论文库</h1>
-        <p class="lead">这里整理公众号中已经拆解的论文和方法笔记。主线从端侧大模型为什么需要联邦微调开始，继续延伸到 LoRA、Lyapunov 在线优化、长期能耗约束、Split Federated Learning，以及 LoRA experts 这类更细的个性化微调机制。</p>
+        <h1 id="page-title">边缘联邦大模型论文库</h1>
+        <p class="lead">这里整理公众号中已经拆解的论文和方法笔记。主线从端侧大模型为什么需要联邦微调开始，继续延伸到 LoRA/LoRA Dropout、异构 rank、Lyapunov 在线优化、长期能耗约束、Split Federated Learning 和多任务资源配置。</p>
       </div>
       <div class="stats" aria-label="论文导航统计">
         <div class="stat"><b id="statTotal">0</b><span>篇文章与论文笔记</span></div>
@@ -777,17 +777,17 @@
     </section>
 
     <section class="toolbar" aria-label="搜索与主题筛选">
-      <input class="search" id="searchInput" type="search" placeholder="搜索论文、作者、关键词或方法，例如 LoRA、Lyapunov、SFL">
+      <input class="search" id="searchInput" type="search" placeholder="搜索论文、作者、关键词或方法，例如 LoRA、Lyapunov、Rank、多任务">
       <div class="tabs" id="topicTabs" role="tablist" aria-label="论文分类"></div>
     </section>
 
     <section class="filters" aria-label="高级筛选">
-      <select class="select" id="levelSelect" aria-label="难度筛选"></select>
       <select class="select" id="venueSelect" aria-label="来源筛选"></select>
       <select class="select" id="yearSelect" aria-label="论文年份筛选"></select>
       <select class="select" id="sortSelect" aria-label="排序方式">
         <option value="article-asc">按发布顺序</option>
         <option value="article-desc">最新发布优先</option>
+        <option value="visit-desc">访问次数优先</option>
         <option value="paper-year-desc">论文年份优先</option>
         <option value="title-asc">按标题排序</option>
       </select>
@@ -817,7 +817,7 @@
           <button class="reset" id="resetBtn" type="button">清空筛选</button>
         </div>
         <section class="grid" id="paperGrid" aria-label="论文列表"></section>
-        <p class="empty" id="emptyState">没有匹配的论文。可以换一个关键词，例如 Lyapunov、LoRA、SFL 或能耗。</p>
+        <p class="empty" id="emptyState">没有匹配的论文。可以换一个关键词，例如 Lyapunov、LoRA、Rank、多任务或能耗。</p>
       </section>
     </section>
 
@@ -1089,6 +1089,81 @@
         takeaway: "这是一类可复用的混合优化思路：离散决策交给强化学习，连续资源分配交给凸优化。",
         citation: "Liang, Y., Chen, Q., Li, R., Zhu, G., Awan, M. K., and Jiang, H. Communication-and-Computation Efficient Split Federated Learning in Wireless Networks: Gradient Aggregation and Resource Management. IEEE Transactions on Wireless Communications, 25:1981-1995, 2026.",
         links: [{ label: "DOI", url: "https://doi.org/10.1109/TWC.2025.3594006" }]
+      },
+      {
+        id: "521-fedlodrop",
+        articleNo: "521",
+        articleDate: "2026-05-21",
+        order: 11,
+        title: "LoRA 微调也会过拟合？FedLoDrop 如何用 Dropout 同时提升泛化和压缩通信",
+        type: "论文精读",
+        level: "深入",
+        venue: "IEEE JSAC",
+        venueGroup: "IEEE JSAC",
+        paperYear: "2026",
+        paperName: "FedLoDrop: Federated LoRA With Dropout for Generalized LLM Fine-Tuning",
+        authors: "Sijing Xie, Dingzhu Wen, Changsheng You, Qimei Chen, Mehdi Bennis, Kaibin Huang",
+        cover: "assets/cover-fedlodrop.png",
+        topics: ["lora", "fine-tuning", "resource", "generalization"],
+        topicLabels: ["LoRA Dropout", "泛化"],
+        routes: ["lora", "resource"],
+        keywords: ["FedLoDrop", "LoRA Dropout", "泛化误差", "通信压缩", "P-SCA", "联邦微调"],
+        summary: "FedLoDrop 把 Dropout 从训练技巧变成系统优化变量：它同时影响泛化误差、通信量、计算开销和收敛速度，并可根据网络资源动态调整。",
+        problem: "联邦 LoRA 微调虽然参数少，但每个客户端本地数据有限，仍然容易过拟合；同时端侧通信、能耗和时延也会限制可训练参数量。",
+        method: "对 LoRA 矩阵的行与列做随机 Dropout，用稳定性理论分析泛化误差界，再联合优化 Dropout rate、子载波分配和通信计算资源。",
+        takeaway: "Dropout rate 不只是手调超参数，而是边缘联邦微调里连接泛化、通信和资源约束的一枚关键旋钮。",
+        citation: "Xie, S., Wen, D., You, C., Chen, Q., Bennis, M., and Huang, K. FedLoDrop: Federated LoRA With Dropout for Generalized LLM Fine-Tuning. IEEE Journal on Selected Areas in Communications, 44, 2026.",
+        links: []
+      },
+      {
+        id: "522-roba-rank-bandwidth",
+        articleNo: "522",
+        articleDate: "2026-05-22",
+        order: 12,
+        title: "LoRA Rank 该不该一刀切？异构联邦微调的联合 Rank 与带宽优化",
+        type: "论文精读",
+        level: "进阶",
+        venue: "IEEE TVT",
+        venueGroup: "IEEE TVT",
+        paperYear: "2026",
+        paperName: "Joint Rank Optimization and Bandwidth Allocation for Heterogeneous Federated LoRA Fine-Tuning",
+        authors: "Yinan Zou, Zixin Wang, Yuanming Shi, Yong Zhou",
+        cover: "assets/cover-roba-rank-bandwidth.png",
+        topics: ["lora", "fine-tuning", "resource", "rank"],
+        topicLabels: ["Rank 优化", "带宽分配"],
+        routes: ["lora", "resource"],
+        keywords: ["ROBA", "异构 rank", "带宽分配", "sum-rank 约束", "交替优化", "联邦 LoRA"],
+        summary: "这篇短文把 LoRA rank 从固定超参数改写成动态资源，让不同能力和不同信道状态的设备每轮使用不同 rank，并与带宽分配一起优化。",
+        problem: "边缘设备算力和无线信道高度异构，统一 LoRA rank 往往让弱设备掉队、强设备浪费，也无法利用瞬时信道差异。",
+        method: "用 sum-rank 约束保证总体表达能力，再通过交替优化分别求解 rank 分配和带宽分配，最小化最慢设备决定的每轮训练时间。",
+        takeaway: "异构 LoRA 不只要改聚合，也要把 rank、带宽和 straggler effect 放在同一个资源分配问题里看。",
+        citation: "Zou, Y., Wang, Z., Shi, Y., and Zhou, Y. Joint Rank Optimization and Bandwidth Allocation for Heterogeneous Federated LoRA Fine-Tuning. IEEE Transactions on Vehicular Technology, 75(4):7025-7029, 2026.",
+        links: []
+      },
+      {
+        id: "523-jcsrc",
+        articleNo: "523",
+        articleDate: "2026-05-23",
+        order: 13,
+        title: "多任务联邦学习：客户选择和资源配置，分开优化为什么不够？",
+        type: "论文精读",
+        level: "深入",
+        venue: "IEEE TC",
+        venueGroup: "IEEE TC",
+        paperYear: "2025",
+        paperName: "JCSRC: Joint Client Selection and Resource Configuration for Energy-Efficient Multi-Task Federated Learning",
+        authors: "Junpeng Ke, Junlong Zhou, Dan Meng, Yue Zeng, Yizhou Shi, Xiangmou Qu, Song Guo",
+        cover: "assets/cover-jcsrc.png",
+        topics: ["resource", "multi-task", "reinforcement"],
+        topicLabels: ["多任务 FL", "MARL + PSO"],
+        routes: ["resource"],
+        keywords: ["JCSRC", "多任务联邦学习", "客户选择", "资源配置", "MADDPG", "PSO", "Jetson 测试床"],
+        summary: "JCSRC 面向多任务联邦学习，把客户选择和频率、带宽配置放进同一个框架：上层用 MADDPG 选设备，下层用 PSO 配资源。",
+        problem: "多任务场景下，一台设备可能同时服务多个模型，客户选择会改变资源负载，资源配置又会反过来影响能耗、时延和后续选择。",
+        method: "将黑箱的客户选择交给多智能体强化学习，将有明确能耗模型的资源配置交给带理论约束的 PSO，并在 Jetson 测试床上验证。",
+        takeaway: "对多任务 FL 来说，关键不只是选更好的设备，而是把选谁和怎么分资源一起优化。",
+        citation: "Ke, J., Zhou, J., Meng, D., Zeng, Y., Shi, Y., Qu, X., and Guo, S. JCSRC: Joint Client Selection and Resource Configuration for Energy-Efficient Multi-Task Federated Learning. IEEE Transactions on Computers, 74(12):4094-4108, 2025.",
+        links: []
       }
     ];
 
@@ -1099,7 +1174,11 @@
       { id: "lyapunov", label: "Lyapunov" },
       { id: "sfl", label: "SFL" },
       { id: "resource", label: "资源优化" },
-      { id: "fine-tuning", label: "联邦微调" }
+      { id: "fine-tuning", label: "联邦微调" },
+      { id: "generalization", label: "泛化正则" },
+      { id: "rank", label: "异构 Rank" },
+      { id: "multi-task", label: "多任务 FL" },
+      { id: "reinforcement", label: "强化学习" }
     ];
 
     const routes = [
@@ -1118,20 +1197,25 @@
       {
         id: "lora",
         title: "LoRA 微调线",
-        description: "从参数高效微调走到联邦微调和 LoRA experts。",
-        paperIds: ["513-lora-edge", "515-fedft-bandwidth", "516-zo-fedft", "519-fedlease"]
+        description: "从参数高效微调走到 experts、Dropout 和异构 rank。",
+        paperIds: ["513-lora-edge", "515-fedft-bandwidth", "516-zo-fedft", "519-fedlease", "521-fedlodrop", "522-roba-rank-bandwidth"]
       },
       {
         id: "sfl",
         title: "Split Learning 线",
         description: "看模型切分、半异步协同和通信计算联合优化。",
         paperIds: ["518-semi-async-sfl", "520-sfl-ga"]
+      },
+      {
+        id: "resource",
+        title: "系统资源线",
+        description: "串起时延、能耗、rank、带宽和多任务资源配置。",
+        paperIds: ["515-fedft-bandwidth", "516-latency-energy", "517-streaming-energy", "518-semi-async-sfl", "520-sfl-ga", "521-fedlodrop", "522-roba-rank-bandwidth", "523-jcsrc"]
       }
     ];
 
     const state = {
       topic: "all",
-      level: "all",
       venue: "all",
       year: "all",
       route: "all",
@@ -1141,12 +1225,13 @@
     };
 
     const favoriteKey = "paper-home-favorites-v1";
+    const visitKey = "paper-home-visits-v1";
     let favorites = new Set(JSON.parse(localStorage.getItem(favoriteKey) || "[]"));
+    let visitCounts = JSON.parse(localStorage.getItem(visitKey) || "{}");
 
     const els = {
       topicTabs: document.getElementById("topicTabs"),
       searchInput: document.getElementById("searchInput"),
-      levelSelect: document.getElementById("levelSelect"),
       venueSelect: document.getElementById("venueSelect"),
       yearSelect: document.getElementById("yearSelect"),
       sortSelect: document.getElementById("sortSelect"),
@@ -1227,12 +1312,24 @@
         .join("");
     }
 
+    function visitCount(id) {
+      return Number(visitCounts[id] || 0);
+    }
+
+    function totalVisits() {
+      return papers.reduce((sum, paper) => sum + visitCount(paper.id), 0);
+    }
+
+    function recordVisit(id) {
+      visitCounts[id] = visitCount(id) + 1;
+      localStorage.setItem(visitKey, JSON.stringify(visitCounts));
+    }
+
     function initControls() {
       els.topicTabs.innerHTML = topicDefinitions.map((topic) => (
         `<button class="tab${topic.id === "all" ? " is-active" : ""}" type="button" data-topic="${topic.id}">${escapeHtml(topic.label)}</button>`
       )).join("");
 
-      fillSelect(els.levelSelect, "全部难度", unique(papers.map((paper) => paper.level)));
       fillSelect(els.venueSelect, "全部来源", unique(papers.map((paper) => paper.venueGroup)));
       fillSelect(els.yearSelect, "全部年份", unique(papers.map((paper) => paper.paperYear)).sort((a, b) => b.localeCompare(a)));
     }
@@ -1279,8 +1376,8 @@
 
     function labelClass(label) {
       if (/Lyapunov|能耗|在线/.test(label)) return " alt";
-      if (/LoRA|SFL|DDQN|ZO/.test(label)) return " blue";
-      if (/Streaming|个性化/.test(label)) return " red";
+      if (/LoRA|SFL|DDQN|ZO|Rank|带宽/.test(label)) return " blue";
+      if (/Streaming|个性化|泛化|多任务|MARL|PSO/.test(label)) return " red";
       return "";
     }
 
@@ -1288,7 +1385,6 @@
       return normalize([
         paper.title,
         paper.type,
-        paper.level,
         paper.venue,
         paper.paperYear,
         paper.paperName,
@@ -1314,16 +1410,16 @@
 
       return papers.filter((paper) => {
         const matchTopic = state.topic === "all" || paper.topics.includes(state.topic);
-        const matchLevel = state.level === "all" || paper.level === state.level;
         const matchVenue = state.venue === "all" || paper.venueGroup === state.venue;
         const matchYear = state.year === "all" || paper.paperYear === state.year;
         const matchRoute = !routeIds || routeIds.has(paper.id);
         const matchFavorite = !state.favoriteOnly || favorites.has(paper.id);
         const matchQuery = query === "" || textForSearch(paper).includes(query);
 
-        return matchTopic && matchLevel && matchVenue && matchYear && matchRoute && matchFavorite && matchQuery;
+        return matchTopic && matchVenue && matchYear && matchRoute && matchFavorite && matchQuery;
       }).sort((a, b) => {
         if (state.sort === "article-desc") return b.order - a.order;
+        if (state.sort === "visit-desc") return visitCount(b.id) - visitCount(a.id) || b.order - a.order;
         if (state.sort === "paper-year-desc") return Number(b.paperYear || 0) - Number(a.paperYear || 0) || b.order - a.order;
         if (state.sort === "title-asc") return a.title.localeCompare(b.title, "zh-Hans-CN");
         return a.order - b.order;
@@ -1340,11 +1436,12 @@
       )).join("");
 
       const links = paper.links.map((link, index) => (
-        `<a class="link${index === 0 ? " primary" : ""}" href="${escapeHtml(link.url)}" target="_blank" rel="noopener">${escapeHtml(link.label)}</a>`
+        `<a class="link${index === 0 ? " primary" : ""}" href="${escapeHtml(link.url)}" target="_blank" rel="noopener" data-visit-id="${escapeHtml(paper.id)}">${escapeHtml(link.label)}</a>`
       )).join("");
 
       const favoriteText = favorites.has(paper.id) ? "已收藏" : "收藏";
       const favoriteClass = favorites.has(paper.id) ? " is-fav" : "";
+      const visits = visitCount(paper.id);
 
       return `<article class="card" id="paper-${escapeHtml(paper.id)}">
         <div class="cover-wrap">
@@ -1354,7 +1451,7 @@
         <div class="card-body">
           <div class="meta-row">
             <span>${escapeHtml(formatDate(paper.articleDate))} 发布</span>
-            <span>${escapeHtml(paper.type)} · ${escapeHtml(paper.level)}</span>
+            <span>${escapeHtml(paper.type)} · ${escapeHtml(visits)} 次访问</span>
           </div>
           <div class="labels">${labels}</div>
           <h3>${escapeHtml(paper.title)}</h3>
@@ -1382,7 +1479,7 @@
 
       const topicLabel = topicDefinitions.find((topic) => topic.id === state.topic)?.label || "全部";
       const routeLabel = routes.find((route) => route.id === state.route)?.title || "全部路线";
-      els.resultSummary.textContent = `匹配 ${filtered.length}/${papers.length} 篇 · ${topicLabel} · ${routeLabel}`;
+      els.resultSummary.textContent = `匹配 ${filtered.length}/${papers.length} 篇 · ${topicLabel} · ${routeLabel} · ${totalVisits()} 次访问`;
       renderRoutes();
     }
 
@@ -1401,7 +1498,6 @@
 
     function resetFilters() {
       state.topic = "all";
-      state.level = "all";
       state.venue = "all";
       state.year = "all";
       state.route = "all";
@@ -1410,7 +1506,6 @@
       state.favoriteOnly = false;
 
       els.searchInput.value = "";
-      els.levelSelect.value = "all";
       els.venueSelect.value = "all";
       els.yearSelect.value = "all";
       els.sortSelect.value = "article-asc";
@@ -1422,8 +1517,11 @@
       const paper = papers.find((item) => item.id === id);
       if (!paper) return;
 
+      recordVisit(id);
+      renderPapers();
+
       const links = paper.links.length
-        ? `<div class="actions">${paper.links.map((link, index) => `<a class="link${index === 0 ? " primary" : ""}" href="${escapeHtml(link.url)}" target="_blank" rel="noopener">${escapeHtml(link.label)}</a>`).join("")}</div>`
+        ? `<div class="actions">${paper.links.map((link, index) => `<a class="link${index === 0 ? " primary" : ""}" href="${escapeHtml(link.url)}" target="_blank" rel="noopener" data-visit-id="${escapeHtml(paper.id)}">${escapeHtml(link.label)}</a>`).join("")}</div>`
         : "";
 
       els.modalTitle.textContent = paper.title;
@@ -1431,6 +1529,7 @@
         <div class="labels">${paper.topicLabels.map((label) => `<span class="label${labelClass(label)}">${escapeHtml(label)}</span>`).join("")}</div>
         <div class="detail-block"><b>论文/主题</b><p>${escapeHtml(paper.paperName)}</p></div>
         ${paper.authors ? `<div class="detail-block"><b>作者</b><p>${escapeHtml(paper.authors)}</p></div>` : ""}
+        <div class="detail-block"><b>访问次数</b><p>${escapeHtml(visitCount(paper.id))} 次</p></div>
         <div class="detail-block"><b>核心问题</b><p>${escapeHtml(paper.problem)}</p></div>
         <div class="detail-block"><b>方法线索</b><p>${escapeHtml(paper.method)}</p></div>
         <div class="detail-block"><b>阅读收获</b><p>${escapeHtml(paper.takeaway)}</p></div>
@@ -1480,6 +1579,15 @@
       });
 
       els.paperGrid.addEventListener("click", (event) => {
+        const visitLink = event.target.closest("[data-visit-id]");
+        if (visitLink) {
+          const paper = papers.find((item) => item.id === visitLink.dataset.visitId);
+          if (paper) {
+            recordVisit(paper.id);
+            renderPapers();
+          }
+        }
+
         const button = event.target.closest("[data-action]");
         if (!button) return;
 
@@ -1493,11 +1601,6 @@
 
       els.searchInput.addEventListener("input", () => {
         state.query = els.searchInput.value;
-        renderPapers();
-      });
-
-      els.levelSelect.addEventListener("change", () => {
-        state.level = els.levelSelect.value;
         renderPapers();
       });
 
@@ -1523,6 +1626,16 @@
 
       els.resetBtn.addEventListener("click", resetFilters);
       els.closeModal.addEventListener("click", closeDetail);
+      els.modalBody.addEventListener("click", (event) => {
+        const visitLink = event.target.closest("[data-visit-id]");
+        if (!visitLink) return;
+
+        const paper = papers.find((item) => item.id === visitLink.dataset.visitId);
+        if (paper) {
+          recordVisit(paper.id);
+          renderPapers();
+        }
+      });
       els.modal.addEventListener("click", (event) => {
         if (event.target === els.modal) closeDetail();
       });
