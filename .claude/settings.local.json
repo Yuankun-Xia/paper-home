@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git clone *)",
+      "Bash(shopt -s dotglob)",
+      "Bash(mv /e/JAVA/xyk-tmp/* /e/JAVA/xyk/)",
+      "Bash(rm -rf /e/JAVA/xyk-tmp)"
+    ]
+  }
+}
