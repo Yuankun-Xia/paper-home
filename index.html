@@ -760,13 +760,13 @@
           <span>Edge AI · Federated Learning · Resource Optimization</span>
         </span>
       </a>
-      <div class="meta">更新：2026.05.23 · 公众号论文解读入口</div>
+      <div class="meta">更新：2026.05.26 · 公众号论文解读入口</div>
     </header>
 
     <section class="intro" aria-labelledby="page-title">
       <div>
         <h1 id="page-title">边缘联邦大模型论文库</h1>
-        <p class="lead">这里整理公众号中已经拆解的论文和方法笔记。主线从端侧大模型为什么需要联邦微调开始，继续延伸到 LoRA/LoRA Dropout、异构 rank、Lyapunov 在线优化、长期能耗约束、Split Federated Learning 和多任务资源配置。</p>
+        <p class="lead">这里整理公众号中已经拆解的论文和方法笔记。主线从端侧大模型为什么需要联邦微调开始，延伸到 LoRA/LoRA Dropout、异构 rank、Lyapunov 在线优化、底座量化、模块剪枝、知识图谱驱动的客户端选择和多任务资源配置。</p>
       </div>
       <div class="stats" aria-label="论文导航统计">
         <div class="stat"><b id="statTotal">0</b><span>篇文章与论文笔记</span></div>
@@ -787,7 +787,7 @@
       <select class="select" id="sortSelect" aria-label="排序方式">
         <option value="article-asc">按发布顺序</option>
         <option value="article-desc">最新发布优先</option>
-        <option value="visit-desc">访问次数优先</option>
+        <!-- visit-desc removed: single page counter -->
         <option value="paper-year-desc">论文年份优先</option>
         <option value="title-asc">按标题排序</option>
       </select>
@@ -1164,6 +1164,81 @@
         takeaway: "对多任务 FL 来说，关键不只是选更好的设备，而是把选谁和怎么分资源一起优化。",
         citation: "Ke, J., Zhou, J., Meng, D., Zeng, Y., Shi, Y., Qu, X., and Guo, S. JCSRC: Joint Client Selection and Resource Configuration for Energy-Efficient Multi-Task Federated Learning. IEEE Transactions on Computers, 74(12):4094-4108, 2025.",
         links: []
+      },
+      {
+        id: "524-fah-qlora",
+        articleNo: "524",
+        articleDate: "2026-05-24",
+        order: 14,
+        title: "量化底座 + 自适应 Rank：联邦 LoRA 微调的“时间-内存”双降方案",
+        type: "论文精读",
+        level: "深入",
+        venue: "IEEE INFOCOM",
+        venueGroup: "IEEE INFOCOM",
+        paperYear: "2025",
+        paperName: "Federated Adaptive Fine-Tuning of Large Language Models with Heterogeneous Quantization and LoRA",
+        authors: "Zhidong Gao, Zhenxiao Zhang, Yuanxiong Guo, Yanmin Gong",
+        cover: "assets/cover-fah-qlora.png",
+        topics: ["lora", "fine-tuning", "resource", "rank", "quantization"],
+        topicLabels: ["量化底座", "自适应 Rank"],
+        routes: ["lora", "resource"],
+        keywords: ["FAH-QLoRA", "底座量化", "异构 rank", "两阶段优化", "内存优化", "联邦 LoRA"],
+        summary: "FAH-QLoRA 把底座模型量化到 4-bit 以减少内存占用，再通过两阶段自适应 rank 分配让异构设备各取所需的能力，同时降低训练时间和显存开销。",
+        problem: "联邦 LoRA 微调虽然可训练参数少，但底座模型仍需完整加载到显存——LLaMA-7B 16-bit LoRA 需约 19.5 GB，边缘设备根本装不下。",
+        method: "底座量化（大幅降低内存占用）+ 两阶段自适应 rank（先确定满足时延的 rank 上界，再在能耗约束下精细化分配）。",
+        takeaway: "量化 + LoRA 不是两个独立技术的简单拼接，底座量化释放的内存空间可以被更灵活地用于提高 rank 或支持更大 batch。",
+        citation: "Gao, Z., Zhang, Z., Guo, Y., and Gong, Y. Federated Adaptive Fine-Tuning of Large Language Models with Heterogeneous Quantization and LoRA. IEEE INFOCOM 2025.",
+        links: []
+      },
+      {
+        id: "525-fedara",
+        articleNo: "525",
+        articleDate: "2026-05-25",
+        order: 15,
+        title: "截断SVD + 重要性投票 + 模块级剪枝：FedARA 的“结构-通信-计算”三重优化",
+        type: "论文精读",
+        level: "深入",
+        venue: "IEEE TC",
+        venueGroup: "IEEE TC",
+        paperYear: "2026",
+        paperName: "Adaptive Rank Allocation for Federated Parameter-Efficient Fine-Tuning of Language Models",
+        authors: "Fei Wu, Jia Hu, Geyong Min, Shiqiang Wang",
+        cover: "assets/cover-fedara.png",
+        topics: ["lora", "fine-tuning", "resource", "rank"],
+        topicLabels: ["SVD 截断", "模块剪枝"],
+        routes: ["lora", "resource"],
+        keywords: ["FedARA", "截断SVD", "动态 rank", "模块剪枝", "结构优化", "联邦 LoRA"],
+        summary: "FedARA 把 LoRA 的 rank 分配问题推进到“结构-通信-计算”三个维度联合优化的层面，用截断 SVD 压缩参数、重要性投票挑模块、模块级剪枝砍冗余。",
+        problem: "Non-IID 数据下联邦 PEFT 的精度下降比全参数联邦微调更严重，现有的异构 rank 方案只考虑通信-计算二维，忽略了模型结构维度的优化空间。",
+        method: "截断 SVD 降低 rank 内的通信量 + 重要性投票选出关键模块 + 模块级剪枝砍掉贡献小的层，三者联合优化形成结构-通信-计算三重闭环。",
+        takeaway: "rank 分配不仅要看设备和信道，还要看模块本身的重要性——不是所有模块的 rank 都应该用同一种分配策略。",
+        citation: "Wu, F., Hu, J., Min, G., and Wang, S. Adaptive Rank Allocation for Federated Parameter-Efficient Fine-Tuning of Language Models. IEEE Transactions on Computers, 75(4), 2026.",
+        links: []
+      },
+      {
+        id: "526-kg-cs",
+        articleNo: "526",
+        articleDate: "2026-05-26",
+        order: 16,
+        title: "离线 KG + 在线选择：联邦 LLM 微调的“数据异构感知”客户端调度方案",
+        type: "论文精读",
+        level: "深入",
+        venue: "IEEE TMC",
+        venueGroup: "IEEE TMC",
+        paperYear: "2026",
+        paperName: "Data Divergence-Aware Client Selection via Knowledge Graph for Federated LLM Fine-Tuning",
+        authors: "Bihai Zhang, Dan Wang, Yifei Zhu, Zhu Han",
+        cover: "assets/cover-kg-cs.png",
+        topics: ["fine-tuning", "resource", "data-heterogeneity"],
+        topicLabels: ["知识图谱", "Client Selection"],
+        routes: ["resource"],
+        keywords: ["KG-CS", "知识图谱", "客户端选择", "数据异构", "PASA", "概率优化", "联邦微调"],
+        summary: "把 client selection 从“边训边测”变成“先建图、再选择”：离线用知识图谱衡量客户端数据差异，在线用 PASA 概率优化兼顾系统异构与统计异构。",
+        problem: "联邦 LLM 微调总共几十轮，在线测量数据异构代价太高；系统异构（straggler）和统计异构（Non-IID）互相放大，大部分方案只能按住一头。",
+        method: "离线构建知识图谱（抽取三元组→补全→对齐）度量数据差异，在线用 PASA 概率优化联合最小化收敛时延与数据异构度。",
+        takeaway: "两阶段范式（离线度量+在线决策）比具体用什么知识表示更重要——任何 FL 场景下，只要测量成本远高于决策成本，这个拆分就值得考虑。",
+        citation: "Zhang, B., Wang, D., Zhu, Y., and Han, Z. Data Divergence-Aware Client Selection via Knowledge Graph for Federated LLM Fine-Tuning. IEEE Transactions on Mobile Computing, 25(2):2399-2412, 2026.",
+        links: []
       }
     ];
 
@@ -1178,7 +1253,9 @@
       { id: "generalization", label: "泛化正则" },
       { id: "rank", label: "异构 Rank" },
       { id: "multi-task", label: "多任务 FL" },
-      { id: "reinforcement", label: "强化学习" }
+      { id: "reinforcement", label: "强化学习" },
+      { id: "quantization", label: "模型量化" },
+      { id: "data-heterogeneity", label: "数据异构" }
     ];
 
     const routes = [
@@ -1197,8 +1274,8 @@
       {
         id: "lora",
         title: "LoRA 微调线",
-        description: "从参数高效微调走到 experts、Dropout 和异构 rank。",
-        paperIds: ["513-lora-edge", "515-fedft-bandwidth", "516-zo-fedft", "519-fedlease", "521-fedlodrop", "522-roba-rank-bandwidth"]
+        description: "从参数高效微调走到 experts、Dropout、量化底座和异构 rank。",
+        paperIds: ["513-lora-edge", "515-fedft-bandwidth", "516-zo-fedft", "519-fedlease", "521-fedlodrop", "522-roba-rank-bandwidth", "524-fah-qlora", "525-fedara"]
       },
       {
         id: "sfl",
@@ -1209,8 +1286,8 @@
       {
         id: "resource",
         title: "系统资源线",
-        description: "串起时延、能耗、rank、带宽和多任务资源配置。",
-        paperIds: ["515-fedft-bandwidth", "516-latency-energy", "517-streaming-energy", "518-semi-async-sfl", "520-sfl-ga", "521-fedlodrop", "522-roba-rank-bandwidth", "523-jcsrc"]
+        description: "串起时延、能耗、rank、带宽、多任务资源配置与客户端选择。",
+        paperIds: ["515-fedft-bandwidth", "516-latency-energy", "517-streaming-energy", "518-semi-async-sfl", "520-sfl-ga", "521-fedlodrop", "522-roba-rank-bandwidth", "523-jcsrc", "524-fah-qlora", "525-fedara", "526-kg-cs"]
       }
     ];
 
@@ -1225,9 +1302,9 @@
     };
 
     const favoriteKey = "paper-home-favorites-v1";
-    const visitKey = "paper-home-visits-v1";
+    const visitKey = "paper-home-pv-v2";
     let favorites = new Set(JSON.parse(localStorage.getItem(favoriteKey) || "[]"));
-    let visitCounts = JSON.parse(localStorage.getItem(visitKey) || "{}");
+    let pageViews = Number(localStorage.getItem(visitKey) || 0);
 
     const els = {
       topicTabs: document.getElementById("topicTabs"),
@@ -1312,17 +1389,13 @@
         .join("");
     }
 
-    function visitCount(id) {
-      return Number(visitCounts[id] || 0);
-    }
-
     function totalVisits() {
-      return papers.reduce((sum, paper) => sum + visitCount(paper.id), 0);
+      return pageViews;
     }
 
-    function recordVisit(id) {
-      visitCounts[id] = visitCount(id) + 1;
-      localStorage.setItem(visitKey, JSON.stringify(visitCounts));
+    function recordPageView() {
+      pageViews += 1;
+      localStorage.setItem(visitKey, String(pageViews));
     }
 
     function initControls() {
@@ -1376,8 +1449,8 @@
 
     function labelClass(label) {
       if (/Lyapunov|能耗|在线/.test(label)) return " alt";
-      if (/LoRA|SFL|DDQN|ZO|Rank|带宽/.test(label)) return " blue";
-      if (/Streaming|个性化|泛化|多任务|MARL|PSO/.test(label)) return " red";
+      if (/LoRA|SFL|DDQN|ZO|Rank|带宽|SVD|量化|剪枝/.test(label)) return " blue";
+      if (/Streaming|个性化|泛化|多任务|MARL|PSO|知识图谱|Client/.test(label)) return " red";
       return "";
     }
 
@@ -1419,7 +1492,7 @@
         return matchTopic && matchVenue && matchYear && matchRoute && matchFavorite && matchQuery;
       }).sort((a, b) => {
         if (state.sort === "article-desc") return b.order - a.order;
-        if (state.sort === "visit-desc") return visitCount(b.id) - visitCount(a.id) || b.order - a.order;
+        // visit-desc removed — single page counter, no per-card sorting
         if (state.sort === "paper-year-desc") return Number(b.paperYear || 0) - Number(a.paperYear || 0) || b.order - a.order;
         if (state.sort === "title-asc") return a.title.localeCompare(b.title, "zh-Hans-CN");
         return a.order - b.order;
@@ -1441,7 +1514,6 @@
 
       const favoriteText = favorites.has(paper.id) ? "已收藏" : "收藏";
       const favoriteClass = favorites.has(paper.id) ? " is-fav" : "";
-      const visits = visitCount(paper.id);
 
       return `<article class="card" id="paper-${escapeHtml(paper.id)}">
         <div class="cover-wrap">
@@ -1451,7 +1523,7 @@
         <div class="card-body">
           <div class="meta-row">
             <span>${escapeHtml(formatDate(paper.articleDate))} 发布</span>
-            <span>${escapeHtml(paper.type)} · ${escapeHtml(visits)} 次访问</span>
+            <span>${escapeHtml(paper.type)}</span>
           </div>
           <div class="labels">${labels}</div>
           <h3>${escapeHtml(paper.title)}</h3>
@@ -1517,7 +1589,7 @@
       const paper = papers.find((item) => item.id === id);
       if (!paper) return;
 
-      recordVisit(id);
+      recordPageView();
       renderPapers();
 
       const links = paper.links.length
@@ -1529,7 +1601,7 @@
         <div class="labels">${paper.topicLabels.map((label) => `<span class="label${labelClass(label)}">${escapeHtml(label)}</span>`).join("")}</div>
         <div class="detail-block"><b>论文/主题</b><p>${escapeHtml(paper.paperName)}</p></div>
         ${paper.authors ? `<div class="detail-block"><b>作者</b><p>${escapeHtml(paper.authors)}</p></div>` : ""}
-        <div class="detail-block"><b>访问次数</b><p>${escapeHtml(visitCount(paper.id))} 次</p></div>
+        <div class="detail-block"><b>网页访问</b><p>${escapeHtml(totalVisits())} 次</p></div>
         <div class="detail-block"><b>核心问题</b><p>${escapeHtml(paper.problem)}</p></div>
         <div class="detail-block"><b>方法线索</b><p>${escapeHtml(paper.method)}</p></div>
         <div class="detail-block"><b>阅读收获</b><p>${escapeHtml(paper.takeaway)}</p></div>
@@ -1581,11 +1653,8 @@
       els.paperGrid.addEventListener("click", (event) => {
         const visitLink = event.target.closest("[data-visit-id]");
         if (visitLink) {
-          const paper = papers.find((item) => item.id === visitLink.dataset.visitId);
-          if (paper) {
-            recordVisit(paper.id);
-            renderPapers();
-          }
+          recordPageView();
+          renderPapers();
         }
 
         const button = event.target.closest("[data-action]");
@@ -1629,12 +1698,8 @@
       els.modalBody.addEventListener("click", (event) => {
         const visitLink = event.target.closest("[data-visit-id]");
         if (!visitLink) return;
-
-        const paper = papers.find((item) => item.id === visitLink.dataset.visitId);
-        if (paper) {
-          recordVisit(paper.id);
-          renderPapers();
-        }
+        recordPageView();
+        renderPapers();
       });
       els.modal.addEventListener("click", (event) => {
         if (event.target === els.modal) closeDetail();
@@ -1645,6 +1710,7 @@
     }
 
     initControls();
+    recordPageView();
     renderStats();
     renderRoutes();
     renderTopicList();
