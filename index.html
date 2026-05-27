@@ -8,7 +8,12 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <main class="page">
+  <noscript>
+    <div class="runtime-message">页面需要启用 JavaScript 才能显示论文导航。</div>
+  </noscript>
+  <div class="runtime-message" id="runtimeMessage">正在加载论文导航...</div>
+
+  <main class="page" id="app" v-cloak>
     <header class="topbar">
       <a class="brand" href="#" aria-label="边缘联邦大模型论文导航">
         <span class="mark">FL</span>
@@ -26,74 +31,203 @@
         <p class="lead">这里整理公众号中已经拆解的论文和方法笔记。主线从端侧大模型为什么需要联邦微调开始，延伸到 LoRA/LoRA Dropout、异构 rank、Lyapunov 在线优化、底座量化、模块剪枝、知识图谱驱动的客户端选择和多任务资源配置。</p>
       </div>
       <div class="stats" aria-label="论文导航统计">
-        <div class="stat"><b id="statTotal">0</b><span>篇文章与论文笔记</span></div>
-        <div class="stat"><b id="statPaper">0</b><span>篇具体论文精读</span></div>
-        <div class="stat"><b id="statTopics">0</b><span>个研究主题标签</span></div>
-        <div class="stat"><b id="statLatest">-</b><span>最近一次更新</span></div>
+        <div class="stat"><b>{{ stats.total }}</b><span>篇文章与论文笔记</span></div>
+        <div class="stat"><b>{{ stats.paper }}</b><span>篇具体论文精读</span></div>
+        <div class="stat"><b>{{ stats.topics }}</b><span>个研究主题标签</span></div>
+        <div class="stat"><b>{{ stats.latest }}</b><span>最近一次更新</span></div>
       </div>
     </section>
 
     <section class="toolbar" aria-label="搜索与主题筛选">
-      <input class="search" id="searchInput" type="search" placeholder="搜索论文、作者、关键词或方法，例如 LoRA、Lyapunov、Rank、多任务">
-      <div class="tabs" id="topicTabs" role="tablist" aria-label="论文分类"></div>
+      <input class="search" v-model="state.query" type="search" placeholder="搜索论文、作者、关键词或方法，例如 LoRA、Lyapunov、Rank、多任务">
+      <div class="tabs" role="tablist" aria-label="论文分类">
+        <button
+          v-for="topic in topicDefinitions"
+          :key="topic.id"
+          class="tab"
+          :class="{ 'is-active': state.topic === topic.id }"
+          type="button"
+          :data-topic="topic.id"
+          @click="setTopic(topic.id)"
+        >{{ topic.label }}</button>
+      </div>
     </section>
 
     <section class="filters" aria-label="高级筛选">
-      <select class="select" id="venueSelect" aria-label="来源筛选"></select>
-      <select class="select" id="yearSelect" aria-label="论文年份筛选"></select>
-      <select class="select" id="sortSelect" aria-label="排序方式">
+      <select class="select" v-model="state.venue" aria-label="来源筛选">
+        <option value="all">全部来源</option>
+        <option v-for="venue in venueOptions" :key="venue" :value="venue">{{ venue }}</option>
+      </select>
+      <select class="select" v-model="state.year" aria-label="论文年份筛选">
+        <option value="all">全部年份</option>
+        <option v-for="year in yearOptions" :key="year" :value="year">{{ year }}</option>
+      </select>
+      <select class="select" v-model="state.sort" aria-label="排序方式">
         <option value="article-asc">按发布顺序</option>
         <option value="article-desc">最新发布优先</option>
         <option value="paper-year-desc">论文年份优先</option>
         <option value="title-asc">按标题排序</option>
       </select>
       <label class="toggle">
-        <input type="checkbox" id="favoriteOnly">
+        <input type="checkbox" v-model="state.favoriteOnly">
         <span>只看收藏</span>
       </label>
     </section>
 
-    <section class="route-strip" id="routeStrip" aria-label="阅读路线"></section>
+    <section class="route-strip" aria-label="阅读路线">
+      <button
+        v-for="route in routes"
+        :key="route.id"
+        class="route-card"
+        :class="{ 'is-active': state.route === route.id }"
+        type="button"
+        :data-route="route.id"
+        @click="setRoute(state.route === route.id ? 'all' : route.id)"
+      >
+        <b>{{ route.title }}</b>
+        <span>{{ route.description }}</span>
+        <small>{{ route.paperIds.length }} 篇</small>
+      </button>
+    </section>
 
     <section class="workspace" aria-label="论文库">
       <aside class="sidebar" aria-label="侧栏">
         <section class="side-section">
           <h2>主题分布</h2>
-          <div class="topic-list" id="topicList"></div>
+          <div class="topic-list">
+            <button
+              v-for="topic in sideTopics"
+              :key="topic.id"
+              class="topic-item"
+              type="button"
+              :class="{ 'is-active': state.topic === topic.id }"
+              :data-topic="topic.id"
+              @click="setTopic(topic.id)"
+            >
+              <b>{{ topic.label }}</b><span>{{ topic.count }} 篇</span>
+            </button>
+          </div>
         </section>
         <section class="side-section">
           <h2>更新序列</h2>
-          <div class="timeline" id="timeline"></div>
+          <div class="timeline">
+            <button
+              v-for="paper in timelinePapers"
+              :key="paper.id"
+              class="timeline-item"
+              type="button"
+              :data-detail="paper.id"
+              @click="showDetail(paper.id)"
+            >
+              <span>{{ paper.articleNo }} · {{ formatDate(paper.articleDate) }}</span>
+              <b>{{ paper.title }}</b>
+            </button>
+          </div>
         </section>
       </aside>
 
       <section class="results" aria-label="论文结果">
         <div class="resultbar">
-          <span id="resultSummary">正在载入论文列表</span>
-          <button class="reset" id="resetBtn" type="button">清空筛选</button>
+          <span>{{ resultSummary }}</span>
+          <button class="reset" type="button" @click="resetFilters">清空筛选</button>
         </div>
-        <section class="grid" id="paperGrid" aria-label="论文列表"></section>
-        <p class="empty" id="emptyState">没有匹配的论文。可以换一个关键词，例如 Lyapunov、LoRA、Rank、多任务或能耗。</p>
+        <section class="grid" aria-label="论文列表">
+          <article v-for="paper in filteredPapers" :key="paper.id" class="card" :id="'paper-' + paper.id">
+            <div class="cover-wrap">
+              <img
+                v-if="paper.cover"
+                class="cover"
+                :src="paper.cover"
+                :alt="paper.title + ' 封面'"
+                @error="handleCoverError(paper)"
+              >
+              <div v-else class="text-cover">
+                <b>Edge AI</b><span>{{ paper.topicLabels.join(" · ") }}</span>
+              </div>
+              <span class="badge">{{ paper.articleNo }}</span>
+            </div>
+            <div class="card-body">
+              <div class="meta-row">
+                <span>{{ formatDate(paper.articleDate) }} 发布</span>
+                <span>{{ paper.type }}</span>
+              </div>
+              <div class="labels">
+                <span v-for="label in paper.topicLabels" :key="label" class="label" :class="labelClass(label)">{{ label }}</span>
+              </div>
+              <h3>{{ paper.title }}</h3>
+              <p class="paper-name"><strong>{{ paper.type === "论文精读" ? "论文" : "主题" }}：</strong>{{ paper.paperName }}</p>
+              <p class="desc">{{ paper.summary }}</p>
+              <div class="facts">
+                <span class="fact">{{ paper.venue }}</span>
+                <span v-if="paper.paperYear" class="fact">{{ paper.paperYear }}</span>
+                <span v-if="paper.authors" class="fact">{{ firstAuthor(paper.authors) }} 等</span>
+              </div>
+              <div class="actions">
+                <a
+                  v-for="(link, index) in paper.links"
+                  :key="link.url"
+                  class="link"
+                  :class="{ primary: index === 0 }"
+                  :href="link.url"
+                  target="_blank"
+                  rel="noopener"
+                  :data-visit-id="paper.id"
+                  @click="recordPageView"
+                >{{ link.label }}</a>
+                <button class="link" type="button" @click="showDetail(paper.id)">详情</button>
+                <button class="link" type="button" @click="writeClipboard(paper.citation, '已复制引用')">复制引用</button>
+                <button class="link" :class="{ 'is-fav': isFavorite(paper.id) }" type="button" @click="toggleFavorite(paper.id)">{{ isFavorite(paper.id) ? "已收藏" : "收藏" }}</button>
+              </div>
+            </div>
+          </article>
+        </section>
+        <p class="empty" :class="{ 'is-visible': filteredPapers.length === 0 }">没有匹配的论文。可以换一个关键词，例如 Lyapunov、LoRA、Rank、多任务或能耗。</p>
       </section>
     </section>
 
     <footer>
       页面适合作为公众号菜单"论文"入口。新增文章按发布时间继续追加到末尾。
     </footer>
+
+    <section class="modal" v-if="activePaper" aria-modal="true" role="dialog" aria-labelledby="modalTitle" @click.self="closeDetail">
+      <div class="modal-card">
+      <div class="modal-head">
+        <h2 id="modalTitle">{{ activePaper.title }}</h2>
+        <button class="close" type="button" aria-label="关闭" @click="closeDetail">×</button>
+      </div>
+      <div class="modal-body">
+        <div class="labels">
+          <span v-for="label in activePaper.topicLabels" :key="label" class="label" :class="labelClass(label)">{{ label }}</span>
+        </div>
+        <div class="detail-block"><b>论文/主题</b><p>{{ activePaper.paperName }}</p></div>
+        <div v-if="activePaper.authors" class="detail-block"><b>作者</b><p>{{ activePaper.authors }}</p></div>
+        <div class="detail-block"><b>网页访问</b><p>{{ totalVisits }} 次</p></div>
+        <div class="detail-block"><b>核心问题</b><p>{{ activePaper.problem }}</p></div>
+        <div class="detail-block"><b>方法线索</b><p>{{ activePaper.method }}</p></div>
+        <div class="detail-block"><b>阅读收获</b><p>{{ activePaper.takeaway }}</p></div>
+        <div class="detail-block"><b>关键词</b><p>{{ activePaper.keywords.join("，") }}</p></div>
+        <div class="detail-block"><b>引用</b><p>{{ activePaper.citation }}</p></div>
+        <div v-if="activePaper.links.length" class="actions">
+          <a
+            v-for="(link, index) in activePaper.links"
+            :key="link.url"
+            class="link"
+            :class="{ primary: index === 0 }"
+            :href="link.url"
+            target="_blank"
+            rel="noopener"
+            :data-visit-id="activePaper.id"
+            @click="recordPageView"
+          >{{ link.label }}</a>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <div class="toast" v-if="toast">{{ toast }}</div>
   </main>
 
-  <section class="modal" id="detailModal" hidden aria-modal="true" role="dialog" aria-labelledby="modalTitle">
-    <div class="modal-card">
-      <div class="modal-head">
-        <h2 id="modalTitle"></h2>
-        <button class="close" id="closeModal" type="button" aria-label="关闭">×</button>
-      </div>
-      <div class="modal-body" id="modalBody"></div>
-    </div>
-  </section>
-
-  <div class="toast" id="toast" hidden></div>
-
+  <script src="js/vendor/vue.global.prod.js" onerror="document.getElementById('runtimeMessage').textContent='Vue 运行库加载失败，请检查 js/vendor/vue.global.prod.js 是否存在。';"></script>
   <script src="js/data.js"></script>
   <script src="js/app.js"></script>
 </body>
