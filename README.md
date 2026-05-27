@@ -47,6 +47,13 @@ $env:PAPER_HOME_COMMIT_MESSAGE="Add article 527"
 node scripts\publish-to-github.js
 ```
 
+如果命令行访问 GitHub 超时，但浏览器可以访问，通常是 Git 没走代理。当前机器可用下面方式临时指定代理：
+
+```powershell
+$env:PAPER_HOME_GIT_PROXY="http://127.0.0.1:7897"
+node scripts\publish-to-github.js
+```
+
 ## 可用主题 ID
 
 - `intro`

@@ -7,6 +7,7 @@ const repoUrl = process.env.PAPER_HOME_REPO || "https://github.com/Yuankun-Xia/p
 const branch = process.env.PAPER_HOME_BRANCH || "main";
 const publishDir = process.env.PAPER_HOME_PUBLISH_DIR || "C:\\tmp\\paper-home-publish";
 const commitMessage = process.env.PAPER_HOME_COMMIT_MESSAGE || `Update paper home ${new Date().toISOString().slice(0, 10)}`;
+const gitProxy = process.env.PAPER_HOME_GIT_PROXY || "";
 
 const includePaths = [
   "assets",
@@ -20,7 +21,11 @@ const includePaths = [
 ];
 
 function run(command, args, options = {}) {
-  const result = spawnSync(command, args, {
+  const finalArgs = command === "git" && gitProxy
+    ? ["-c", `http.proxy=${gitProxy}`, "-c", `https.proxy=${gitProxy}`, ...args]
+    : args;
+
+  const result = spawnSync(command, finalArgs, {
     cwd: options.cwd || root,
     encoding: "utf8",
     stdio: options.capture ? "pipe" : "inherit",
@@ -29,14 +34,18 @@ function run(command, args, options = {}) {
 
   if (result.status !== 0) {
     const detail = [result.stdout, result.stderr].filter(Boolean).join("\n").trim();
-    throw new Error(`${command} ${args.join(" ")} failed${detail ? `:\n${detail}` : ""}`);
+    throw new Error(`${command} ${finalArgs.join(" ")} failed${detail ? `:\n${detail}` : ""}`);
   }
 
   return result.stdout || "";
 }
 
 function readGitConfig(key) {
-  const result = spawnSync("git", ["config", key], {
+  const args = gitProxy
+    ? ["-c", `http.proxy=${gitProxy}`, "-c", `https.proxy=${gitProxy}`, "config", key]
+    : ["config", key];
+
+  const result = spawnSync("git", args, {
     cwd: publishDir,
     encoding: "utf8",
     stdio: "pipe",
