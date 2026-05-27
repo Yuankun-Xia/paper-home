@@ -1,0 +1,42 @@
+{
+  "id": "526-kg-cs",
+  "articleNo": "526",
+  "articleDate": "2026-05-26",
+  "order": 16,
+  "title": "离线 KG + 在线选择：联邦 LLM 微调的「数据异构感知」客户端调度方案",
+  "type": "论文精读",
+  "level": "深入",
+  "venue": "IEEE TMC",
+  "venueGroup": "IEEE TMC",
+  "paperYear": "2026",
+  "paperName": "Data Divergence-Aware Client Selection via Knowledge Graph for Federated LLM Fine-Tuning",
+  "authors": "Bihai Zhang, Dan Wang, Yifei Zhu, Zhu Han",
+  "cover": "assets/cover-kg-cs.png",
+  "topics": [
+    "fine-tuning",
+    "resource",
+    "data-heterogeneity"
+  ],
+  "topicLabels": [
+    "知识图谱",
+    "Client Selection"
+  ],
+  "routes": [
+    "resource"
+  ],
+  "keywords": [
+    "KG-CS",
+    "知识图谱",
+    "客户端选择",
+    "数据异构",
+    "PASA",
+    "概率优化",
+    "联邦微调"
+  ],
+  "summary": "把 client selection 从「边训边测」变成「先建图、再选择」：离线用知识图谱衡量客户端数据差异，在线用 PASA 概率优化兼顾系统异构与统计异构。",
+  "problem": "联邦 LLM 微调总共几十轮，在线测量数据异构代价太高；系统异构（straggler）和统计异构（Non-IID）互相放大，大部分方案只能按住一头。",
+  "method": "离线构建知识图谱（抽取三元组→补全→对齐）度量数据差异，在线用 PASA 概率优化联合最小化收敛时延与数据异构度。",
+  "takeaway": "两阶段范式（离线度量+在线决策）比具体用什么知识表示更重要——任何 FL 场景下，只要测量成本远高于决策成本，这个拆分就值得考虑。",
+  "citation": "Zhang, B., Wang, D., Zhu, Y., and Han, Z. Data Divergence-Aware Client Selection via Knowledge Graph for Federated LLM Fine-Tuning. IEEE Transactions on Mobile Computing, 25(2):2399-2412, 2026.",
+  "links": []
+}

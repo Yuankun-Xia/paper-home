@@ -1,451 +1,824 @@
 const papers = [
   {
-    id: "512-edge-ai",
-    articleNo: "512",
-    articleDate: "2026-05-12",
-    order: 1,
-    title: "大模型为什么要走向边缘？一文看懂边缘智能、联邦学习与端侧微调",
-    type: "入门文章",
-    level: "基础",
-    venue: "方法背景",
-    venueGroup: "方法背景",
-    paperYear: "",
-    paperName: "系列开篇：边缘智能、联邦学习与端侧微调",
-    authors: "",
-    cover: "",
-    topics: ["intro", "resource"],
-    topicLabels: ["入门", "Edge AI"],
-    routes: ["starter"],
-    keywords: ["边缘智能", "联邦学习", "端侧微调", "隐私", "通信开销"],
-    summary: "从边缘计算的基本概念讲起，解释云端大模型为什么不能覆盖所有端侧场景，以及联邦学习和端侧微调为什么会成为自然方向。",
-    problem: "端侧设备的数据敏感、网络不稳定、时延要求高，单纯依赖云端大模型会遇到隐私、延迟和个性化问题。",
-    method: "用边缘智能和联邦学习的基本框架梳理研究问题，再引出端侧微调、资源约束和后续论文阅读主线。",
-    takeaway: "这是整个系列的入口，适合先建立问题背景，再进入 LoRA、Lyapunov 和 Split Federated Learning。",
-    citation: "方法背景文章：大模型为什么要走向边缘？一文看懂边缘智能、联邦学习与端侧微调。",
-    links: []
+    "id": "512-edge-ai",
+    "articleNo": "512",
+    "articleDate": "2026-05-12",
+    "order": 1,
+    "title": "大模型为什么要走向边缘？一文看懂边缘智能、联邦学习与端侧微调",
+    "type": "入门文章",
+    "level": "基础",
+    "venue": "方法背景",
+    "venueGroup": "方法背景",
+    "paperYear": "",
+    "paperName": "系列开篇：边缘智能、联邦学习与端侧微调",
+    "authors": "",
+    "cover": "",
+    "topics": [
+      "intro",
+      "resource"
+    ],
+    "topicLabels": [
+      "入门",
+      "Edge AI"
+    ],
+    "routes": [
+      "starter"
+    ],
+    "keywords": [
+      "边缘智能",
+      "联邦学习",
+      "端侧微调",
+      "隐私",
+      "通信开销"
+    ],
+    "summary": "从边缘计算的基本概念讲起，解释云端大模型为什么不能覆盖所有端侧场景，以及联邦学习和端侧微调为什么会成为自然方向。",
+    "problem": "端侧设备的数据敏感、网络不稳定、时延要求高，单纯依赖云端大模型会遇到隐私、延迟和个性化问题。",
+    "method": "用边缘智能和联邦学习的基本框架梳理研究问题，再引出端侧微调、资源约束和后续论文阅读主线。",
+    "takeaway": "这是整个系列的入口，适合先建立问题背景，再进入 LoRA、Lyapunov 和 Split Federated Learning。",
+    "citation": "方法背景文章：大模型为什么要走向边缘？一文看懂边缘智能、联邦学习与端侧微调。",
+    "links": []
   },
   {
-    id: "513-lora-edge",
-    articleNo: "513",
-    articleDate: "2026-05-13",
-    order: 2,
-    title: "大模型到了端侧，为什么不能直接微调？从 LoRA 到联邦微调讲清楚",
-    type: "入门文章",
-    level: "基础",
-    venue: "arXiv",
-    venueGroup: "arXiv",
-    paperYear: "2021",
-    paperName: "LoRA: Low-Rank Adaptation of Large Language Models",
-    authors: "Edward J. Hu et al.",
-    cover: "assets/cover-lora-edge.png",
-    topics: ["intro", "lora", "fine-tuning"],
-    topicLabels: ["入门", "LoRA"],
-    routes: ["starter", "lora"],
-    keywords: ["LoRA", "PEFT", "全量微调", "端侧训练", "联邦微调"],
-    summary: "解释为什么端侧不能直接全量微调大模型，并用 LoRA 作为切入点介绍参数高效微调如何降低计算、内存和通信压力。",
-    problem: "全量微调需要保存大量梯度和优化器状态，对手机、边缘设备和无线网络都不友好。",
-    method: "冻结大模型主体，只训练低秩增量矩阵，再讨论它放进联邦学习后的通信和异构问题。",
-    takeaway: "LoRA 不是终点，而是端侧联邦大模型微调的一块基础积木。",
-    citation: "Hu, E. J., et al. LoRA: Low-Rank Adaptation of Large Language Models. arXiv:2106.09685, 2021.",
-    links: [{ label: "arXiv", url: "https://arxiv.org/abs/2106.09685" }]
+    "id": "513-lora-edge",
+    "articleNo": "513",
+    "articleDate": "2026-05-13",
+    "order": 2,
+    "title": "大模型到了端侧，为什么不能直接微调？从 LoRA 到联邦微调讲清楚",
+    "type": "入门文章",
+    "level": "基础",
+    "venue": "arXiv",
+    "venueGroup": "arXiv",
+    "paperYear": "2021",
+    "paperName": "LoRA: Low-Rank Adaptation of Large Language Models",
+    "authors": "Edward J. Hu et al.",
+    "cover": "assets/cover-lora-edge.png",
+    "topics": [
+      "intro",
+      "lora",
+      "fine-tuning"
+    ],
+    "topicLabels": [
+      "入门",
+      "LoRA"
+    ],
+    "routes": [
+      "starter",
+      "lora"
+    ],
+    "keywords": [
+      "LoRA",
+      "PEFT",
+      "全量微调",
+      "端侧训练",
+      "联邦微调"
+    ],
+    "summary": "解释为什么端侧不能直接全量微调大模型，并用 LoRA 作为切入点介绍参数高效微调如何降低计算、内存和通信压力。",
+    "problem": "全量微调需要保存大量梯度和优化器状态，对手机、边缘设备和无线网络都不友好。",
+    "method": "冻结大模型主体，只训练低秩增量矩阵，再讨论它放进联邦学习后的通信和异构问题。",
+    "takeaway": "LoRA 不是终点，而是端侧联邦大模型微调的一块基础积木。",
+    "citation": "Hu, E. J., et al. LoRA: Low-Rank Adaptation of Large Language Models. arXiv:2106.09685, 2021.",
+    "links": [
+      {
+        "label": "arXiv",
+        "url": "https://arxiv.org/abs/2106.09685"
+      }
+    ]
   },
   {
-    id: "514-lyapunov-intro",
-    articleNo: "514",
-    articleDate: "2026-05-14",
-    order: 3,
-    title: "为什么边缘联邦大模型论文都爱用 Lyapunov 优化？",
-    type: "方法背景",
-    level: "基础",
-    venue: "方法背景",
-    venueGroup: "方法背景",
-    paperYear: "",
-    paperName: "Lyapunov Optimization 在边缘联邦学习中的直觉",
-    authors: "",
-    cover: "assets/cover-lyapunov-edge-fl.png",
-    topics: ["intro", "lyapunov", "resource"],
-    topicLabels: ["Lyapunov", "在线优化"],
-    routes: ["starter", "lyapunov"],
-    keywords: ["Lyapunov", "虚拟队列", "长期约束", "在线调度", "资源优化"],
-    summary: "从无线链路、设备状态和长期平均约束出发，解释 Lyapunov 为什么适合组织边缘联邦学习里的在线资源调度问题。",
-    problem: "边缘系统不是静态优化问题，设备状态、信道、数据价值和能耗预算都会随时间变化。",
-    method: "用虚拟队列表达长期约束，再把长期随机优化转成每一轮可求解的 drift-plus-penalty 子问题。",
-    takeaway: "读后续论文时，可以先找约束、队列、每轮决策变量和子问题求解方法。",
-    citation: "方法背景文章：为什么边缘联邦大模型论文都爱用 Lyapunov 优化？",
-    links: []
+    "id": "514-lyapunov-intro",
+    "articleNo": "514",
+    "articleDate": "2026-05-14",
+    "order": 3,
+    "title": "为什么边缘联邦大模型论文都爱用 Lyapunov 优化？",
+    "type": "方法背景",
+    "level": "基础",
+    "venue": "方法背景",
+    "venueGroup": "方法背景",
+    "paperYear": "",
+    "paperName": "Lyapunov Optimization 在边缘联邦学习中的直觉",
+    "authors": "",
+    "cover": "assets/cover-lyapunov-edge-fl.png",
+    "topics": [
+      "intro",
+      "lyapunov",
+      "resource"
+    ],
+    "topicLabels": [
+      "Lyapunov",
+      "在线优化"
+    ],
+    "routes": [
+      "starter",
+      "lyapunov"
+    ],
+    "keywords": [
+      "Lyapunov",
+      "虚拟队列",
+      "长期约束",
+      "在线调度",
+      "资源优化"
+    ],
+    "summary": "从无线链路、设备状态和长期平均约束出发，解释 Lyapunov 为什么适合组织边缘联邦学习里的在线资源调度问题。",
+    "problem": "边缘系统不是静态优化问题，设备状态、信道、数据价值和能耗预算都会随时间变化。",
+    "method": "用虚拟队列表达长期约束，再把长期随机优化转成每一轮可求解的 drift-plus-penalty 子问题。",
+    "takeaway": "读后续论文时，可以先找约束、队列、每轮决策变量和子问题求解方法。",
+    "citation": "方法背景文章：为什么边缘联邦大模型论文都爱用 Lyapunov 优化？",
+    "links": []
   },
   {
-    id: "515-fedft-bandwidth",
-    articleNo: "515",
-    articleDate: "2026-05-15",
-    order: 4,
-    title: "一篇论文看懂 Lyapunov 如何做设备调度和带宽分配",
-    type: "论文精读",
-    level: "进阶",
-    venue: "IEEE TWC",
-    venueGroup: "IEEE TWC",
-    paperYear: "2025",
-    paperName: "Federated Fine-Tuning for Pre-Trained Foundation Models Over Wireless Networks",
-    authors: "Zixin Wang, Yong Zhou, Yuanming Shi, Khaled B. Letaief",
-    cover: "assets/cover-lyapunov-scheduling-bandwidth.png",
-    topics: ["lyapunov", "lora", "resource", "fine-tuning"],
-    topicLabels: ["Lyapunov", "LoRA"],
-    routes: ["lyapunov", "lora"],
-    keywords: ["设备调度", "带宽分配", "Foundation Model", "无线网络", "长期时延"],
-    summary: "用一篇具体的无线联邦微调论文说明：每一轮选哪些设备、分多少带宽，如何和长期平均时延约束一起建模。",
-    problem: "想多选设备提升训练收益，但被选设备越多，上传更新越容易被慢设备拖住。",
-    method: "用 Lyapunov 把长期时延约束转成在线调度，再联合选择设备集合和带宽分配。",
-    takeaway: "边缘联邦大模型论文往往不是只优化模型精度，而是把训练收益和系统时延一起写进问题。",
-    citation: "Wang, Z., Zhou, Y., Shi, Y., and Letaief, K. B. Federated Fine-Tuning for Pre-Trained Foundation Models Over Wireless Networks. IEEE Transactions on Wireless Communications, 24(4):3450-3464, 2025.",
-    links: [{ label: "DOI", url: "https://doi.org/10.1109/TWC.2025.3531128" }]
+    "id": "515-fedft-bandwidth",
+    "articleNo": "515",
+    "articleDate": "2026-05-15",
+    "order": 4,
+    "title": "一篇论文看懂 Lyapunov 如何做设备调度和带宽分配",
+    "type": "论文精读",
+    "level": "进阶",
+    "venue": "IEEE TWC",
+    "venueGroup": "IEEE TWC",
+    "paperYear": "2025",
+    "paperName": "Federated Fine-Tuning for Pre-Trained Foundation Models Over Wireless Networks",
+    "authors": "Zixin Wang, Yong Zhou, Yuanming Shi, Khaled B. Letaief",
+    "cover": "assets/cover-lyapunov-scheduling-bandwidth.png",
+    "topics": [
+      "lyapunov",
+      "lora",
+      "resource",
+      "fine-tuning"
+    ],
+    "topicLabels": [
+      "Lyapunov",
+      "LoRA"
+    ],
+    "routes": [
+      "lyapunov",
+      "lora"
+    ],
+    "keywords": [
+      "设备调度",
+      "带宽分配",
+      "Foundation Model",
+      "无线网络",
+      "长期时延"
+    ],
+    "summary": "用一篇具体的无线联邦微调论文说明：每一轮选哪些设备、分多少带宽，如何和长期平均时延约束一起建模。",
+    "problem": "想多选设备提升训练收益，但被选设备越多，上传更新越容易被慢设备拖住。",
+    "method": "用 Lyapunov 把长期时延约束转成在线调度，再联合选择设备集合和带宽分配。",
+    "takeaway": "边缘联邦大模型论文往往不是只优化模型精度，而是把训练收益和系统时延一起写进问题。",
+    "citation": "Wang, Z., Zhou, Y., Shi, Y., and Letaief, K. B. Federated Fine-Tuning for Pre-Trained Foundation Models Over Wireless Networks. IEEE Transactions on Wireless Communications, 24(4):3450-3464, 2025.",
+    "links": [
+      {
+        "label": "DOI",
+        "url": "https://doi.org/10.1109/TWC.2025.3531128"
+      }
+    ]
   },
   {
-    id: "516-zo-fedft",
-    articleNo: "516A",
-    articleDate: "2026-05-16",
-    order: 5,
-    title: "Zeroth-Order FedFT：没有反向传播，大模型还能联邦微调吗？",
-    type: "论文精读",
-    level: "进阶",
-    venue: "IEEE TWC",
-    venueGroup: "IEEE TWC",
-    paperYear: "2026",
-    paperName: "Zeroth-Order Federated Fine-Tuning for Large AI Models in Resource-Constrained Wireless Networks",
-    authors: "Tianle Wang, Yong Zhou, Yuanming Shi, Nan Cheng, Haibo Zhou, H. Vincent Poor",
-    cover: "assets/cover-zo-fedft.png",
-    topics: ["lyapunov", "lora", "resource", "fine-tuning"],
-    topicLabels: ["ZO", "Lyapunov"],
-    routes: ["lyapunov", "lora"],
-    keywords: ["零阶优化", "FedFT", "反向传播", "波束成形", "功率控制"],
-    summary: "把零阶优化放进端侧大模型联邦微调场景中，讨论训练算法、无线资源和长期时延约束如何耦合。",
-    problem: "反向传播对端侧设备太重，但只省掉反传还不够，通信和无线资源约束仍然存在。",
-    method: "用零阶优化减少训练内存压力，再结合设备选择、接收波束成形、功率控制和 Lyapunov 在线决策。",
-    takeaway: "算法层面的轻量化必须和系统层面的资源调度一起看。",
-    citation: "Wang, T., Zhou, Y., Shi, Y., Cheng, N., Zhou, H., and Poor, H. V. Zeroth-Order Federated Fine-Tuning for Large AI Models in Resource-Constrained Wireless Networks. IEEE Transactions on Wireless Communications, 2026.",
-    links: [{ label: "DOI", url: "https://doi.org/10.1109/TWC.2026.3661365" }]
+    "id": "516-zo-fedft",
+    "articleNo": "516A",
+    "articleDate": "2026-05-16",
+    "order": 5,
+    "title": "Zeroth-Order FedFT：没有反向传播，大模型还能联邦微调吗？",
+    "type": "论文精读",
+    "level": "进阶",
+    "venue": "IEEE TWC",
+    "venueGroup": "IEEE TWC",
+    "paperYear": "2026",
+    "paperName": "Zeroth-Order Federated Fine-Tuning for Large AI Models in Resource-Constrained Wireless Networks",
+    "authors": "Tianle Wang, Yong Zhou, Yuanming Shi, Nan Cheng, Haibo Zhou, H. Vincent Poor",
+    "cover": "assets/cover-zo-fedft.png",
+    "topics": [
+      "lyapunov",
+      "lora",
+      "resource",
+      "fine-tuning"
+    ],
+    "topicLabels": [
+      "ZO",
+      "Lyapunov"
+    ],
+    "routes": [
+      "lyapunov",
+      "lora"
+    ],
+    "keywords": [
+      "零阶优化",
+      "FedFT",
+      "反向传播",
+      "波束成形",
+      "功率控制"
+    ],
+    "summary": "把零阶优化放进端侧大模型联邦微调场景中，讨论训练算法、无线资源和长期时延约束如何耦合。",
+    "problem": "反向传播对端侧设备太重，但只省掉反传还不够，通信和无线资源约束仍然存在。",
+    "method": "用零阶优化减少训练内存压力，再结合设备选择、接收波束成形、功率控制和 Lyapunov 在线决策。",
+    "takeaway": "算法层面的轻量化必须和系统层面的资源调度一起看。",
+    "citation": "Wang, T., Zhou, Y., Shi, Y., Cheng, N., Zhou, H., and Poor, H. V. Zeroth-Order Federated Fine-Tuning for Large AI Models in Resource-Constrained Wireless Networks. IEEE Transactions on Wireless Communications, 2026.",
+    "links": [
+      {
+        "label": "DOI",
+        "url": "https://doi.org/10.1109/TWC.2026.3661365"
+      }
+    ]
   },
   {
-    id: "516-latency-energy",
-    articleNo: "516B",
-    articleDate: "2026-05-16",
-    order: 6,
-    title: "边缘训练不能只看快：时延和能耗怎么一起控？",
-    type: "方法背景",
-    level: "进阶",
-    venue: "方法背景",
-    venueGroup: "方法背景",
-    paperYear: "",
-    paperName: "长期时延与能耗约束下的边缘训练调度",
-    authors: "",
-    cover: "assets/cover-latency-energy.png",
-    topics: ["lyapunov", "resource"],
-    topicLabels: ["能耗", "资源调度"],
-    routes: ["lyapunov"],
-    keywords: ["时延", "能耗", "虚拟队列", "带宽", "功率", "CPU 频率"],
-    summary: "把时延队列和能耗队列放在一起看，说明为什么边缘训练不能只追求单轮速度，也要控制长期能耗预算。",
-    problem: "功率拉满可以让当前轮更快，但会消耗设备能量，长期看可能破坏能耗约束。",
-    method: "用多个虚拟队列描述多个长期约束，再分析设备调度、带宽、功率和计算频率之间的耦合。",
-    takeaway: "做边缘智能系统论文时，单一资源约束往往不够，时延和能耗需要联合建模。",
-    citation: "方法背景文章：边缘训练不能只看快：时延和能耗怎么一起控？",
-    links: []
+    "id": "516-latency-energy",
+    "articleNo": "516B",
+    "articleDate": "2026-05-16",
+    "order": 6,
+    "title": "边缘训练不能只看快：时延和能耗怎么一起控？",
+    "type": "方法背景",
+    "level": "进阶",
+    "venue": "方法背景",
+    "venueGroup": "方法背景",
+    "paperYear": "",
+    "paperName": "长期时延与能耗约束下的边缘训练调度",
+    "authors": "",
+    "cover": "assets/cover-latency-energy.png",
+    "topics": [
+      "lyapunov",
+      "resource"
+    ],
+    "topicLabels": [
+      "能耗",
+      "资源调度"
+    ],
+    "routes": [
+      "lyapunov"
+    ],
+    "keywords": [
+      "时延",
+      "能耗",
+      "虚拟队列",
+      "带宽",
+      "功率",
+      "CPU 频率"
+    ],
+    "summary": "把时延队列和能耗队列放在一起看，说明为什么边缘训练不能只追求单轮速度，也要控制长期能耗预算。",
+    "problem": "功率拉满可以让当前轮更快，但会消耗设备能量，长期看可能破坏能耗约束。",
+    "method": "用多个虚拟队列描述多个长期约束，再分析设备调度、带宽、功率和计算频率之间的耦合。",
+    "takeaway": "做边缘智能系统论文时，单一资源约束往往不够，时延和能耗需要联合建模。",
+    "citation": "方法背景文章：边缘训练不能只看快：时延和能耗怎么一起控？",
+    "links": []
   },
   {
-    id: "517-streaming-energy",
-    articleNo: "517",
-    articleDate: "2026-05-17",
-    order: 7,
-    title: "边缘联邦学习为什么要看长期能耗？一篇读懂 Streaming Data 下的 Lyapunov 调度",
-    type: "论文精读",
-    level: "进阶",
-    venue: "IEEE TCOM",
-    venueGroup: "IEEE TCOM",
-    paperYear: "2025",
-    paperName: "Energy-Efficient Federated Edge Learning With Streaming Data: A Lyapunov Optimization Approach",
-    authors: "Chung-Hsuan Hu, Zheng Chen, Erik G. Larsson",
-    cover: "assets/cover-streaming-energy.png",
-    topics: ["lyapunov", "resource"],
-    topicLabels: ["Streaming Data", "能耗"],
-    routes: ["lyapunov"],
-    keywords: ["Streaming Data", "长期能耗", "数据重要性", "CPU 频率", "功率分配"],
-    summary: "Streaming data 场景下，设备不断产生新数据，信道和能耗状态也在变化。论文把学习收益、训练时延和长期能耗放到同一套在线调度框架里。",
-    problem: "最快的设备不一定最值得选，数据最有价值的设备也可能上传太慢或能耗太高。",
-    method: "用数据重要性、训练时延、计算能耗和传输能耗共同构造每轮调度问题，并通过 Lyapunov 处理长期约束。",
-    takeaway: "边缘联邦学习调度不能只看信道，也要看数据价值和设备长期能耗状态。",
-    citation: "Hu, C.-H., Chen, Z., and Larsson, E. G. Energy-Efficient Federated Edge Learning With Streaming Data: A Lyapunov Optimization Approach. IEEE Transactions on Communications, 73(2):1142-1156, 2025.",
-    links: [{ label: "DOI", url: "https://doi.org/10.1109/TCOMM.2024.3443731" }]
+    "id": "517-streaming-energy",
+    "articleNo": "517",
+    "articleDate": "2026-05-17",
+    "order": 7,
+    "title": "边缘联邦学习为什么要看长期能耗？一篇读懂 Streaming Data 下的 Lyapunov 调度",
+    "type": "论文精读",
+    "level": "进阶",
+    "venue": "IEEE TCOM",
+    "venueGroup": "IEEE TCOM",
+    "paperYear": "2025",
+    "paperName": "Energy-Efficient Federated Edge Learning With Streaming Data: A Lyapunov Optimization Approach",
+    "authors": "Chung-Hsuan Hu, Zheng Chen, Erik G. Larsson",
+    "cover": "assets/cover-streaming-energy.png",
+    "topics": [
+      "lyapunov",
+      "resource"
+    ],
+    "topicLabels": [
+      "Streaming Data",
+      "能耗"
+    ],
+    "routes": [
+      "lyapunov"
+    ],
+    "keywords": [
+      "Streaming Data",
+      "长期能耗",
+      "数据重要性",
+      "CPU 频率",
+      "功率分配"
+    ],
+    "summary": "Streaming data 场景下，设备不断产生新数据，信道和能耗状态也在变化。论文把学习收益、训练时延和长期能耗放到同一套在线调度框架里。",
+    "problem": "最快的设备不一定最值得选，数据最有价值的设备也可能上传太慢或能耗太高。",
+    "method": "用数据重要性、训练时延、计算能耗和传输能耗共同构造每轮调度问题，并通过 Lyapunov 处理长期约束。",
+    "takeaway": "边缘联邦学习调度不能只看信道，也要看数据价值和设备长期能耗状态。",
+    "citation": "Hu, C.-H., Chen, Z., and Larsson, E. G. Energy-Efficient Federated Edge Learning With Streaming Data: A Lyapunov Optimization Approach. IEEE Transactions on Communications, 73(2):1142-1156, 2025.",
+    "links": [
+      {
+        "label": "DOI",
+        "url": "https://doi.org/10.1109/TCOMM.2024.3443731"
+      }
+    ]
   },
   {
-    id: "518-semi-async-sfl",
-    articleNo: "518",
-    articleDate: "2026-05-18",
-    order: 8,
-    title: "模型太大、设备太弱怎么办？一篇看懂半异步联邦分割学习里的 Lyapunov 优化",
-    type: "论文精读",
-    level: "进阶",
-    venue: "IEEE TWC",
-    venueGroup: "IEEE TWC",
-    paperYear: "2025",
-    paperName: "Semi-Asynchronous Federated Split Learning for Computing-Limited Devices in Wireless Networks",
-    authors: "H. Ao, H. Tian, W. Ni, G. Nie, D. Niyato",
-    cover: "assets/cover-semi-async-sfl.png",
-    topics: ["lyapunov", "sfl", "resource"],
-    topicLabels: ["SFL", "Lyapunov"],
-    routes: ["lyapunov", "sfl"],
-    keywords: ["Federated Split Learning", "半异步", "模型切分", "计算受限设备", "在线调度"],
-    summary: "当模型本身大到端侧设备跑不动，联邦学习就需要和模型切分结合。文章重点看半异步协同训练如何继续处理长期能耗和在线调度。",
-    problem: "端侧设备计算能力差异大，完全同步会被慢设备拖住，完全异步又会影响训练稳定性。",
-    method: "把半异步协同训练、模型切分、设备选择和资源分配放到 Lyapunov-based alternating optimization 框架里。",
-    takeaway: "SFL 解决模型太大的问题，但没有消除资源调度问题，反而引入了新的切分和协同训练变量。",
-    citation: "Ao, H., Tian, H., Ni, W., Nie, G., and Niyato, D. Semi-Asynchronous Federated Split Learning for Computing-Limited Devices in Wireless Networks. IEEE Transactions on Wireless Communications, 24(6):5196-5212, 2025.",
-    links: [{ label: "DOI", url: "https://doi.org/10.1109/TWC.2025.3546448" }]
+    "id": "518-semi-async-sfl",
+    "articleNo": "518",
+    "articleDate": "2026-05-18",
+    "order": 8,
+    "title": "模型太大、设备太弱怎么办？一篇看懂半异步联邦分割学习里的 Lyapunov 优化",
+    "type": "论文精读",
+    "level": "进阶",
+    "venue": "IEEE TWC",
+    "venueGroup": "IEEE TWC",
+    "paperYear": "2025",
+    "paperName": "Semi-Asynchronous Federated Split Learning for Computing-Limited Devices in Wireless Networks",
+    "authors": "H. Ao, H. Tian, W. Ni, G. Nie, D. Niyato",
+    "cover": "assets/cover-semi-async-sfl.png",
+    "topics": [
+      "lyapunov",
+      "sfl",
+      "resource"
+    ],
+    "topicLabels": [
+      "SFL",
+      "Lyapunov"
+    ],
+    "routes": [
+      "lyapunov",
+      "sfl"
+    ],
+    "keywords": [
+      "Federated Split Learning",
+      "半异步",
+      "模型切分",
+      "计算受限设备",
+      "在线调度"
+    ],
+    "summary": "当模型本身大到端侧设备跑不动，联邦学习就需要和模型切分结合。文章重点看半异步协同训练如何继续处理长期能耗和在线调度。",
+    "problem": "端侧设备计算能力差异大，完全同步会被慢设备拖住，完全异步又会影响训练稳定性。",
+    "method": "把半异步协同训练、模型切分、设备选择和资源分配放到 Lyapunov-based alternating optimization 框架里。",
+    "takeaway": "SFL 解决模型太大的问题，但没有消除资源调度问题，反而引入了新的切分和协同训练变量。",
+    "citation": "Ao, H., Tian, H., Ni, W., Nie, G., and Niyato, D. Semi-Asynchronous Federated Split Learning for Computing-Limited Devices in Wireless Networks. IEEE Transactions on Wireless Communications, 24(6):5196-5212, 2025.",
+    "links": [
+      {
+        "label": "DOI",
+        "url": "https://doi.org/10.1109/TWC.2025.3546448"
+      }
+    ]
   },
   {
-    id: "519-fedlease",
-    articleNo: "519",
-    articleDate: "2026-05-19",
-    order: 9,
-    title: "一个 LoRA 不够用：FedLEASE 如何让联邦大模型学会选择专家？",
-    type: "论文精读",
-    level: "进阶",
-    venue: "NeurIPS",
-    venueGroup: "NeurIPS",
-    paperYear: "2025",
-    paperName: "Adaptive LoRA Experts Allocation and Selection for Federated Fine-Tuning",
-    authors: "Lei Wang, Jieming Bian, Letian Zhang, Jie Xu",
-    cover: "assets/cover-fedlease.png",
-    topics: ["lora", "fine-tuning"],
-    topicLabels: ["LoRA Experts", "个性化"],
-    routes: ["lora"],
-    keywords: ["FedLEASE", "LoRA Experts", "Mixture-of-Experts", "任务异构", "个性化联邦微调"],
-    summary: "FedLEASE 的关键问题不是继续压缩参数，而是在客户端任务异构时，让不同客户端拥有更合适的 LoRA expert 组合。",
-    problem: "一个共享 LoRA 可能无法同时适配不同任务、领域、语言风格和用户偏好。",
-    method: "先基于客户端相似性分配 LoRA experts，再让每个客户端自适应选择需要的专家组合。",
-    takeaway: "联邦大模型微调不仅要参数高效，也要异构适配。",
-    citation: "Wang, L., Bian, J., Zhang, L., and Xu, J. Adaptive LoRA Experts Allocation and Selection for Federated Fine-Tuning. Advances in Neural Information Processing Systems 38, 2025.",
-    links: [{ label: "Paper Page", url: "https://papers.neurips.cc/paper_files/paper/2025/hash/6df1b2b45e64d402588746f79b68b82c-Abstract-Conference.html" }]
+    "id": "519-fedlease",
+    "articleNo": "519",
+    "articleDate": "2026-05-19",
+    "order": 9,
+    "title": "一个 LoRA 不够用：FedLEASE 如何让联邦大模型学会选择专家？",
+    "type": "论文精读",
+    "level": "进阶",
+    "venue": "NeurIPS",
+    "venueGroup": "NeurIPS",
+    "paperYear": "2025",
+    "paperName": "Adaptive LoRA Experts Allocation and Selection for Federated Fine-Tuning",
+    "authors": "Lei Wang, Jieming Bian, Letian Zhang, Jie Xu",
+    "cover": "assets/cover-fedlease.png",
+    "topics": [
+      "lora",
+      "fine-tuning"
+    ],
+    "topicLabels": [
+      "LoRA Experts",
+      "个性化"
+    ],
+    "routes": [
+      "lora"
+    ],
+    "keywords": [
+      "FedLEASE",
+      "LoRA Experts",
+      "Mixture-of-Experts",
+      "任务异构",
+      "个性化联邦微调"
+    ],
+    "summary": "FedLEASE 的关键问题不是继续压缩参数，而是在客户端任务异构时，让不同客户端拥有更合适的 LoRA expert 组合。",
+    "problem": "一个共享 LoRA 可能无法同时适配不同任务、领域、语言风格和用户偏好。",
+    "method": "先基于客户端相似性分配 LoRA experts，再让每个客户端自适应选择需要的专家组合。",
+    "takeaway": "联邦大模型微调不仅要参数高效，也要异构适配。",
+    "citation": "Wang, L., Bian, J., Zhang, L., and Xu, J. Adaptive LoRA Experts Allocation and Selection for Federated Fine-Tuning. Advances in Neural Information Processing Systems 38, 2025.",
+    "links": [
+      {
+        "label": "Paper Page",
+        "url": "https://papers.neurips.cc/paper_files/paper/2025/hash/6df1b2b45e64d402588746f79b68b82c-Abstract-Conference.html"
+      }
+    ]
   },
   {
-    id: "520-sfl-ga",
-    articleNo: "520",
-    articleDate: "2026-05-20",
-    order: 10,
-    title: "Split Federated Learning 如何用 DDQN + 凸优化联合分配算力与带宽",
-    type: "论文精读",
-    level: "深入",
-    venue: "IEEE TWC",
-    venueGroup: "IEEE TWC",
-    paperYear: "2026",
-    paperName: "Communication-and-Computation Efficient Split Federated Learning in Wireless Networks: Gradient Aggregation and Resource Management",
-    authors: "Yipeng Liang, Qimei Chen, Rongpeng Li, Guangxu Zhu, Muhammad Kaleem Awan, Hao Jiang",
-    cover: "assets/cover-sfl-ga.png",
-    topics: ["sfl", "resource"],
-    topicLabels: ["SFL", "DDQN"],
-    routes: ["sfl"],
-    keywords: ["SFL-GA", "DDQN", "凸优化", "梯度聚合", "切分点", "CCC"],
-    summary: "文章重点看 SFL-GA 如何减少 smashed data 频繁传输带来的通信开销，并把切分点、带宽和算力放在同一个优化框架里。",
-    problem: "传统 SFL 需要频繁上传 smashed data 和下载梯度，在无线网络里通信开销很重。",
-    method: "在服务器端做 smashed data 梯度聚合，并用 DDQN 处理离散切分点选择、用凸优化处理连续资源分配。",
-    takeaway: "这是一类可复用的混合优化思路：离散决策交给强化学习，连续资源分配交给凸优化。",
-    citation: "Liang, Y., Chen, Q., Li, R., Zhu, G., Awan, M. K., and Jiang, H. Communication-and-Computation Efficient Split Federated Learning in Wireless Networks: Gradient Aggregation and Resource Management. IEEE Transactions on Wireless Communications, 25:1981-1995, 2026.",
-    links: [{ label: "DOI", url: "https://doi.org/10.1109/TWC.2025.3594006" }]
+    "id": "520-sfl-ga",
+    "articleNo": "520",
+    "articleDate": "2026-05-20",
+    "order": 10,
+    "title": "Split Federated Learning 如何用 DDQN + 凸优化联合分配算力与带宽",
+    "type": "论文精读",
+    "level": "深入",
+    "venue": "IEEE TWC",
+    "venueGroup": "IEEE TWC",
+    "paperYear": "2026",
+    "paperName": "Communication-and-Computation Efficient Split Federated Learning in Wireless Networks: Gradient Aggregation and Resource Management",
+    "authors": "Yipeng Liang, Qimei Chen, Rongpeng Li, Guangxu Zhu, Muhammad Kaleem Awan, Hao Jiang",
+    "cover": "assets/cover-sfl-ga.png",
+    "topics": [
+      "sfl",
+      "resource"
+    ],
+    "topicLabels": [
+      "SFL",
+      "DDQN"
+    ],
+    "routes": [
+      "sfl"
+    ],
+    "keywords": [
+      "SFL-GA",
+      "DDQN",
+      "凸优化",
+      "梯度聚合",
+      "切分点",
+      "CCC"
+    ],
+    "summary": "文章重点看 SFL-GA 如何减少 smashed data 频繁传输带来的通信开销，并把切分点、带宽和算力放在同一个优化框架里。",
+    "problem": "传统 SFL 需要频繁上传 smashed data 和下载梯度，在无线网络里通信开销很重。",
+    "method": "在服务器端做 smashed data 梯度聚合，并用 DDQN 处理离散切分点选择、用凸优化处理连续资源分配。",
+    "takeaway": "这是一类可复用的混合优化思路：离散决策交给强化学习，连续资源分配交给凸优化。",
+    "citation": "Liang, Y., Chen, Q., Li, R., Zhu, G., Awan, M. K., and Jiang, H. Communication-and-Computation Efficient Split Federated Learning in Wireless Networks: Gradient Aggregation and Resource Management. IEEE Transactions on Wireless Communications, 25:1981-1995, 2026.",
+    "links": [
+      {
+        "label": "DOI",
+        "url": "https://doi.org/10.1109/TWC.2025.3594006"
+      }
+    ]
   },
   {
-    id: "521-fedlodrop",
-    articleNo: "521",
-    articleDate: "2026-05-21",
-    order: 11,
-    title: "LoRA 微调也会过拟合？FedLoDrop 如何用 Dropout 同时提升泛化和压缩通信",
-    type: "论文精读",
-    level: "深入",
-    venue: "IEEE JSAC",
-    venueGroup: "IEEE JSAC",
-    paperYear: "2026",
-    paperName: "FedLoDrop: Federated LoRA With Dropout for Generalized LLM Fine-Tuning",
-    authors: "Sijing Xie, Dingzhu Wen, Changsheng You, Qimei Chen, Mehdi Bennis, Kaibin Huang",
-    cover: "assets/cover-fedlodrop.png",
-    topics: ["lora", "fine-tuning", "resource", "generalization"],
-    topicLabels: ["LoRA Dropout", "泛化"],
-    routes: ["lora", "resource"],
-    keywords: ["FedLoDrop", "LoRA Dropout", "泛化误差", "通信压缩", "P-SCA", "联邦微调"],
-    summary: "FedLoDrop 把 Dropout 从训练技巧变成系统优化变量：它同时影响泛化误差、通信量、计算开销和收敛速度，并可根据网络资源动态调整。",
-    problem: "联邦 LoRA 微调虽然参数少，但每个客户端本地数据有限，仍然容易过拟合；同时端侧通信、能耗和时延也会限制可训练参数量。",
-    method: "对 LoRA 矩阵的行与列做随机 Dropout，用稳定性理论分析泛化误差界，再联合优化 Dropout rate、子载波分配和通信计算资源。",
-    takeaway: "Dropout rate 不只是手调超参数，而是边缘联邦微调里连接泛化、通信和资源约束的一枚关键旋钮。",
-    citation: "Xie, S., Wen, D., You, C., Chen, Q., Bennis, M., and Huang, K. FedLoDrop: Federated LoRA With Dropout for Generalized LLM Fine-Tuning. IEEE Journal on Selected Areas in Communications, 44, 2026.",
-    links: []
+    "id": "521-fedlodrop",
+    "articleNo": "521",
+    "articleDate": "2026-05-21",
+    "order": 11,
+    "title": "LoRA 微调也会过拟合？FedLoDrop 如何用 Dropout 同时提升泛化和压缩通信",
+    "type": "论文精读",
+    "level": "深入",
+    "venue": "IEEE JSAC",
+    "venueGroup": "IEEE JSAC",
+    "paperYear": "2026",
+    "paperName": "FedLoDrop: Federated LoRA With Dropout for Generalized LLM Fine-Tuning",
+    "authors": "Sijing Xie, Dingzhu Wen, Changsheng You, Qimei Chen, Mehdi Bennis, Kaibin Huang",
+    "cover": "assets/cover-fedlodrop.png",
+    "topics": [
+      "lora",
+      "fine-tuning",
+      "resource",
+      "generalization"
+    ],
+    "topicLabels": [
+      "LoRA Dropout",
+      "泛化"
+    ],
+    "routes": [
+      "lora",
+      "resource"
+    ],
+    "keywords": [
+      "FedLoDrop",
+      "LoRA Dropout",
+      "泛化误差",
+      "通信压缩",
+      "P-SCA",
+      "联邦微调"
+    ],
+    "summary": "FedLoDrop 把 Dropout 从训练技巧变成系统优化变量：它同时影响泛化误差、通信量、计算开销和收敛速度，并可根据网络资源动态调整。",
+    "problem": "联邦 LoRA 微调虽然参数少，但每个客户端本地数据有限，仍然容易过拟合；同时端侧通信、能耗和时延也会限制可训练参数量。",
+    "method": "对 LoRA 矩阵的行与列做随机 Dropout，用稳定性理论分析泛化误差界，再联合优化 Dropout rate、子载波分配和通信计算资源。",
+    "takeaway": "Dropout rate 不只是手调超参数，而是边缘联邦微调里连接泛化、通信和资源约束的一枚关键旋钮。",
+    "citation": "Xie, S., Wen, D., You, C., Chen, Q., Bennis, M., and Huang, K. FedLoDrop: Federated LoRA With Dropout for Generalized LLM Fine-Tuning. IEEE Journal on Selected Areas in Communications, 44, 2026.",
+    "links": []
   },
   {
-    id: "522-roba-rank-bandwidth",
-    articleNo: "522",
-    articleDate: "2026-05-22",
-    order: 12,
-    title: "LoRA Rank 该不该一刀切？异构联邦微调的联合 Rank 与带宽优化",
-    type: "论文精读",
-    level: "进阶",
-    venue: "IEEE TVT",
-    venueGroup: "IEEE TVT",
-    paperYear: "2026",
-    paperName: "Joint Rank Optimization and Bandwidth Allocation for Heterogeneous Federated LoRA Fine-Tuning",
-    authors: "Yinan Zou, Zixin Wang, Yuanming Shi, Yong Zhou",
-    cover: "assets/cover-roba-rank-bandwidth.png",
-    topics: ["lora", "fine-tuning", "resource", "rank"],
-    topicLabels: ["Rank 优化", "带宽分配"],
-    routes: ["lora", "resource"],
-    keywords: ["ROBA", "异构 rank", "带宽分配", "sum-rank 约束", "交替优化", "联邦 LoRA"],
-    summary: "这篇短文把 LoRA rank 从固定超参数改写成动态资源，让不同能力和不同信道状态的设备每轮使用不同 rank，并与带宽分配一起优化。",
-    problem: "边缘设备算力和无线信道高度异构，统一 LoRA rank 往往让弱设备掉队、强设备浪费，也无法利用瞬时信道差异。",
-    method: "用 sum-rank 约束保证总体表达能力，再通过交替优化分别求解 rank 分配和带宽分配，最小化最慢设备决定的每轮训练时间。",
-    takeaway: "异构 LoRA 不只要改聚合，也要把 rank、带宽和 straggler effect 放在同一个资源分配问题里看。",
-    citation: "Zou, Y., Wang, Z., Shi, Y., and Zhou, Y. Joint Rank Optimization and Bandwidth Allocation for Heterogeneous Federated LoRA Fine-Tuning. IEEE Transactions on Vehicular Technology, 75(4):7025-7029, 2026.",
-    links: []
+    "id": "522-roba-rank-bandwidth",
+    "articleNo": "522",
+    "articleDate": "2026-05-22",
+    "order": 12,
+    "title": "LoRA Rank 该不该一刀切？异构联邦微调的联合 Rank 与带宽优化",
+    "type": "论文精读",
+    "level": "进阶",
+    "venue": "IEEE TVT",
+    "venueGroup": "IEEE TVT",
+    "paperYear": "2026",
+    "paperName": "Joint Rank Optimization and Bandwidth Allocation for Heterogeneous Federated LoRA Fine-Tuning",
+    "authors": "Yinan Zou, Zixin Wang, Yuanming Shi, Yong Zhou",
+    "cover": "assets/cover-roba-rank-bandwidth.png",
+    "topics": [
+      "lora",
+      "fine-tuning",
+      "resource",
+      "rank"
+    ],
+    "topicLabels": [
+      "Rank 优化",
+      "带宽分配"
+    ],
+    "routes": [
+      "lora",
+      "resource"
+    ],
+    "keywords": [
+      "ROBA",
+      "异构 rank",
+      "带宽分配",
+      "sum-rank 约束",
+      "交替优化",
+      "联邦 LoRA"
+    ],
+    "summary": "这篇短文把 LoRA rank 从固定超参数改写成动态资源，让不同能力和不同信道状态的设备每轮使用不同 rank，并与带宽分配一起优化。",
+    "problem": "边缘设备算力和无线信道高度异构，统一 LoRA rank 往往让弱设备掉队、强设备浪费，也无法利用瞬时信道差异。",
+    "method": "用 sum-rank 约束保证总体表达能力，再通过交替优化分别求解 rank 分配和带宽分配，最小化最慢设备决定的每轮训练时间。",
+    "takeaway": "异构 LoRA 不只要改聚合，也要把 rank、带宽和 straggler effect 放在同一个资源分配问题里看。",
+    "citation": "Zou, Y., Wang, Z., Shi, Y., and Zhou, Y. Joint Rank Optimization and Bandwidth Allocation for Heterogeneous Federated LoRA Fine-Tuning. IEEE Transactions on Vehicular Technology, 75(4):7025-7029, 2026.",
+    "links": []
   },
   {
-    id: "523-jcsrc",
-    articleNo: "523",
-    articleDate: "2026-05-23",
-    order: 13,
-    title: "多任务联邦学习：客户选择和资源配置，分开优化为什么不够？",
-    type: "论文精读",
-    level: "深入",
-    venue: "IEEE TC",
-    venueGroup: "IEEE TC",
-    paperYear: "2025",
-    paperName: "JCSRC: Joint Client Selection and Resource Configuration for Energy-Efficient Multi-Task Federated Learning",
-    authors: "Junpeng Ke, Junlong Zhou, Dan Meng, Yue Zeng, Yizhou Shi, Xiangmou Qu, Song Guo",
-    cover: "assets/cover-jcsrc.png",
-    topics: ["resource", "multi-task", "reinforcement"],
-    topicLabels: ["多任务 FL", "MARL + PSO"],
-    routes: ["resource"],
-    keywords: ["JCSRC", "多任务联邦学习", "客户选择", "资源配置", "MADDPG", "PSO", "Jetson 测试床"],
-    summary: "JCSRC 面向多任务联邦学习，把客户选择和频率、带宽配置放进同一个框架：上层用 MADDPG 选设备，下层用 PSO 配资源。",
-    problem: "多任务场景下，一台设备可能同时服务多个模型，客户选择会改变资源负载，资源配置又会反过来影响能耗、时延和后续选择。",
-    method: "将黑箱的客户选择交给多智能体强化学习，将有明确能耗模型的资源配置交给带理论约束的 PSO，并在 Jetson 测试床上验证。",
-    takeaway: "对多任务 FL 来说，关键不只是选更好的设备，而是把选谁和怎么分资源一起优化。",
-    citation: "Ke, J., Zhou, J., Meng, D., Zeng, Y., Shi, Y., Qu, X., and Guo, S. JCSRC: Joint Client Selection and Resource Configuration for Energy-Efficient Multi-Task Federated Learning. IEEE Transactions on Computers, 74(12):4094-4108, 2025.",
-    links: []
+    "id": "523-jcsrc",
+    "articleNo": "523",
+    "articleDate": "2026-05-23",
+    "order": 13,
+    "title": "多任务联邦学习：客户选择和资源配置，分开优化为什么不够？",
+    "type": "论文精读",
+    "level": "深入",
+    "venue": "IEEE TC",
+    "venueGroup": "IEEE TC",
+    "paperYear": "2025",
+    "paperName": "JCSRC: Joint Client Selection and Resource Configuration for Energy-Efficient Multi-Task Federated Learning",
+    "authors": "Junpeng Ke, Junlong Zhou, Dan Meng, Yue Zeng, Yizhou Shi, Xiangmou Qu, Song Guo",
+    "cover": "assets/cover-jcsrc.png",
+    "topics": [
+      "resource",
+      "multi-task",
+      "reinforcement"
+    ],
+    "topicLabels": [
+      "多任务 FL",
+      "MARL + PSO"
+    ],
+    "routes": [
+      "resource"
+    ],
+    "keywords": [
+      "JCSRC",
+      "多任务联邦学习",
+      "客户选择",
+      "资源配置",
+      "MADDPG",
+      "PSO",
+      "Jetson 测试床"
+    ],
+    "summary": "JCSRC 面向多任务联邦学习，把客户选择和频率、带宽配置放进同一个框架：上层用 MADDPG 选设备，下层用 PSO 配资源。",
+    "problem": "多任务场景下，一台设备可能同时服务多个模型，客户选择会改变资源负载，资源配置又会反过来影响能耗、时延和后续选择。",
+    "method": "将黑箱的客户选择交给多智能体强化学习，将有明确能耗模型的资源配置交给带理论约束的 PSO，并在 Jetson 测试床上验证。",
+    "takeaway": "对多任务 FL 来说，关键不只是选更好的设备，而是把选谁和怎么分资源一起优化。",
+    "citation": "Ke, J., Zhou, J., Meng, D., Zeng, Y., Shi, Y., Qu, X., and Guo, S. JCSRC: Joint Client Selection and Resource Configuration for Energy-Efficient Multi-Task Federated Learning. IEEE Transactions on Computers, 74(12):4094-4108, 2025.",
+    "links": []
   },
   {
-    id: "524-fah-qlora",
-    articleNo: "524",
-    articleDate: "2026-05-24",
-    order: 14,
-    title: "量化底座 + 自适应 Rank：联邦 LoRA 微调的「时间-内存」双降方案",
-    type: "论文精读",
-    level: "深入",
-    venue: "IEEE INFOCOM",
-    venueGroup: "IEEE INFOCOM",
-    paperYear: "2025",
-    paperName: "Federated Adaptive Fine-Tuning of Large Language Models with Heterogeneous Quantization and LoRA",
-    authors: "Zhidong Gao, Zhenxiao Zhang, Yuanxiong Guo, Yanmin Gong",
-    cover: "assets/cover-fah-qlora.png",
-    topics: ["lora", "fine-tuning", "resource", "rank", "quantization"],
-    topicLabels: ["量化底座", "自适应 Rank"],
-    routes: ["lora", "resource"],
-    keywords: ["FAH-QLoRA", "底座量化", "异构 rank", "两阶段优化", "内存优化", "联邦 LoRA"],
-    summary: "FAH-QLoRA 把底座模型量化到 4-bit 以减少内存占用，再通过两阶段自适应 rank 分配让异构设备各取所需的能力，同时降低训练时间和显存开销。",
-    problem: "联邦 LoRA 微调虽然可训练参数少，但底座模型仍需完整加载到显存——LLaMA-7B 16-bit LoRA 需约 19.5 GB，边缘设备根本装不下。",
-    method: "底座量化（大幅降低内存占用）+ 两阶段自适应 rank（先确定满足时延的 rank 上界，再在能耗约束下精细化分配）。",
-    takeaway: "量化 + LoRA 不是两个独立技术的简单拼接，底座量化释放的内存空间可以被更灵活地用于提高 rank 或支持更大 batch。",
-    citation: "Gao, Z., Zhang, Z., Guo, Y., and Gong, Y. Federated Adaptive Fine-Tuning of Large Language Models with Heterogeneous Quantization and LoRA. IEEE INFOCOM 2025.",
-    links: []
+    "id": "524-fah-qlora",
+    "articleNo": "524",
+    "articleDate": "2026-05-24",
+    "order": 14,
+    "title": "量化底座 + 自适应 Rank：联邦 LoRA 微调的「时间-内存」双降方案",
+    "type": "论文精读",
+    "level": "深入",
+    "venue": "IEEE INFOCOM",
+    "venueGroup": "IEEE INFOCOM",
+    "paperYear": "2025",
+    "paperName": "Federated Adaptive Fine-Tuning of Large Language Models with Heterogeneous Quantization and LoRA",
+    "authors": "Zhidong Gao, Zhenxiao Zhang, Yuanxiong Guo, Yanmin Gong",
+    "cover": "assets/cover-fah-qlora.png",
+    "topics": [
+      "lora",
+      "fine-tuning",
+      "resource",
+      "rank",
+      "quantization"
+    ],
+    "topicLabels": [
+      "量化底座",
+      "自适应 Rank"
+    ],
+    "routes": [
+      "lora",
+      "resource"
+    ],
+    "keywords": [
+      "FAH-QLoRA",
+      "底座量化",
+      "异构 rank",
+      "两阶段优化",
+      "内存优化",
+      "联邦 LoRA"
+    ],
+    "summary": "FAH-QLoRA 把底座模型量化到 4-bit 以减少内存占用，再通过两阶段自适应 rank 分配让异构设备各取所需的能力，同时降低训练时间和显存开销。",
+    "problem": "联邦 LoRA 微调虽然可训练参数少，但底座模型仍需完整加载到显存——LLaMA-7B 16-bit LoRA 需约 19.5 GB，边缘设备根本装不下。",
+    "method": "底座量化（大幅降低内存占用）+ 两阶段自适应 rank（先确定满足时延的 rank 上界，再在能耗约束下精细化分配）。",
+    "takeaway": "量化 + LoRA 不是两个独立技术的简单拼接，底座量化释放的内存空间可以被更灵活地用于提高 rank 或支持更大 batch。",
+    "citation": "Gao, Z., Zhang, Z., Guo, Y., and Gong, Y. Federated Adaptive Fine-Tuning of Large Language Models with Heterogeneous Quantization and LoRA. IEEE INFOCOM 2025.",
+    "links": []
   },
   {
-    id: "525-fedara",
-    articleNo: "525",
-    articleDate: "2026-05-25",
-    order: 15,
-    title: "截断SVD + 重要性投票 + 模块级剪枝：FedARA 的「结构-通信-计算」三重优化",
-    type: "论文精读",
-    level: "深入",
-    venue: "IEEE TC",
-    venueGroup: "IEEE TC",
-    paperYear: "2026",
-    paperName: "Adaptive Rank Allocation for Federated Parameter-Efficient Fine-Tuning of Language Models",
-    authors: "Fei Wu, Jia Hu, Geyong Min, Shiqiang Wang",
-    cover: "assets/cover-fedara.png",
-    topics: ["lora", "fine-tuning", "resource", "rank"],
-    topicLabels: ["SVD 截断", "模块剪枝"],
-    routes: ["lora", "resource"],
-    keywords: ["FedARA", "截断SVD", "动态 rank", "模块剪枝", "结构优化", "联邦 LoRA"],
-    summary: "FedARA 把 LoRA 的 rank 分配问题推进到「结构-通信-计算」三个维度联合优化的层面，用截断 SVD 压缩参数、重要性投票挑模块、模块级剪枝砍冗余。",
-    problem: "Non-IID 数据下联邦 PEFT 的精度下降比全参数联邦微调更严重，现有的异构 rank 方案只考虑通信-计算二维，忽略了模型结构维度的优化空间。",
-    method: "截断 SVD 降低 rank 内的通信量 + 重要性投票选出关键模块 + 模块级剪枝砍掉贡献小的层，三者联合优化形成结构-通信-计算三重闭环。",
-    takeaway: "rank 分配不仅要看设备和信道，还要看模块本身的重要性——不是所有模块的 rank 都应该用同一种分配策略。",
-    citation: "Wu, F., Hu, J., Min, G., and Wang, S. Adaptive Rank Allocation for Federated Parameter-Efficient Fine-Tuning of Language Models. IEEE Transactions on Computers, 75(4), 2026.",
-    links: []
+    "id": "525-fedara",
+    "articleNo": "525",
+    "articleDate": "2026-05-25",
+    "order": 15,
+    "title": "截断SVD + 重要性投票 + 模块级剪枝：FedARA 的「结构-通信-计算」三重优化",
+    "type": "论文精读",
+    "level": "深入",
+    "venue": "IEEE TC",
+    "venueGroup": "IEEE TC",
+    "paperYear": "2026",
+    "paperName": "Adaptive Rank Allocation for Federated Parameter-Efficient Fine-Tuning of Language Models",
+    "authors": "Fei Wu, Jia Hu, Geyong Min, Shiqiang Wang",
+    "cover": "assets/cover-fedara.png",
+    "topics": [
+      "lora",
+      "fine-tuning",
+      "resource",
+      "rank"
+    ],
+    "topicLabels": [
+      "SVD 截断",
+      "模块剪枝"
+    ],
+    "routes": [
+      "lora",
+      "resource"
+    ],
+    "keywords": [
+      "FedARA",
+      "截断SVD",
+      "动态 rank",
+      "模块剪枝",
+      "结构优化",
+      "联邦 LoRA"
+    ],
+    "summary": "FedARA 把 LoRA 的 rank 分配问题推进到「结构-通信-计算」三个维度联合优化的层面，用截断 SVD 压缩参数、重要性投票挑模块、模块级剪枝砍冗余。",
+    "problem": "Non-IID 数据下联邦 PEFT 的精度下降比全参数联邦微调更严重，现有的异构 rank 方案只考虑通信-计算二维，忽略了模型结构维度的优化空间。",
+    "method": "截断 SVD 降低 rank 内的通信量 + 重要性投票选出关键模块 + 模块级剪枝砍掉贡献小的层，三者联合优化形成结构-通信-计算三重闭环。",
+    "takeaway": "rank 分配不仅要看设备和信道，还要看模块本身的重要性——不是所有模块的 rank 都应该用同一种分配策略。",
+    "citation": "Wu, F., Hu, J., Min, G., and Wang, S. Adaptive Rank Allocation for Federated Parameter-Efficient Fine-Tuning of Language Models. IEEE Transactions on Computers, 75(4), 2026.",
+    "links": []
   },
   {
-    id: "526-kg-cs",
-    articleNo: "526",
-    articleDate: "2026-05-26",
-    order: 16,
-    title: "离线 KG + 在线选择：联邦 LLM 微调的「数据异构感知」客户端调度方案",
-    type: "论文精读",
-    level: "深入",
-    venue: "IEEE TMC",
-    venueGroup: "IEEE TMC",
-    paperYear: "2026",
-    paperName: "Data Divergence-Aware Client Selection via Knowledge Graph for Federated LLM Fine-Tuning",
-    authors: "Bihai Zhang, Dan Wang, Yifei Zhu, Zhu Han",
-    cover: "assets/cover-kg-cs.png",
-    topics: ["fine-tuning", "resource", "data-heterogeneity"],
-    topicLabels: ["知识图谱", "Client Selection"],
-    routes: ["resource"],
-    keywords: ["KG-CS", "知识图谱", "客户端选择", "数据异构", "PASA", "概率优化", "联邦微调"],
-    summary: "把 client selection 从「边训边测」变成「先建图、再选择」：离线用知识图谱衡量客户端数据差异，在线用 PASA 概率优化兼顾系统异构与统计异构。",
-    problem: "联邦 LLM 微调总共几十轮，在线测量数据异构代价太高；系统异构（straggler）和统计异构（Non-IID）互相放大，大部分方案只能按住一头。",
-    method: "离线构建知识图谱（抽取三元组→补全→对齐）度量数据差异，在线用 PASA 概率优化联合最小化收敛时延与数据异构度。",
-    takeaway: "两阶段范式（离线度量+在线决策）比具体用什么知识表示更重要——任何 FL 场景下，只要测量成本远高于决策成本，这个拆分就值得考虑。",
-    citation: "Zhang, B., Wang, D., Zhu, Y., and Han, Z. Data Divergence-Aware Client Selection via Knowledge Graph for Federated LLM Fine-Tuning. IEEE Transactions on Mobile Computing, 25(2):2399-2412, 2026.",
-    links: []
+    "id": "526-kg-cs",
+    "articleNo": "526",
+    "articleDate": "2026-05-26",
+    "order": 16,
+    "title": "离线 KG + 在线选择：联邦 LLM 微调的「数据异构感知」客户端调度方案",
+    "type": "论文精读",
+    "level": "深入",
+    "venue": "IEEE TMC",
+    "venueGroup": "IEEE TMC",
+    "paperYear": "2026",
+    "paperName": "Data Divergence-Aware Client Selection via Knowledge Graph for Federated LLM Fine-Tuning",
+    "authors": "Bihai Zhang, Dan Wang, Yifei Zhu, Zhu Han",
+    "cover": "assets/cover-kg-cs.png",
+    "topics": [
+      "fine-tuning",
+      "resource",
+      "data-heterogeneity"
+    ],
+    "topicLabels": [
+      "知识图谱",
+      "Client Selection"
+    ],
+    "routes": [
+      "resource"
+    ],
+    "keywords": [
+      "KG-CS",
+      "知识图谱",
+      "客户端选择",
+      "数据异构",
+      "PASA",
+      "概率优化",
+      "联邦微调"
+    ],
+    "summary": "把 client selection 从「边训边测」变成「先建图、再选择」：离线用知识图谱衡量客户端数据差异，在线用 PASA 概率优化兼顾系统异构与统计异构。",
+    "problem": "联邦 LLM 微调总共几十轮，在线测量数据异构代价太高；系统异构（straggler）和统计异构（Non-IID）互相放大，大部分方案只能按住一头。",
+    "method": "离线构建知识图谱（抽取三元组→补全→对齐）度量数据差异，在线用 PASA 概率优化联合最小化收敛时延与数据异构度。",
+    "takeaway": "两阶段范式（离线度量+在线决策）比具体用什么知识表示更重要——任何 FL 场景下，只要测量成本远高于决策成本，这个拆分就值得考虑。",
+    "citation": "Zhang, B., Wang, D., Zhu, Y., and Han, Z. Data Divergence-Aware Client Selection via Knowledge Graph for Federated LLM Fine-Tuning. IEEE Transactions on Mobile Computing, 25(2):2399-2412, 2026.",
+    "links": []
   }
 ];
 
 const topicDefinitions = [
-  { id: "all", label: "全部" },
-  { id: "intro", label: "入门" },
-  { id: "lora", label: "LoRA" },
-  { id: "lyapunov", label: "Lyapunov" },
-  { id: "sfl", label: "SFL" },
-  { id: "resource", label: "资源优化" },
-  { id: "fine-tuning", label: "联邦微调" },
-  { id: "generalization", label: "泛化正则" },
-  { id: "rank", label: "异构 Rank" },
-  { id: "multi-task", label: "多任务 FL" },
-  { id: "reinforcement", label: "强化学习" },
-  { id: "quantization", label: "模型量化" },
-  { id: "data-heterogeneity", label: "数据异构" }
+  {
+    "id": "all",
+    "label": "全部"
+  },
+  {
+    "id": "intro",
+    "label": "入门"
+  },
+  {
+    "id": "lora",
+    "label": "LoRA"
+  },
+  {
+    "id": "lyapunov",
+    "label": "Lyapunov"
+  },
+  {
+    "id": "sfl",
+    "label": "SFL"
+  },
+  {
+    "id": "resource",
+    "label": "资源优化"
+  },
+  {
+    "id": "fine-tuning",
+    "label": "联邦微调"
+  },
+  {
+    "id": "generalization",
+    "label": "泛化正则"
+  },
+  {
+    "id": "rank",
+    "label": "异构 Rank"
+  },
+  {
+    "id": "multi-task",
+    "label": "多任务 FL"
+  },
+  {
+    "id": "reinforcement",
+    "label": "强化学习"
+  },
+  {
+    "id": "quantization",
+    "label": "模型量化"
+  },
+  {
+    "id": "data-heterogeneity",
+    "label": "数据异构"
+  }
 ];
 
 const routes = [
   {
-    id: "starter",
-    title: "入门路线",
-    description: "先建立边缘大模型、LoRA 和 Lyapunov 的基本直觉。",
-    paperIds: ["512-edge-ai", "513-lora-edge", "514-lyapunov-intro", "515-fedft-bandwidth"]
+    "id": "starter",
+    "title": "入门路线",
+    "description": "先建立边缘大模型、LoRA 和 Lyapunov 的基本直觉。",
+    "paperIds": [
+      "512-edge-ai",
+      "513-lora-edge",
+      "514-lyapunov-intro"
+    ]
   },
   {
-    id: "lyapunov",
-    title: "Lyapunov 调度线",
-    description: "沿着长期时延、能耗和在线资源调度往下读。",
-    paperIds: ["514-lyapunov-intro", "515-fedft-bandwidth", "516-latency-energy", "517-streaming-energy", "518-semi-async-sfl"]
+    "id": "lyapunov",
+    "title": "Lyapunov 调度线",
+    "description": "沿着长期时延、能耗和在线资源调度往下读。",
+    "paperIds": [
+      "514-lyapunov-intro",
+      "515-fedft-bandwidth",
+      "516-zo-fedft",
+      "516-latency-energy",
+      "517-streaming-energy",
+      "518-semi-async-sfl"
+    ]
   },
   {
-    id: "lora",
-    title: "LoRA 微调线",
-    description: "从参数高效微调走到 experts、Dropout、量化底座和异构 rank。",
-    paperIds: ["513-lora-edge", "515-fedft-bandwidth", "516-zo-fedft", "519-fedlease", "521-fedlodrop", "522-roba-rank-bandwidth", "524-fah-qlora", "525-fedara"]
+    "id": "lora",
+    "title": "LoRA 微调线",
+    "description": "从参数高效微调走到 experts、Dropout、量化底座和异构 rank。",
+    "paperIds": [
+      "513-lora-edge",
+      "515-fedft-bandwidth",
+      "516-zo-fedft",
+      "519-fedlease",
+      "521-fedlodrop",
+      "522-roba-rank-bandwidth",
+      "524-fah-qlora",
+      "525-fedara"
+    ]
   },
   {
-    id: "sfl",
-    title: "Split Learning 线",
-    description: "看模型切分、半异步协同和通信计算联合优化。",
-    paperIds: ["518-semi-async-sfl", "520-sfl-ga"]
+    "id": "sfl",
+    "title": "Split Learning 线",
+    "description": "看模型切分、半异步协同和通信计算联合优化。",
+    "paperIds": [
+      "518-semi-async-sfl",
+      "520-sfl-ga"
+    ]
   },
   {
-    id: "resource",
-    title: "系统资源线",
-    description: "串起时延、能耗、rank、带宽、多任务资源配置与客户端选择。",
-    paperIds: ["515-fedft-bandwidth", "516-latency-energy", "517-streaming-energy", "518-semi-async-sfl", "520-sfl-ga", "521-fedlodrop", "522-roba-rank-bandwidth", "523-jcsrc", "524-fah-qlora", "525-fedara", "526-kg-cs"]
+    "id": "resource",
+    "title": "系统资源线",
+    "description": "串起时延、能耗、rank、带宽、多任务资源配置与客户端选择。",
+    "paperIds": [
+      "512-edge-ai",
+      "514-lyapunov-intro",
+      "515-fedft-bandwidth",
+      "516-zo-fedft",
+      "516-latency-energy",
+      "517-streaming-energy",
+      "518-semi-async-sfl",
+      "520-sfl-ga",
+      "521-fedlodrop",
+      "522-roba-rank-bandwidth",
+      "523-jcsrc",
+      "524-fah-qlora",
+      "525-fedara",
+      "526-kg-cs"
+    ]
   }
 ];

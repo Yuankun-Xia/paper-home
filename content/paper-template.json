@@ -1,0 +1,29 @@
+{
+  "id": "527-short-slug",
+  "articleNo": "527",
+  "articleDate": "2026-05-27",
+  "order": 17,
+  "title": "公众号文章标题",
+  "type": "论文精读",
+  "level": "进阶",
+  "venue": "IEEE TWC",
+  "venueGroup": "IEEE TWC",
+  "paperYear": "2026",
+  "paperName": "Paper Title",
+  "authors": "Author A, Author B, Author C",
+  "cover": "assets/cover-example.png",
+  "topics": ["lora", "resource"],
+  "topicLabels": ["LoRA", "资源优化"],
+  "keywords": ["关键词1", "关键词2", "关键词3"],
+  "summary": "一句话说明这篇文章讲什么。",
+  "problem": "这篇论文或文章解决的核心问题。",
+  "method": "主要方法线索。",
+  "takeaway": "读者应该带走的结论。",
+  "citation": "标准引用信息。",
+  "links": [
+    {
+      "label": "DOI",
+      "url": "https://doi.org/example"
+    }
+  ]
+}
