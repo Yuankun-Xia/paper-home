@@ -57,6 +57,7 @@ function textForSearch(paper) {
 
 const { createApp } = Vue;
 const runtimeMessage = document.getElementById("runtimeMessage");
+const featuredTopicIds = ["intro", "lora", "lyapunov", "sfl", "resource", "fine-tuning", "rank", "data-heterogeneity"];
 
 createApp({
   data() {
@@ -102,7 +103,7 @@ createApp({
     },
 
     sideTopics() {
-      return this.topicDefinitions.filter((topic) => topic.id !== "all").map((topic) => ({
+      return this.topicDefinitions.filter((topic) => featuredTopicIds.includes(topic.id)).map((topic) => ({
         ...topic,
         count: this.papers.filter((paper) => paper.topics.includes(topic.id)).length
       }));
