@@ -417,9 +417,11 @@ h1 {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 18px;
+  overflow: visible;
 }
 
 .card {
+  position: relative;
   display: flex;
   flex-direction: column;
   min-height: 100%;
@@ -428,6 +430,17 @@ h1 {
   border-radius: 8px;
   background: var(--panel);
   box-shadow: var(--shadow);
+  transform-origin: center;
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+  will-change: transform;
+}
+
+.card:hover,
+.card:focus-within {
+  z-index: 2;
+  border-color: rgba(13, 118, 111, 0.34);
+  box-shadow: 0 24px 58px rgba(31, 39, 43, 0.18);
+  transform: translateY(-8px) scale(1.025);
 }
 
 .cover-wrap {
@@ -775,5 +788,16 @@ footer {
   .sidebar,
   .grid {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card {
+    transition: none;
+  }
+
+  .card:hover,
+  .card:focus-within {
+    transform: none;
   }
 }
