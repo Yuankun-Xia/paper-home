@@ -694,6 +694,45 @@ const papers = [
     "takeaway": "两阶段范式（离线度量+在线决策）比具体用什么知识表示更重要——任何 FL 场景下，只要测量成本远高于决策成本，这个拆分就值得考虑。",
     "citation": "Zhang, B., Wang, D., Zhu, Y., and Han, Z. Data Divergence-Aware Client Selection via Knowledge Graph for Federated LLM Fine-Tuning. IEEE Transactions on Mobile Computing, 25(2):2399-2412, 2026.",
     "links": []
+  },
+  {
+    "id": "527-flm-topk",
+    "articleNo": "527",
+    "articleDate": "2026-05-27",
+    "order": 17,
+    "title": "FLM-TopK：把梯度「分区间」后再稀疏，联邦 LLM 微调能省多少通信？",
+    "type": "论文精读",
+    "level": "深入",
+    "venue": "arXiv",
+    "venueGroup": "arXiv",
+    "paperYear": "2025",
+    "paperName": "FLM-TopK: Expediting Federated Large Language Model Tuning by Sparsifying Intervalized Gradients",
+    "authors": "Wenqi Qiu, Yipeng Zhou, Jinzhi Wang, Quan Z. Sheng, Laizhong Cui",
+    "cover": "assets/cover-flm-topk.png",
+    "topics": [
+      "fine-tuning",
+      "resource",
+      "lora"
+    ],
+    "topicLabels": [
+      "梯度压缩",
+      "TopK 稀疏"
+    ],
+    "keywords": [
+      "FLM-TopK",
+      "梯度压缩",
+      "TopK",
+      "区间化",
+      "PID 开销",
+      "LoRA",
+      "联邦 LLM 微调"
+    ],
+    "summary": "FLM-TopK 不在全局梯度向量上直接做 TopK，而是先把梯度划分成多个区间，再在区间内独立稀疏化，从而显著降低位置编号 PID 的通信开销。",
+    "problem": "联邦 LLM 微调中客户端需要反复上传 LoRA 梯度，TopK 稀疏化虽然能减少梯度值数量，但百万级梯度维度会让位置编号 PID 开销变得很重。",
+    "method": "基于 LLM 微调梯度更接近高斯分布的观察，先对梯度做区间化，再在每个区间内执行 TopK，并通过交替凸优化联合选择区间大小、稀疏策略和分包参数。",
+    "takeaway": "通信压缩不能只看传多少梯度值，也要看位置编码和压缩误差；区间化 TopK 是一类兼顾 PID 开销、精度和可部署性的梯度压缩思路。",
+    "citation": "Qiu, W., Zhou, Y., Wang, J., Sheng, Q. Z., and Cui, L. FLM-TopK: Expediting Federated Large Language Model Tuning by Sparsifying Intervalized Gradients. 2025.",
+    "links": []
   }
 ];
 
@@ -788,7 +827,8 @@ const routes = [
       "521-fedlodrop",
       "522-roba-rank-bandwidth",
       "524-fah-qlora",
-      "525-fedara"
+      "525-fedara",
+      "527-flm-topk"
     ]
   },
   {
@@ -818,7 +858,8 @@ const routes = [
       "523-jcsrc",
       "524-fah-qlora",
       "525-fedara",
-      "526-kg-cs"
+      "526-kg-cs",
+      "527-flm-topk"
     ]
   }
 ];
