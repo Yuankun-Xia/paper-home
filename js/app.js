@@ -70,7 +70,7 @@ createApp({
         venue: "all",
         year: "all",
         route: "all",
-        sort: "article-asc",
+        sort: "article-desc",
         query: "",
         favoriteOnly: false
       },
@@ -110,7 +110,7 @@ createApp({
     },
 
     timelinePapers() {
-      return this.papers.slice().sort((a, b) => a.order - b.order);
+      return this.papers.slice().sort((a, b) => b.order - a.order);
     },
 
     activeRouteIds() {
@@ -186,7 +186,7 @@ createApp({
       this.state.venue = "all";
       this.state.year = "all";
       this.state.route = "all";
-      this.state.sort = "article-asc";
+      this.state.sort = "article-desc";
       this.state.query = "";
       this.state.favoriteOnly = false;
     },
