@@ -1,7 +1,7 @@
 {
   "id": "530-frlora",
   "articleNo": "530",
-  "articleDate": "2026-05-29",
+  "articleDate": "2026-05-30",
   "order": 20,
   "title": "FedAvg + LoRA 在 Non-IID 下为什么不够用？FRLoRA 用残差累积 + SVD 重初始化破局",
   "type": "论文精读",

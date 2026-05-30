@@ -1,7 +1,7 @@
 {
   "id": "531-fed-hello",
   "articleNo": "531",
-  "articleDate": "2026-05-30",
+  "articleDate": "2026-05-31",
   "order": 21,
   "title": "异构设备上 LoRA 层该怎么分？Fed-HeLLo：关键层给强设备、弱设备只训核心",
   "type": "论文精读",

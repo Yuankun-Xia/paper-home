@@ -774,7 +774,7 @@ const papers = [
   {
     "id": "529-offsite-tuning",
     "articleNo": "529",
-    "articleDate": "2026-05-28",
+    "articleDate": "2026-05-29",
     "order": 19,
     "title": "异地微调 + 物理层安全 + 联合资源分配：大模型边缘部署的三角博弈",
     "type": "论文精读",
@@ -813,7 +813,7 @@ const papers = [
   {
     "id": "530-frlora",
     "articleNo": "530",
-    "articleDate": "2026-05-29",
+    "articleDate": "2026-05-30",
     "order": 20,
     "title": "FedAvg + LoRA 在 Non-IID 下为什么不够用？FRLoRA 用残差累积 + SVD 重初始化破局",
     "type": "论文精读",
@@ -850,7 +850,7 @@ const papers = [
   {
     "id": "531-fed-hello",
     "articleNo": "531",
-    "articleDate": "2026-05-30",
+    "articleDate": "2026-05-31",
     "order": 21,
     "title": "异构设备上 LoRA 层该怎么分？Fed-HeLLo：关键层给强设备、弱设备只训核心",
     "type": "论文精读",
