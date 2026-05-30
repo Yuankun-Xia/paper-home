@@ -733,6 +733,157 @@ const papers = [
     "takeaway": "通信压缩不能只看传多少梯度值，也要看位置编码和压缩误差；区间化 TopK 是一类兼顾 PID 开销、精度和可部署性的梯度压缩思路。",
     "citation": "Qiu, W., Zhou, Y., Wang, J., Sheng, Q. Z., and Cui, L. FLM-TopK: Expediting Federated Large Language Model Tuning by Sparsifying Intervalized Gradients. 2025.",
     "links": []
+  },
+  {
+    "id": "528-perazzone-lyapunov",
+    "articleNo": "528",
+    "articleDate": "2026-05-28",
+    "order": 18,
+    "title": "FL 设备调度最怕偏差？反向概率加权让选择概率随便调",
+    "type": "论文精读",
+    "level": "深入",
+    "venue": "IEEE TON",
+    "venueGroup": "IEEE TON",
+    "paperYear": "2025",
+    "paperName": "Communication-Efficient Device Scheduling for Federated Learning Using Lyapunov Optimization",
+    "authors": "Jake B. Perazzone, Shiqiang Wang, Mingyue Ji, Kevin Chan",
+    "cover": "assets/cover-perazzone-lyapunov.png",
+    "topics": [
+      "resource",
+      "scheduling"
+    ],
+    "topicLabels": [
+      "设备调度",
+      "Lyapunov 优化"
+    ],
+    "keywords": [
+      "反向概率加权",
+      "Lyapunov",
+      "设备调度",
+      "功率分配",
+      "收敛界",
+      "流形优化"
+    ],
+    "summary": "用 1/q 反向概率加权保证任意选择概率下的无偏收敛，将收敛界直接写入 Lyapunov 目标函数，功率用 Lambert W 解析解、设备选择用流形优化——最高 8.5× 加速。",
+    "problem": "不均匀设备选择会导致模型漂移，而此前工作要么假设均匀选择要么把概率当固定参数，没有把收敛分析和在线调度连成一条线。",
+    "method": "1/q 加权保证聚合无偏 → 推导非凸收敛界 → 将收敛界作为 Lyapunov 目标函数 → 功率用 Lambert W 解析解 + 设备选择用 Manopt 流形优化。",
+    "takeaway": "收敛分析和调度设计可以解耦：1/q 加权保证无偏，调度器自由优化选择概率；把收敛界写进目标函数让 Lyapunov 调度直接为学习质量做优化。",
+    "citation": "Perazzone, J. B., Wang, S., Ji, M., and Chan, K. Communication-Efficient Device Scheduling for Federated Learning Using Lyapunov Optimization. IEEE Trans. Netw., 33(4), 2025.",
+    "links": []
+  },
+  {
+    "id": "529-offsite-tuning",
+    "articleNo": "529",
+    "articleDate": "2026-05-28",
+    "order": 19,
+    "title": "异地微调 + 物理层安全 + 联合资源分配：大模型边缘部署的三角博弈",
+    "type": "论文精读",
+    "level": "深入",
+    "venue": "IEEE TMC",
+    "venueGroup": "IEEE TMC",
+    "paperYear": "2026",
+    "paperName": "Optimizing Resource Allocation and Secure Wireless Communication in Large Model based Mobile Edge Computing Systems",
+    "authors": "Zefan Wang, Jun Zhao, Yitong Wang",
+    "cover": "assets/cover-offsite-tuning-pls.png",
+    "topics": [
+      "fine-tuning",
+      "resource",
+      "security"
+    ],
+    "topicLabels": [
+      "异地微调",
+      "物理层安全"
+    ],
+    "keywords": [
+      "offsite-tuning",
+      "物理层安全",
+      "资源分配",
+      "Dinkelbach",
+      "SCA",
+      "B&B",
+      "分数规划"
+    ],
+    "summary": "将 adapter 提取比例和 emulator 压缩率作为优化变量，在物理层安全约束下与带宽、功率、GPU 频率联合求解，最大化效用-成本比。",
+    "problem": "offsite-tuning 中 adapter 取多大、emulator 压多少、如何在窃听者存在下安全传输——三个决策共享物理资源但此前未在统一框架中优化。",
+    "method": "Dinkelbach 变换处理分数目标 → 交替优化拆分子问题 → SCA + B&B 处理非凸约束和离散变量 → FP + KKT 推导闭式解。",
+    "takeaway": "把模型架构参数（φ, χe）变成优化变量的思路比具体用了什么求解器更有复用价值——这在边缘大模型部署中还远未被充分挖掘。",
+    "citation": "Wang, Z., Zhao, J., and Wang, Y. Optimizing Resource Allocation and Secure Wireless Communication in Large Model based Mobile Edge Computing Systems. IEEE Trans. Mobile Comput., 2026.",
+    "links": []
+  },
+  {
+    "id": "530-frlora",
+    "articleNo": "530",
+    "articleDate": "2026-05-29",
+    "order": 20,
+    "title": "FedAvg + LoRA 在 Non-IID 下为什么不够用？FRLoRA 用残差累积 + SVD 重初始化破局",
+    "type": "论文精读",
+    "level": "进阶",
+    "venue": "ICLR",
+    "venueGroup": "ICLR",
+    "paperYear": "2025",
+    "paperName": "Federated Residual Low-Rank Adaptation of Large Language Models",
+    "authors": "Yunlu Yan, Chun-Mei Feng, Wangmeng Zuo, Rick Siow Mong Goh, Yong Liu, Lei Zhu",
+    "cover": "assets/cover-frlora.png",
+    "topics": [
+      "fine-tuning",
+      "lora"
+    ],
+    "topicLabels": [
+      "LoRA",
+      "Non-IID"
+    ],
+    "keywords": [
+      "FRLoRA",
+      "残差累积",
+      "SVD 重初始化",
+      "联邦 LoRA",
+      "Non-IID",
+      "client drift"
+    ],
+    "summary": "FedAvg+LoRA 在 Non-IID 下的失效根植于 rank 约束锁死全局更新空间和 LoRA 特有的 client drift。FRLoRA 用残差累积突破 rank 上限、SVD 重初始化消除漂移。",
+    "problem": "FedAvg+LoRA 在 Non-IID 数据下表现差，且 FedProx/SCAFFOLD 等为 FFT 设计的联邦优化算法套到 LoRA 上反而更差。",
+    "method": "残差累积 ΔW^t 叠加到全局权重（突破单轮 rank≤r 限制）+ 每轮 SVD 重初始化 B_k/A_k 到主奇异空间（消除 client drift）。两个机制互补。",
+    "takeaway": "LoRA-based FL 的 Non-IID 问题需要全新解法，不能复用 FFT 时代的工具箱；残差累积和 SVD 重初始化不是独立改进，而是相互依赖——前者提供空间，后者稳定方向。",
+    "citation": "Yan, Y., Feng, C.-M., Zuo, W., Goh, R. S. M., Liu, Y., and Zhu, L. Federated Residual Low-Rank Adaptation of Large Language Models. In Proc. ICLR, 2025.",
+    "links": []
+  },
+  {
+    "id": "531-fed-hello",
+    "articleNo": "531",
+    "articleDate": "2026-05-30",
+    "order": 21,
+    "title": "异构设备上 LoRA 层该怎么分？Fed-HeLLo：关键层给强设备、弱设备只训核心",
+    "type": "论文精读",
+    "level": "进阶",
+    "venue": "IEEE TNNLS",
+    "venueGroup": "IEEE TNNLS",
+    "paperYear": "2025",
+    "paperName": "Fed-HeLLo: Efficient Federated Foundation Model Fine-Tuning With Heterogeneous LoRA Allocation",
+    "authors": "Jianyi Zhang, Yilian Zhao, Haoze Lv, Yiran Wang, Sijing Xie, Salim El Rouayheb",
+    "cover": "assets/cover-fed-hello.png",
+    "topics": [
+      "fine-tuning",
+      "lora",
+      "resource"
+    ],
+    "topicLabels": [
+      "LoRA 分配",
+      "层冻结"
+    ],
+    "keywords": [
+      "Fed-HeLLo",
+      "异构 LoRA",
+      "FIM-HLA",
+      "GD-HLA",
+      "层冻结",
+      "联邦微调"
+    ],
+    "summary": "Fed-HeLLo 不追问每层给多少 rank，而是追问哪些层值得训。FIM-HLA 每轮动态打分，GD-HLA 用几何先验冷启动，-38% 计算量 + 更强精度。",
+    "problem": "异构设备参与联邦 LoRA 微调时，弱设备训不动全量 LoRA 层——此前方法降 rank 但内存瓶颈在激活值存储不在参数本身。",
+    "method": "FIM-HLA 用 Fisher 信息矩阵每轮给 LoRA 层动态打分 + RGD-HLA 用四种几何模式（三角形/倒三角形/瓶颈/均匀）做冷启动和覆盖保证，两策略交替使用。",
+    "takeaway": "资源异构场景下'选对层'比'每层少训一点'更有效——少训几层但训满 rank 比每层都训但 r=1 能更完整地保留任务子空间信息。",
+    "citation": "Zhang, J., Zhao, Y., Lv, H., Wang, Y., Xie, S., and El Rouayheb, S. Fed-HeLLo: Efficient Federated Foundation Model Fine-Tuning With Heterogeneous LoRA Allocation. IEEE Trans. Neural Netw. Learn. Syst., 36(10), 2025.",
+    "links": []
   }
 ];
 
@@ -828,7 +979,9 @@ const routes = [
       "522-roba-rank-bandwidth",
       "524-fah-qlora",
       "525-fedara",
-      "527-flm-topk"
+      "527-flm-topk",
+      "530-frlora",
+      "531-fed-hello"
     ]
   },
   {
@@ -859,7 +1012,10 @@ const routes = [
       "524-fah-qlora",
       "525-fedara",
       "526-kg-cs",
-      "527-flm-topk"
+      "527-flm-topk",
+      "528-perazzone-lyapunov",
+      "529-offsite-tuning",
+      "531-fed-hello"
     ]
   }
 ];
