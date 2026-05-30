@@ -1,0 +1,46 @@
+{
+  "id": "518-semi-async-sfl",
+  "articleNo": "518",
+  "articleDate": "2026-05-18",
+  "order": 8,
+  "title": "模型太大、设备太弱怎么办？一篇看懂半异步联邦分割学习里的 Lyapunov 优化",
+  "type": "论文精读",
+  "level": "进阶",
+  "venue": "IEEE TWC",
+  "venueGroup": "IEEE TWC",
+  "paperYear": "2025",
+  "paperName": "Semi-Asynchronous Federated Split Learning for Computing-Limited Devices in Wireless Networks",
+  "authors": "H. Ao, H. Tian, W. Ni, G. Nie, D. Niyato",
+  "cover": "assets/cover-semi-async-sfl.png",
+  "topics": [
+    "lyapunov",
+    "sfl",
+    "resource"
+  ],
+  "topicLabels": [
+    "SFL",
+    "Lyapunov"
+  ],
+  "routes": [
+    "lyapunov",
+    "sfl"
+  ],
+  "keywords": [
+    "Federated Split Learning",
+    "半异步",
+    "模型切分",
+    "计算受限设备",
+    "在线调度"
+  ],
+  "summary": "当模型本身大到端侧设备跑不动，联邦学习就需要和模型切分结合。文章重点看半异步协同训练如何继续处理长期能耗和在线调度。",
+  "problem": "端侧设备计算能力差异大，完全同步会被慢设备拖住，完全异步又会影响训练稳定性。",
+  "method": "把半异步协同训练、模型切分、设备选择和资源分配放到 Lyapunov-based alternating optimization 框架里。",
+  "takeaway": "SFL 解决模型太大的问题，但没有消除资源调度问题，反而引入了新的切分和协同训练变量。",
+  "citation": "Ao, H., Tian, H., Ni, W., Nie, G., and Niyato, D. Semi-Asynchronous Federated Split Learning for Computing-Limited Devices in Wireless Networks. IEEE Transactions on Wireless Communications, 24(6):5196-5212, 2025.",
+  "links": [
+    {
+      "label": "DOI",
+      "url": "https://doi.org/10.1109/TWC.2025.3546448"
+    }
+  ]
+}

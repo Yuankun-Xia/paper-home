@@ -1,0 +1,41 @@
+{
+  "id": "514-lyapunov-intro",
+  "articleNo": "514",
+  "articleDate": "2026-05-14",
+  "order": 3,
+  "title": "为什么边缘联邦大模型论文都爱用 Lyapunov 优化？",
+  "type": "方法背景",
+  "level": "基础",
+  "venue": "方法背景",
+  "venueGroup": "方法背景",
+  "paperYear": "",
+  "paperName": "Lyapunov Optimization 在边缘联邦学习中的直觉",
+  "authors": "",
+  "cover": "assets/cover-lyapunov-edge-fl.png",
+  "topics": [
+    "intro",
+    "lyapunov",
+    "resource"
+  ],
+  "topicLabels": [
+    "Lyapunov",
+    "在线优化"
+  ],
+  "routes": [
+    "starter",
+    "lyapunov"
+  ],
+  "keywords": [
+    "Lyapunov",
+    "虚拟队列",
+    "长期约束",
+    "在线调度",
+    "资源优化"
+  ],
+  "summary": "从无线链路、设备状态和长期平均约束出发，解释 Lyapunov 为什么适合组织边缘联邦学习里的在线资源调度问题。",
+  "problem": "边缘系统不是静态优化问题，设备状态、信道、数据价值和能耗预算都会随时间变化。",
+  "method": "用虚拟队列表达长期约束，再把长期随机优化转成每一轮可求解的 drift-plus-penalty 子问题。",
+  "takeaway": "读后续论文时，可以先找约束、队列、每轮决策变量和子问题求解方法。",
+  "citation": "方法背景文章：为什么边缘联邦大模型论文都爱用 Lyapunov 优化？",
+  "links": []
+}

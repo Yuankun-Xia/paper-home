@@ -1,0 +1,44 @@
+{
+  "id": "519-fedlease",
+  "articleNo": "519",
+  "articleDate": "2026-05-19",
+  "order": 9,
+  "title": "一个 LoRA 不够用：FedLEASE 如何让联邦大模型学会选择专家？",
+  "type": "论文精读",
+  "level": "进阶",
+  "venue": "NeurIPS",
+  "venueGroup": "NeurIPS",
+  "paperYear": "2025",
+  "paperName": "Adaptive LoRA Experts Allocation and Selection for Federated Fine-Tuning",
+  "authors": "Lei Wang, Jieming Bian, Letian Zhang, Jie Xu",
+  "cover": "assets/cover-fedlease.png",
+  "topics": [
+    "lora",
+    "fine-tuning"
+  ],
+  "topicLabels": [
+    "LoRA Experts",
+    "个性化"
+  ],
+  "routes": [
+    "lora"
+  ],
+  "keywords": [
+    "FedLEASE",
+    "LoRA Experts",
+    "Mixture-of-Experts",
+    "任务异构",
+    "个性化联邦微调"
+  ],
+  "summary": "FedLEASE 的关键问题不是继续压缩参数，而是在客户端任务异构时，让不同客户端拥有更合适的 LoRA expert 组合。",
+  "problem": "一个共享 LoRA 可能无法同时适配不同任务、领域、语言风格和用户偏好。",
+  "method": "先基于客户端相似性分配 LoRA experts，再让每个客户端自适应选择需要的专家组合。",
+  "takeaway": "联邦大模型微调不仅要参数高效，也要异构适配。",
+  "citation": "Wang, L., Bian, J., Zhang, L., and Xu, J. Adaptive LoRA Experts Allocation and Selection for Federated Fine-Tuning. Advances in Neural Information Processing Systems 38, 2025.",
+  "links": [
+    {
+      "label": "Paper Page",
+      "url": "https://papers.neurips.cc/paper_files/paper/2025/hash/6df1b2b45e64d402588746f79b68b82c-Abstract-Conference.html"
+    }
+  ]
+}

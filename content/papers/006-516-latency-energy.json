@@ -1,0 +1,40 @@
+{
+  "id": "516-latency-energy",
+  "articleNo": "516B",
+  "articleDate": "2026-05-16",
+  "order": 6,
+  "title": "边缘训练不能只看快：时延和能耗怎么一起控？",
+  "type": "方法背景",
+  "level": "进阶",
+  "venue": "方法背景",
+  "venueGroup": "方法背景",
+  "paperYear": "",
+  "paperName": "长期时延与能耗约束下的边缘训练调度",
+  "authors": "",
+  "cover": "assets/cover-latency-energy.png",
+  "topics": [
+    "lyapunov",
+    "resource"
+  ],
+  "topicLabels": [
+    "能耗",
+    "资源调度"
+  ],
+  "routes": [
+    "lyapunov"
+  ],
+  "keywords": [
+    "时延",
+    "能耗",
+    "虚拟队列",
+    "带宽",
+    "功率",
+    "CPU 频率"
+  ],
+  "summary": "把时延队列和能耗队列放在一起看，说明为什么边缘训练不能只追求单轮速度，也要控制长期能耗预算。",
+  "problem": "功率拉满可以让当前轮更快，但会消耗设备能量，长期看可能破坏能耗约束。",
+  "method": "用多个虚拟队列描述多个长期约束，再分析设备调度、带宽、功率和计算频率之间的耦合。",
+  "takeaway": "做边缘智能系统论文时，单一资源约束往往不够，时延和能耗需要联合建模。",
+  "citation": "方法背景文章：边缘训练不能只看快：时延和能耗怎么一起控？",
+  "links": []
+}
