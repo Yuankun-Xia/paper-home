@@ -884,6 +884,122 @@ const papers = [
     "takeaway": "资源异构场景下'选对层'比'每层少训一点'更有效——少训几层但训满 rank 比每层都训但 r=1 能更完整地保留任务子空间信息。",
     "citation": "Zhang, J., Zhao, Y., Lv, H., Wang, Y., Xie, S., and El Rouayheb, S. Fed-HeLLo: Efficient Federated Foundation Model Fine-Tuning With Heterogeneous LoRA Allocation. IEEE Trans. Neural Netw. Learn. Syst., 36(10), 2025.",
     "links": []
+  },
+  {
+    "id": "61-aircomp-lora-disaster",
+    "articleNo": "61",
+    "articleDate": "2026-06-01",
+    "order": 22,
+    "title": "无人机灾后救援 + AirComp + LoRA：生成式模型的联邦微调怎样才能最省电？",
+    "type": "论文精读",
+    "level": "进阶",
+    "venue": "IEEE TCCN",
+    "venueGroup": "IEEE TCCN",
+    "paperYear": "2026",
+    "paperName": "Energy-Efficient Over-the-Air Computation for Federated Generative Model Fine-Tuning in Unmanned Vehicle-Assisted Disaster Relief",
+    "authors": "Yikun Zhao, Lei Feng, Fanqin Zhou, Wenjing Li, Zehui Xiong, Hongyang Du, Celimuge Wu, Song Guo, Tony Q. S. Quek, Zhu Han",
+    "cover": "assets/cover-aircomp-lora-disaster.png",
+    "topics": [
+      "fine-tuning",
+      "lora",
+      "resource"
+    ],
+    "topicLabels": [
+      "AirComp",
+      "联邦 LoRA",
+      "生成式模型"
+    ],
+    "keywords": [
+      "AirComp",
+      "联邦 LoRA",
+      "Stable Diffusion",
+      "灾后救援",
+      "BCD",
+      "能耗优化"
+    ],
+    "summary": "把 AirComp、LoRA 和扩散模型放到 UAV/UGV 灾后救援场景里，联合优化带宽、功率、算力和去噪因子，让生成式模型联邦微调在保证图像质量的同时降低系统能耗。",
+    "problem": "灾后救援中的 UGV 数据分散、电池有限、无线带宽紧，传统联邦微调需要多设备分别上传 LoRA，通信能耗随设备数增长；AirComp 又会引入直接耦合到 LoRA 权重的聚合失真。",
+    "method": "构建 UAV 辅助的 AirComp 联邦生成式模型微调框架，将系统能耗和 AirComp MSE 约束写入同一优化问题，并用 BCD 分解带宽、功率、算力和去噪因子四个子问题。",
+    "takeaway": "AirComp 的'聚合即通信'适合多 UGV 协作场景，但在 LoRA 扩散模型中必须正视信道噪声与 rank、MSE 容忍度之间的耦合，资源优化不能只看通信量。",
+    "citation": "Zhao, Y., Feng, L., Zhou, F., Li, W., Xiong, Z., Du, H., Wu, C., Guo, S., Quek, T. Q. S., and Han, Z. Energy-Efficient Over-the-Air Computation for Federated Generative Model Fine-Tuning in Unmanned Vehicle-Assisted Disaster Relief. IEEE Trans. Cogn. Commun. Netw., 12, 2026.",
+    "links": []
+  },
+  {
+    "id": "62-eh-quantization",
+    "articleNo": "62",
+    "articleDate": "2026-06-02",
+    "order": 23,
+    "title": "能量采集 + 联邦学习：客户端选择和量化精度怎么联合优化才不浪费能源？",
+    "type": "论文精读",
+    "level": "进阶",
+    "venue": "IEEE TWC",
+    "venueGroup": "IEEE TWC",
+    "paperYear": "2024",
+    "paperName": "Joint Client Scheduling and Quantization Optimization in Energy Harvesting-Enabled Federated Learning Networks",
+    "authors": "Zhengwei Ni, Zhaoyang Zhang, Nguyen Cong Luong, Dusit Niyato, Dong In Kim, Shaohan Feng",
+    "cover": "assets/cover-eh-quantization.png",
+    "topics": [
+      "resource",
+      "quantization",
+      "data-heterogeneity"
+    ],
+    "topicLabels": [
+      "能量采集",
+      "客户端调度",
+      "模型量化"
+    ],
+    "keywords": [
+      "Energy Harvesting",
+      "客户端选择",
+      "随机量化",
+      "能量因果",
+      "公平调度",
+      "MINLP"
+    ],
+    "summary": "在 EH 供电的 FL 网络中联合优化客户端选择、量化精度和传输能耗，用 MINLP 到凸等价变换求全局最优，同时证明固定量化精度仍不损 O(1/T) 收敛速率。",
+    "problem": "能量采集设备只能先采集后使用，客户端调度不能只看数据和信道；量化精度越高上传能耗越大，而过度贪心选择高能量设备又会在 Non-IID 下破坏数据覆盖。",
+    "method": "基于收敛界构造带 A_t 权重的量化误差目标，加入能量因果、频谱效率和公平调度约束，再用 big-M 辅助变量把非凸耦合改写为凸 MINLP。",
+    "takeaway": "EH 联邦学习里的资源分配核心不是单纯省电，而是在能量因果、量化精度和数据公平之间做全局权衡；早期训练轮次的量化精度尤其关键。",
+    "citation": "Ni, Z., Zhang, Z., Luong, N. C., Niyato, D., Kim, D. I., and Feng, S. Joint Client Scheduling and Quantization Optimization in Energy Harvesting-Enabled Federated Learning Networks. IEEE Trans. Wireless Commun., 23(8), 2024.",
+    "links": []
+  },
+  {
+    "id": "63-freezing-power",
+    "articleNo": "63",
+    "articleDate": "2026-06-03",
+    "order": 24,
+    "title": "参数冻结 + 功率控制：一个双时间尺度的 Lyapunov 框架，把联邦训练的能耗压到最低",
+    "type": "论文精读",
+    "level": "深入",
+    "venue": "IEEE TMC",
+    "venueGroup": "IEEE TMC",
+    "paperYear": "2025",
+    "paperName": "A Two-Timescale Approach for Wireless Federated Learning With Parameter Freezing and Power Control",
+    "authors": "Jinhao Ouyang, Yuan Liu, Hang Liu",
+    "cover": "assets/cover-freezing-power.png",
+    "topics": [
+      "lyapunov",
+      "resource"
+    ],
+    "topicLabels": [
+      "Lyapunov 优化",
+      "参数冻结",
+      "功率控制"
+    ],
+    "keywords": [
+      "参数冻结",
+      "双时间尺度",
+      "Lyapunov",
+      "功率控制",
+      "能耗优化",
+      "无线联邦学习"
+    ],
+    "summary": "利用训练中后期大量参数趋于稳定的现象，大时间尺度决定冻结比例、小时间尺度做功率控制，用 Lyapunov 虚拟队列同时压低能耗和收敛误差。",
+    "problem": "联邦训练后期很多参数已基本稳定，却仍被完整计算和上传；冻结可以省电，但冻结过多会伤收敛，功率控制又会影响传输中断和长期能量预算。",
+    "method": "把训练划分为帧和时隙，建立冻结误差与中断误差的收敛界，并通过 Lyapunov 漂移加惩罚将问题分解为大时间尺度的冻结比例子问题和小时间尺度的功率控制子问题。",
+    "takeaway": "参数冻结和功率控制必须联动：冻结减少计算通信量，功率减少中断，两者共享长期能量预算；双时间尺度分解让这类无线 FL 能耗控制可以用闭式解在线执行。",
+    "citation": "Ouyang, J., Liu, Y., and Liu, H. A Two-Timescale Approach for Wireless Federated Learning With Parameter Freezing and Power Control. IEEE Trans. Mobile Comput., 24(9), 2025.",
+    "links": []
   }
 ];
 
@@ -963,7 +1079,8 @@ const routes = [
       "516-zo-fedft",
       "516-latency-energy",
       "517-streaming-energy",
-      "518-semi-async-sfl"
+      "518-semi-async-sfl",
+      "63-freezing-power"
     ]
   },
   {
@@ -981,7 +1098,8 @@ const routes = [
       "525-fedara",
       "527-flm-topk",
       "530-frlora",
-      "531-fed-hello"
+      "531-fed-hello",
+      "61-aircomp-lora-disaster"
     ]
   },
   {
@@ -1015,7 +1133,10 @@ const routes = [
       "527-flm-topk",
       "528-perazzone-lyapunov",
       "529-offsite-tuning",
-      "531-fed-hello"
+      "531-fed-hello",
+      "61-aircomp-lora-disaster",
+      "62-eh-quantization",
+      "63-freezing-power"
     ]
   }
 ];
