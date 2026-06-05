@@ -1,0 +1,44 @@
+{
+  "id": "517-streaming-energy",
+  "articleNo": "517",
+  "articleDate": "2026-05-17",
+  "order": 7,
+  "title": "边缘联邦学习为什么要看长期能耗？一篇读懂 Streaming Data 下的 Lyapunov 调度",
+  "type": "论文精读",
+  "level": "进阶",
+  "venue": "IEEE TCOM",
+  "venueGroup": "IEEE TCOM",
+  "paperYear": "2025",
+  "paperName": "Energy-Efficient Federated Edge Learning With Streaming Data: A Lyapunov Optimization Approach",
+  "authors": "Chung-Hsuan Hu, Zheng Chen, Erik G. Larsson",
+  "cover": "assets/cover-streaming-energy.png",
+  "topics": [
+    "lyapunov",
+    "resource"
+  ],
+  "topicLabels": [
+    "Streaming Data",
+    "能耗"
+  ],
+  "routes": [
+    "lyapunov"
+  ],
+  "keywords": [
+    "Streaming Data",
+    "长期能耗",
+    "数据重要性",
+    "CPU 频率",
+    "功率分配"
+  ],
+  "summary": "Streaming data 场景下，设备不断产生新数据，信道和能耗状态也在变化。论文把学习收益、训练时延和长期能耗放到同一套在线调度框架里。",
+  "problem": "最快的设备不一定最值得选，数据最有价值的设备也可能上传太慢或能耗太高。",
+  "method": "用数据重要性、训练时延、计算能耗和传输能耗共同构造每轮调度问题，并通过 Lyapunov 处理长期约束。",
+  "takeaway": "边缘联邦学习调度不能只看信道，也要看数据价值和设备长期能耗状态。",
+  "citation": "Hu, C.-H., Chen, Z., and Larsson, E. G. Energy-Efficient Federated Edge Learning With Streaming Data: A Lyapunov Optimization Approach. IEEE Transactions on Communications, 73(2):1142-1156, 2025.",
+  "links": [
+    {
+      "label": "DOI",
+      "url": "https://doi.org/10.1109/TCOMM.2024.3443731"
+    }
+  ]
+}

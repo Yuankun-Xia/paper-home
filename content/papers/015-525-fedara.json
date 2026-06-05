@@ -1,0 +1,43 @@
+{
+  "id": "525-fedara",
+  "articleNo": "525",
+  "articleDate": "2026-05-25",
+  "order": 15,
+  "title": "截断SVD + 重要性投票 + 模块级剪枝：FedARA 的「结构-通信-计算」三重优化",
+  "type": "论文精读",
+  "level": "深入",
+  "venue": "IEEE TC",
+  "venueGroup": "IEEE TC",
+  "paperYear": "2026",
+  "paperName": "Adaptive Rank Allocation for Federated Parameter-Efficient Fine-Tuning of Language Models",
+  "authors": "Fei Wu, Jia Hu, Geyong Min, Shiqiang Wang",
+  "cover": "assets/cover-fedara.png",
+  "topics": [
+    "lora",
+    "fine-tuning",
+    "resource",
+    "rank"
+  ],
+  "topicLabels": [
+    "SVD 截断",
+    "模块剪枝"
+  ],
+  "routes": [
+    "lora",
+    "resource"
+  ],
+  "keywords": [
+    "FedARA",
+    "截断SVD",
+    "动态 rank",
+    "模块剪枝",
+    "结构优化",
+    "联邦 LoRA"
+  ],
+  "summary": "FedARA 把 LoRA 的 rank 分配问题推进到「结构-通信-计算」三个维度联合优化的层面，用截断 SVD 压缩参数、重要性投票挑模块、模块级剪枝砍冗余。",
+  "problem": "Non-IID 数据下联邦 PEFT 的精度下降比全参数联邦微调更严重，现有的异构 rank 方案只考虑通信-计算二维，忽略了模型结构维度的优化空间。",
+  "method": "截断 SVD 降低 rank 内的通信量 + 重要性投票选出关键模块 + 模块级剪枝砍掉贡献小的层，三者联合优化形成结构-通信-计算三重闭环。",
+  "takeaway": "rank 分配不仅要看设备和信道，还要看模块本身的重要性——不是所有模块的 rank 都应该用同一种分配策略。",
+  "citation": "Wu, F., Hu, J., Min, G., and Wang, S. Adaptive Rank Allocation for Federated Parameter-Efficient Fine-Tuning of Language Models. IEEE Transactions on Computers, 75(4), 2026.",
+  "links": []
+}

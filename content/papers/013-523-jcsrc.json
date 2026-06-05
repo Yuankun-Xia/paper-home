@@ -1,0 +1,42 @@
+{
+  "id": "523-jcsrc",
+  "articleNo": "523",
+  "articleDate": "2026-05-23",
+  "order": 13,
+  "title": "多任务联邦学习：客户选择和资源配置，分开优化为什么不够？",
+  "type": "论文精读",
+  "level": "深入",
+  "venue": "IEEE TC",
+  "venueGroup": "IEEE TC",
+  "paperYear": "2025",
+  "paperName": "JCSRC: Joint Client Selection and Resource Configuration for Energy-Efficient Multi-Task Federated Learning",
+  "authors": "Junpeng Ke, Junlong Zhou, Dan Meng, Yue Zeng, Yizhou Shi, Xiangmou Qu, Song Guo",
+  "cover": "assets/cover-jcsrc.png",
+  "topics": [
+    "resource",
+    "multi-task",
+    "reinforcement"
+  ],
+  "topicLabels": [
+    "多任务 FL",
+    "MARL + PSO"
+  ],
+  "routes": [
+    "resource"
+  ],
+  "keywords": [
+    "JCSRC",
+    "多任务联邦学习",
+    "客户选择",
+    "资源配置",
+    "MADDPG",
+    "PSO",
+    "Jetson 测试床"
+  ],
+  "summary": "JCSRC 面向多任务联邦学习，把客户选择和频率、带宽配置放进同一个框架：上层用 MADDPG 选设备，下层用 PSO 配资源。",
+  "problem": "多任务场景下，一台设备可能同时服务多个模型，客户选择会改变资源负载，资源配置又会反过来影响能耗、时延和后续选择。",
+  "method": "将黑箱的客户选择交给多智能体强化学习，将有明确能耗模型的资源配置交给带理论约束的 PSO，并在 Jetson 测试床上验证。",
+  "takeaway": "对多任务 FL 来说，关键不只是选更好的设备，而是把选谁和怎么分资源一起优化。",
+  "citation": "Ke, J., Zhou, J., Meng, D., Zeng, Y., Shi, Y., Qu, X., and Guo, S. JCSRC: Joint Client Selection and Resource Configuration for Energy-Efficient Multi-Task Federated Learning. IEEE Transactions on Computers, 74(12):4094-4108, 2025.",
+  "links": []
+}

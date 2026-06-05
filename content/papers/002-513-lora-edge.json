@@ -1,0 +1,46 @@
+{
+  "id": "513-lora-edge",
+  "articleNo": "513",
+  "articleDate": "2026-05-13",
+  "order": 2,
+  "title": "大模型到了端侧，为什么不能直接微调？从 LoRA 到联邦微调讲清楚",
+  "type": "入门文章",
+  "level": "基础",
+  "venue": "arXiv",
+  "venueGroup": "arXiv",
+  "paperYear": "2021",
+  "paperName": "LoRA: Low-Rank Adaptation of Large Language Models",
+  "authors": "Edward J. Hu et al.",
+  "cover": "assets/cover-lora-edge.png",
+  "topics": [
+    "intro",
+    "lora",
+    "fine-tuning"
+  ],
+  "topicLabels": [
+    "入门",
+    "LoRA"
+  ],
+  "routes": [
+    "starter",
+    "lora"
+  ],
+  "keywords": [
+    "LoRA",
+    "PEFT",
+    "全量微调",
+    "端侧训练",
+    "联邦微调"
+  ],
+  "summary": "解释为什么端侧不能直接全量微调大模型，并用 LoRA 作为切入点介绍参数高效微调如何降低计算、内存和通信压力。",
+  "problem": "全量微调需要保存大量梯度和优化器状态，对手机、边缘设备和无线网络都不友好。",
+  "method": "冻结大模型主体，只训练低秩增量矩阵，再讨论它放进联邦学习后的通信和异构问题。",
+  "takeaway": "LoRA 不是终点，而是端侧联邦大模型微调的一块基础积木。",
+  "citation": "Hu, E. J., et al. LoRA: Low-Rank Adaptation of Large Language Models. arXiv:2106.09685, 2021.",
+  "links": [
+    {
+      "label": "arXiv",
+      "url": "https://arxiv.org/abs/2106.09685"
+    }
+  ]
+}

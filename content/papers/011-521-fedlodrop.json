@@ -1,0 +1,43 @@
+{
+  "id": "521-fedlodrop",
+  "articleNo": "521",
+  "articleDate": "2026-05-21",
+  "order": 11,
+  "title": "LoRA 微调也会过拟合？FedLoDrop 如何用 Dropout 同时提升泛化和压缩通信",
+  "type": "论文精读",
+  "level": "深入",
+  "venue": "IEEE JSAC",
+  "venueGroup": "IEEE JSAC",
+  "paperYear": "2026",
+  "paperName": "FedLoDrop: Federated LoRA With Dropout for Generalized LLM Fine-Tuning",
+  "authors": "Sijing Xie, Dingzhu Wen, Changsheng You, Qimei Chen, Mehdi Bennis, Kaibin Huang",
+  "cover": "assets/cover-fedlodrop.png",
+  "topics": [
+    "lora",
+    "fine-tuning",
+    "resource",
+    "generalization"
+  ],
+  "topicLabels": [
+    "LoRA Dropout",
+    "泛化"
+  ],
+  "routes": [
+    "lora",
+    "resource"
+  ],
+  "keywords": [
+    "FedLoDrop",
+    "LoRA Dropout",
+    "泛化误差",
+    "通信压缩",
+    "P-SCA",
+    "联邦微调"
+  ],
+  "summary": "FedLoDrop 把 Dropout 从训练技巧变成系统优化变量：它同时影响泛化误差、通信量、计算开销和收敛速度，并可根据网络资源动态调整。",
+  "problem": "联邦 LoRA 微调虽然参数少，但每个客户端本地数据有限，仍然容易过拟合；同时端侧通信、能耗和时延也会限制可训练参数量。",
+  "method": "对 LoRA 矩阵的行与列做随机 Dropout，用稳定性理论分析泛化误差界，再联合优化 Dropout rate、子载波分配和通信计算资源。",
+  "takeaway": "Dropout rate 不只是手调超参数，而是边缘联邦微调里连接泛化、通信和资源约束的一枚关键旋钮。",
+  "citation": "Xie, S., Wen, D., You, C., Chen, Q., Bennis, M., and Huang, K. FedLoDrop: Federated LoRA With Dropout for Generalized LLM Fine-Tuning. IEEE Journal on Selected Areas in Communications, 44, 2026.",
+  "links": []
+}

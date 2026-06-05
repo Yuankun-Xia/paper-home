@@ -1,0 +1,44 @@
+{
+  "id": "524-fah-qlora",
+  "articleNo": "524",
+  "articleDate": "2026-05-24",
+  "order": 14,
+  "title": "量化底座 + 自适应 Rank：联邦 LoRA 微调的「时间-内存」双降方案",
+  "type": "论文精读",
+  "level": "深入",
+  "venue": "IEEE INFOCOM",
+  "venueGroup": "IEEE INFOCOM",
+  "paperYear": "2025",
+  "paperName": "Federated Adaptive Fine-Tuning of Large Language Models with Heterogeneous Quantization and LoRA",
+  "authors": "Zhidong Gao, Zhenxiao Zhang, Yuanxiong Guo, Yanmin Gong",
+  "cover": "assets/cover-fah-qlora.png",
+  "topics": [
+    "lora",
+    "fine-tuning",
+    "resource",
+    "rank",
+    "quantization"
+  ],
+  "topicLabels": [
+    "量化底座",
+    "自适应 Rank"
+  ],
+  "routes": [
+    "lora",
+    "resource"
+  ],
+  "keywords": [
+    "FAH-QLoRA",
+    "底座量化",
+    "异构 rank",
+    "两阶段优化",
+    "内存优化",
+    "联邦 LoRA"
+  ],
+  "summary": "FAH-QLoRA 把底座模型量化到 4-bit 以减少内存占用，再通过两阶段自适应 rank 分配让异构设备各取所需的能力，同时降低训练时间和显存开销。",
+  "problem": "联邦 LoRA 微调虽然可训练参数少，但底座模型仍需完整加载到显存——LLaMA-7B 16-bit LoRA 需约 19.5 GB，边缘设备根本装不下。",
+  "method": "底座量化（大幅降低内存占用）+ 两阶段自适应 rank（先确定满足时延的 rank 上界，再在能耗约束下精细化分配）。",
+  "takeaway": "量化 + LoRA 不是两个独立技术的简单拼接，底座量化释放的内存空间可以被更灵活地用于提高 rank 或支持更大 batch。",
+  "citation": "Gao, Z., Zhang, Z., Guo, Y., and Gong, Y. Federated Adaptive Fine-Tuning of Large Language Models with Heterogeneous Quantization and LoRA. IEEE INFOCOM 2025.",
+  "links": []
+}

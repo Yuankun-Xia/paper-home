@@ -1,0 +1,47 @@
+{
+  "id": "516-zo-fedft",
+  "articleNo": "516A",
+  "articleDate": "2026-05-16",
+  "order": 5,
+  "title": "Zeroth-Order FedFT：没有反向传播，大模型还能联邦微调吗？",
+  "type": "论文精读",
+  "level": "进阶",
+  "venue": "IEEE TWC",
+  "venueGroup": "IEEE TWC",
+  "paperYear": "2026",
+  "paperName": "Zeroth-Order Federated Fine-Tuning for Large AI Models in Resource-Constrained Wireless Networks",
+  "authors": "Tianle Wang, Yong Zhou, Yuanming Shi, Nan Cheng, Haibo Zhou, H. Vincent Poor",
+  "cover": "assets/cover-zo-fedft.png",
+  "topics": [
+    "lyapunov",
+    "lora",
+    "resource",
+    "fine-tuning"
+  ],
+  "topicLabels": [
+    "ZO",
+    "Lyapunov"
+  ],
+  "routes": [
+    "lyapunov",
+    "lora"
+  ],
+  "keywords": [
+    "零阶优化",
+    "FedFT",
+    "反向传播",
+    "波束成形",
+    "功率控制"
+  ],
+  "summary": "把零阶优化放进端侧大模型联邦微调场景中，讨论训练算法、无线资源和长期时延约束如何耦合。",
+  "problem": "反向传播对端侧设备太重，但只省掉反传还不够，通信和无线资源约束仍然存在。",
+  "method": "用零阶优化减少训练内存压力，再结合设备选择、接收波束成形、功率控制和 Lyapunov 在线决策。",
+  "takeaway": "算法层面的轻量化必须和系统层面的资源调度一起看。",
+  "citation": "Wang, T., Zhou, Y., Shi, Y., Cheng, N., Zhou, H., and Poor, H. V. Zeroth-Order Federated Fine-Tuning for Large AI Models in Resource-Constrained Wireless Networks. IEEE Transactions on Wireless Communications, 2026.",
+  "links": [
+    {
+      "label": "DOI",
+      "url": "https://doi.org/10.1109/TWC.2026.3661365"
+    }
+  ]
+}
