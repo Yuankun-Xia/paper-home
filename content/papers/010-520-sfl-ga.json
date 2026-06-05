@@ -1,0 +1,45 @@
+{
+  "id": "520-sfl-ga",
+  "articleNo": "520",
+  "articleDate": "2026-05-20",
+  "order": 10,
+  "title": "Split Federated Learning 如何用 DDQN + 凸优化联合分配算力与带宽",
+  "type": "论文精读",
+  "level": "深入",
+  "venue": "IEEE TWC",
+  "venueGroup": "IEEE TWC",
+  "paperYear": "2026",
+  "paperName": "Communication-and-Computation Efficient Split Federated Learning in Wireless Networks: Gradient Aggregation and Resource Management",
+  "authors": "Yipeng Liang, Qimei Chen, Rongpeng Li, Guangxu Zhu, Muhammad Kaleem Awan, Hao Jiang",
+  "cover": "assets/cover-sfl-ga.png",
+  "topics": [
+    "sfl",
+    "resource"
+  ],
+  "topicLabels": [
+    "SFL",
+    "DDQN"
+  ],
+  "routes": [
+    "sfl"
+  ],
+  "keywords": [
+    "SFL-GA",
+    "DDQN",
+    "凸优化",
+    "梯度聚合",
+    "切分点",
+    "CCC"
+  ],
+  "summary": "文章重点看 SFL-GA 如何减少 smashed data 频繁传输带来的通信开销，并把切分点、带宽和算力放在同一个优化框架里。",
+  "problem": "传统 SFL 需要频繁上传 smashed data 和下载梯度，在无线网络里通信开销很重。",
+  "method": "在服务器端做 smashed data 梯度聚合，并用 DDQN 处理离散切分点选择、用凸优化处理连续资源分配。",
+  "takeaway": "这是一类可复用的混合优化思路：离散决策交给强化学习，连续资源分配交给凸优化。",
+  "citation": "Liang, Y., Chen, Q., Li, R., Zhu, G., Awan, M. K., and Jiang, H. Communication-and-Computation Efficient Split Federated Learning in Wireless Networks: Gradient Aggregation and Resource Management. IEEE Transactions on Wireless Communications, 25:1981-1995, 2026.",
+  "links": [
+    {
+      "label": "DOI",
+      "url": "https://doi.org/10.1109/TWC.2025.3594006"
+    }
+  ]
+}

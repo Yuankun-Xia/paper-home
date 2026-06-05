@@ -1,0 +1,47 @@
+{
+  "id": "515-fedft-bandwidth",
+  "articleNo": "515",
+  "articleDate": "2026-05-15",
+  "order": 4,
+  "title": "一篇论文看懂 Lyapunov 如何做设备调度和带宽分配",
+  "type": "论文精读",
+  "level": "进阶",
+  "venue": "IEEE TWC",
+  "venueGroup": "IEEE TWC",
+  "paperYear": "2025",
+  "paperName": "Federated Fine-Tuning for Pre-Trained Foundation Models Over Wireless Networks",
+  "authors": "Zixin Wang, Yong Zhou, Yuanming Shi, Khaled B. Letaief",
+  "cover": "assets/cover-lyapunov-scheduling-bandwidth.png",
+  "topics": [
+    "lyapunov",
+    "lora",
+    "resource",
+    "fine-tuning"
+  ],
+  "topicLabels": [
+    "Lyapunov",
+    "LoRA"
+  ],
+  "routes": [
+    "lyapunov",
+    "lora"
+  ],
+  "keywords": [
+    "设备调度",
+    "带宽分配",
+    "Foundation Model",
+    "无线网络",
+    "长期时延"
+  ],
+  "summary": "用一篇具体的无线联邦微调论文说明：每一轮选哪些设备、分多少带宽，如何和长期平均时延约束一起建模。",
+  "problem": "想多选设备提升训练收益，但被选设备越多，上传更新越容易被慢设备拖住。",
+  "method": "用 Lyapunov 把长期时延约束转成在线调度，再联合选择设备集合和带宽分配。",
+  "takeaway": "边缘联邦大模型论文往往不是只优化模型精度，而是把训练收益和系统时延一起写进问题。",
+  "citation": "Wang, Z., Zhou, Y., Shi, Y., and Letaief, K. B. Federated Fine-Tuning for Pre-Trained Foundation Models Over Wireless Networks. IEEE Transactions on Wireless Communications, 24(4):3450-3464, 2025.",
+  "links": [
+    {
+      "label": "DOI",
+      "url": "https://doi.org/10.1109/TWC.2025.3531128"
+    }
+  ]
+}

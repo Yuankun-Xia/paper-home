@@ -1,0 +1,43 @@
+{
+  "id": "522-roba-rank-bandwidth",
+  "articleNo": "522",
+  "articleDate": "2026-05-22",
+  "order": 12,
+  "title": "LoRA Rank 该不该一刀切？异构联邦微调的联合 Rank 与带宽优化",
+  "type": "论文精读",
+  "level": "进阶",
+  "venue": "IEEE TVT",
+  "venueGroup": "IEEE TVT",
+  "paperYear": "2026",
+  "paperName": "Joint Rank Optimization and Bandwidth Allocation for Heterogeneous Federated LoRA Fine-Tuning",
+  "authors": "Yinan Zou, Zixin Wang, Yuanming Shi, Yong Zhou",
+  "cover": "assets/cover-roba-rank-bandwidth.png",
+  "topics": [
+    "lora",
+    "fine-tuning",
+    "resource",
+    "rank"
+  ],
+  "topicLabels": [
+    "Rank 优化",
+    "带宽分配"
+  ],
+  "routes": [
+    "lora",
+    "resource"
+  ],
+  "keywords": [
+    "ROBA",
+    "异构 rank",
+    "带宽分配",
+    "sum-rank 约束",
+    "交替优化",
+    "联邦 LoRA"
+  ],
+  "summary": "这篇短文把 LoRA rank 从固定超参数改写成动态资源，让不同能力和不同信道状态的设备每轮使用不同 rank，并与带宽分配一起优化。",
+  "problem": "边缘设备算力和无线信道高度异构，统一 LoRA rank 往往让弱设备掉队、强设备浪费，也无法利用瞬时信道差异。",
+  "method": "用 sum-rank 约束保证总体表达能力，再通过交替优化分别求解 rank 分配和带宽分配，最小化最慢设备决定的每轮训练时间。",
+  "takeaway": "异构 LoRA 不只要改聚合，也要把 rank、带宽和 straggler effect 放在同一个资源分配问题里看。",
+  "citation": "Zou, Y., Wang, Z., Shi, Y., and Zhou, Y. Joint Rank Optimization and Bandwidth Allocation for Heterogeneous Federated LoRA Fine-Tuning. IEEE Transactions on Vehicular Technology, 75(4):7025-7029, 2026.",
+  "links": []
+}
