@@ -11,7 +11,7 @@
   "paperYear": "2026",
   "paperName": "ZorBA: Zeroth-order Federated Fine-tuning of LLMs with Heterogeneous Block Activation",
   "authors": "Chuiyang Meng, Ming Tang, Vincent W.S. Wong",
-  "cover": "",
+  "cover": "assets/cover-65.png",
   "topics": ["fine-tuning", "resource"],
   "topicLabels": ["零阶优化", "FedFT", "内存效率"],
   "keywords": ["零阶优化", "联邦微调", "异构块激活", "显存约束", "通信压缩"],

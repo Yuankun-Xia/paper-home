@@ -11,7 +11,7 @@
   "paperYear": "2026",
   "paperName": "Privacy Enhancement in Over-the-Air Federated Learning via Adaptive Receive Scaling",
   "authors": "Faeze Moradi Kalarde, Ben Liang, Min Dong, Yahia A. Eldemerdash Ahmed, Ho Ting Cheng",
-  "cover": "",
+  "cover": "assets/cover-67.png",
   "topics": ["resource", "data-heterogeneity"],
   "topicLabels": ["空中计算", "差分隐私", "自适应缩放"],
   "keywords": ["Over-the-Air FL", "差分隐私", "自适应接收缩放", "隐私-收敛平衡", "在线优化"],

@@ -11,7 +11,7 @@
   "paperYear": "2025",
   "paperName": "Tackling Class Imbalance and Client Heterogeneity for Split Federated Learning in Wireless Networks",
   "authors": "Chunfeng Xie, Zhixiong Chen, Wenqiang Yi, Hyundong Shin, Arumugam Nallanathan",
-  "cover": "",
+  "cover": "assets/cover-64.png",
   "topics": ["data-heterogeneity", "resource"],
   "topicLabels": ["Split FL", "类别不平衡", "设备异构"],
   "keywords": ["类别不平衡", "Split Federated Learning", "模型切分", "设备异构", "无线网络"],

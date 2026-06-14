@@ -11,7 +11,7 @@
   "paperYear": "2026",
   "paperName": "Large Language Model-Based Task Offloading and Resource Allocation for Digital Twin Edge Computing Networks",
   "authors": "Qiong Wu, Yu Xie, Pingyi Fan, Dong Qin, Kezhi Wang, Nan Cheng, Khaled B. Letaief",
-  "cover": "",
+  "cover": "assets/cover-610.png",
   "topics": ["resource", "fine-tuning", "intro"],
   "topicLabels": ["DT", "Lyapunov", "LLM"],
   "keywords": ["数字孪生", "Lyapunov优化", "LLM", "In-Context Learning", "MARL", "任务卸载", "资源分配"],

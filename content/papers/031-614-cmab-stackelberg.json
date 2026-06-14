@@ -11,7 +11,7 @@
   "paperYear": "2026",
   "paperName": "Learning to Incentivize: Convergence-Guaranteed Federated Learning via Client Quality Discovery",
   "authors": "Jiajun Wang, Jianxiong Guo, Juncheng Wang, Xingjian Ding, Deying Li, Weili Wu",
-  "cover": "",
+  "cover": "assets/cover-614.png",
   "topics": ["resource", "data-heterogeneity", "fine-tuning"],
   "topicLabels": ["CMAB", "Stackelberg", "激励机制"],
   "keywords": ["客户端选择", "数据质量", "梯度差异", "CMAB", "Stackelberg博弈", "FL收敛", "激励机制"],

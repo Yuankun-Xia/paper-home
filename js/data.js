@@ -1014,7 +1014,7 @@ const papers = [
     "paperYear": "2025",
     "paperName": "Tackling Class Imbalance and Client Heterogeneity for Split Federated Learning in Wireless Networks",
     "authors": "Chunfeng Xie, Zhixiong Chen, Wenqiang Yi, Hyundong Shin, Arumugam Nallanathan",
-    "cover": "",
+    "cover": "assets/cover-64.png",
     "topics": [
       "data-heterogeneity",
       "resource"
@@ -1051,7 +1051,7 @@ const papers = [
     "paperYear": "2026",
     "paperName": "ZorBA: Zeroth-order Federated Fine-tuning of LLMs with Heterogeneous Block Activation",
     "authors": "Chuiyang Meng, Ming Tang, Vincent W.S. Wong",
-    "cover": "",
+    "cover": "assets/cover-65.png",
     "topics": [
       "fine-tuning",
       "resource"
@@ -1088,7 +1088,7 @@ const papers = [
     "paperYear": "2026",
     "paperName": "FedKRSO: Communication and Memory Efficient Federated Fine-Tuning of Large Language Models",
     "authors": "Guohao Yang, Tongle Wu, Yuanxiong Guo, Ying Sun, Yanmin Gong",
-    "cover": "",
+    "cover": "assets/cover-66.png",
     "topics": [
       "fine-tuning",
       "resource"
@@ -1125,7 +1125,7 @@ const papers = [
     "paperYear": "2026",
     "paperName": "Privacy Enhancement in Over-the-Air Federated Learning via Adaptive Receive Scaling",
     "authors": "Faeze Moradi Kalarde, Ben Liang, Min Dong, Yahia A. Eldemerdash Ahmed, Ho Ting Cheng",
-    "cover": "",
+    "cover": "assets/cover-67.png",
     "topics": [
       "resource",
       "data-heterogeneity"
@@ -1162,7 +1162,7 @@ const papers = [
     "paperYear": "2026",
     "paperName": "Large Language Model-Based Task Offloading and Resource Allocation for Digital Twin Edge Computing Networks",
     "authors": "Qiong Wu, Yu Xie, Pingyi Fan, Dong Qin, Kezhi Wang, Nan Cheng, Khaled B. Letaief",
-    "cover": "",
+    "cover": "assets/cover-610.png",
     "topics": [
       "resource",
       "fine-tuning",
@@ -1202,7 +1202,7 @@ const papers = [
     "paperYear": "2025",
     "paperName": "Split Fine-Tuning for Large Language Models in Wireless Networks",
     "authors": "Songge Zhang, Guoliang Cheng, Wen Wu, Xinyu Huang, Lingyang Song, Xuemin Shen",
-    "cover": "",
+    "cover": "assets/cover-611.png",
     "topics": [
       "fine-tuning",
       "resource",
@@ -1241,7 +1241,7 @@ const papers = [
     "paperYear": "2026",
     "paperName": "Learning to Incentivize: Convergence-Guaranteed Federated Learning via Client Quality Discovery",
     "authors": "Jiajun Wang, Jianxiong Guo, Juncheng Wang, Xingjian Ding, Deying Li, Weili Wu",
-    "cover": "",
+    "cover": "assets/cover-614.png",
     "topics": [
       "resource",
       "data-heterogeneity",

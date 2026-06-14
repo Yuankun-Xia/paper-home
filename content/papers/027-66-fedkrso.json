@@ -11,7 +11,7 @@
   "paperYear": "2026",
   "paperName": "FedKRSO: Communication and Memory Efficient Federated Fine-Tuning of Large Language Models",
   "authors": "Guohao Yang, Tongle Wu, Yuanxiong Guo, Ying Sun, Yanmin Gong",
-  "cover": "",
+  "cover": "assets/cover-66.png",
   "topics": ["fine-tuning", "resource"],
   "topicLabels": ["FedFT", "通信压缩", "随机种子"],
   "keywords": ["全参数微调", "随机种子", "通信压缩", "显存效率", "联邦学习"],
