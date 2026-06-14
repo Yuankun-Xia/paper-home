@@ -1000,6 +1000,273 @@ const papers = [
     "takeaway": "参数冻结和功率控制必须联动：冻结减少计算通信量，功率减少中断，两者共享长期能量预算；双时间尺度分解让这类无线 FL 能耗控制可以用闭式解在线执行。",
     "citation": "Ouyang, J., Liu, Y., and Liu, H. A Two-Timescale Approach for Wireless Federated Learning With Parameter Freezing and Power Control. IEEE Trans. Mobile Comput., 24(9), 2025.",
     "links": []
+  },
+  {
+    "id": "64-sfl-imbalance",
+    "articleNo": "64",
+    "articleDate": "2026-06-03",
+    "order": 24,
+    "title": "类别不平衡 + 设备异构 + 模型切分：一个 SFL 框架同时解决三个联邦痛点",
+    "type": "论文精读",
+    "level": "进阶",
+    "venue": "IEEE TWC",
+    "venueGroup": "IEEE TWC",
+    "paperYear": "2025",
+    "paperName": "Tackling Class Imbalance and Client Heterogeneity for Split Federated Learning in Wireless Networks",
+    "authors": "Chunfeng Xie, Zhixiong Chen, Wenqiang Yi, Hyundong Shin, Arumugam Nallanathan",
+    "cover": "",
+    "topics": [
+      "data-heterogeneity",
+      "resource"
+    ],
+    "topicLabels": [
+      "Split FL",
+      "类别不平衡",
+      "设备异构"
+    ],
+    "keywords": [
+      "类别不平衡",
+      "Split Federated Learning",
+      "模型切分",
+      "设备异构",
+      "无线网络"
+    ],
+    "summary": "一个统一的 SFL 框架同时处理类别不平衡（数据侧）、设备异构（算力侧）和模型切分（系统侧）三个问题。",
+    "problem": "类别不平衡导致全局模型偏向多数类，设备异构使统一切分不可行，现有方案各自解决单一问题。",
+    "method": "设计类别感知的损失重加权+自适应模型切分策略，在 SFL 框架下联合优化。",
+    "takeaway": "三个问题（数据、算力、系统）在 SFL 框架下存在耦合——分开解决不如联合优化有效。",
+    "citation": "Xie, C., Chen, Z., Yi, W., Shin, H., and Nallanathan, A. Tackling Class Imbalance and Client Heterogeneity for Split Federated Learning in Wireless Networks. IEEE Trans. Wireless Commun., 24(6), Jun. 2025.",
+    "links": []
+  },
+  {
+    "id": "65-zorba",
+    "articleNo": "65",
+    "articleDate": "2026-06-05",
+    "order": 25,
+    "title": "零阶优化 + 异构块激活：联邦微调 LLM 如何同时省显存和省通信",
+    "type": "论文精读",
+    "level": "进阶",
+    "venue": "IEEE INFOCOM",
+    "venueGroup": "IEEE INFOCOM",
+    "paperYear": "2026",
+    "paperName": "ZorBA: Zeroth-order Federated Fine-tuning of LLMs with Heterogeneous Block Activation",
+    "authors": "Chuiyang Meng, Ming Tang, Vincent W.S. Wong",
+    "cover": "",
+    "topics": [
+      "fine-tuning",
+      "resource"
+    ],
+    "topicLabels": [
+      "零阶优化",
+      "FedFT",
+      "内存效率"
+    ],
+    "keywords": [
+      "零阶优化",
+      "联邦微调",
+      "异构块激活",
+      "显存约束",
+      "通信压缩"
+    ],
+    "summary": "用零阶优化(仅需前向传播)替代一阶反向传播，结合客户端自适应异构块激活——在严格显存和通信约束下实现联邦 LLM 微调。",
+    "problem": "标准 FL+LoRA 仍需保存激活和梯度，显存和通信仍是瓶颈。零阶优化省去反向传播但收敛慢。",
+    "method": "零阶梯度估计(仅需前向)+异构块激活(每设备根据显存容量激活不同层数)，在 FedAvg 框架下聚合。",
+    "takeaway": "零阶优化的内存优势在联邦 LLM 微调中特别适合边缘设备——前向传播的显存远小于反向传播。代价是收敛需要更多轮次。",
+    "citation": "Meng, C., Tang, M., and Wong, V.W.S. ZorBA: Zeroth-order Federated Fine-tuning of LLMs with Heterogeneous Block Activation. In Proc. IEEE INFOCOM, 2026.",
+    "links": []
+  },
+  {
+    "id": "66-fedkrso",
+    "articleNo": "66",
+    "articleDate": "2026-06-05",
+    "order": 26,
+    "title": "K 个随机种子替代全参数传输：FedKRSO 如何让联邦全参数微调的通信和显存降到 LoRA 级别",
+    "type": "论文精读",
+    "level": "进阶",
+    "venue": "IEEE INFOCOM",
+    "venueGroup": "IEEE INFOCOM",
+    "paperYear": "2026",
+    "paperName": "FedKRSO: Communication and Memory Efficient Federated Fine-Tuning of Large Language Models",
+    "authors": "Guohao Yang, Tongle Wu, Yuanxiong Guo, Ying Sun, Yanmin Gong",
+    "cover": "",
+    "topics": [
+      "fine-tuning",
+      "resource"
+    ],
+    "topicLabels": [
+      "FedFT",
+      "通信压缩",
+      "随机种子"
+    ],
+    "keywords": [
+      "全参数微调",
+      "随机种子",
+      "通信压缩",
+      "显存效率",
+      "联邦学习"
+    ],
+    "summary": "用 K 个随机种子+共享随机性替代全参数传输——联邦全参数微调达到 LoRA 级别的通信和显存开销。",
+    "problem": "LoRA 的性能上限低于全参数微调，但全参数微调在联邦场景下通信和显存开销巨大。",
+    "method": "客户端和服务端共享随机种子→生成相同的随机投影矩阵→客户端上传低维投影而非全参数更新→服务端重建。",
+    "takeaway": "共享随机性是压缩 FL 通信的一个精致技巧——投影矩阵不需要传输，因为双方用相同的种子可以重新生成。性能几乎达到全参数微调上限。",
+    "citation": "Yang, G., Wu, T., Guo, Y., Sun, Y., and Gong, Y. FedKRSO: Communication and Memory Efficient Federated Fine-Tuning of Large Language Models. In Proc. IEEE INFOCOM, 2026.",
+    "links": []
+  },
+  {
+    "id": "67-aircomp-dp",
+    "articleNo": "67",
+    "articleDate": "2026-06-07",
+    "order": 27,
+    "title": "空中计算 + 差分隐私：AdaScale 如何用一个标量在线平衡联邦学习的收敛和隐私",
+    "type": "论文精读",
+    "level": "进阶",
+    "venue": "IEEE INFOCOM",
+    "venueGroup": "IEEE INFOCOM",
+    "paperYear": "2026",
+    "paperName": "Privacy Enhancement in Over-the-Air Federated Learning via Adaptive Receive Scaling",
+    "authors": "Faeze Moradi Kalarde, Ben Liang, Min Dong, Yahia A. Eldemerdash Ahmed, Ho Ting Cheng",
+    "cover": "",
+    "topics": [
+      "resource",
+      "data-heterogeneity"
+    ],
+    "topicLabels": [
+      "空中计算",
+      "差分隐私",
+      "自适应缩放"
+    ],
+    "keywords": [
+      "Over-the-Air FL",
+      "差分隐私",
+      "自适应接收缩放",
+      "隐私-收敛平衡",
+      "在线优化"
+    ],
+    "summary": "在 Over-the-Air FL 中，用 AdaScale——一个在线自适应接收端标量缩放因子——动态平衡差分隐私噪声和收敛速度。",
+    "problem": "Over-the-Air FL 的空中聚合天然引入信道噪声，加上 DP 噪声后收敛严重退化。固定缩放因子无法适应时变信道。",
+    "method": "AdaScale：服务器根据本轮信道状态和当前收敛阶段在线调整接收端缩放因子→在不额外增加通信的前提下优化隐私-收敛权衡。",
+    "takeaway": "空中计算场景下的隐私保护不能照搬标准 FL 的方法——信道噪声和 DP 噪声在聚合时叠加，需要联合管理。AdaScale 用一个标量实现这一点。",
+    "citation": "Kalarde, F. M., Liang, B., Dong, M., Ahmed, Y. A. E., and Cheng, H. T. Privacy Enhancement in Over-the-Air Federated Learning via Adaptive Receive Scaling. In Proc. IEEE INFOCOM, 2026.",
+    "links": []
+  },
+  {
+    "id": "610-llm-dt-lyapunov",
+    "articleNo": "610",
+    "articleDate": "2026-06-10",
+    "order": 28,
+    "title": "LLM 替代 MARL + Lyapunov 队列管理：DT 边缘网络中任务卸载与资源分配的新范式",
+    "type": "论文精读",
+    "level": "进阶",
+    "venue": "IEEE TMC",
+    "venueGroup": "IEEE TMC",
+    "paperYear": "2026",
+    "paperName": "Large Language Model-Based Task Offloading and Resource Allocation for Digital Twin Edge Computing Networks",
+    "authors": "Qiong Wu, Yu Xie, Pingyi Fan, Dong Qin, Kezhi Wang, Nan Cheng, Khaled B. Letaief",
+    "cover": "",
+    "topics": [
+      "resource",
+      "fine-tuning",
+      "intro"
+    ],
+    "topicLabels": [
+      "DT",
+      "Lyapunov",
+      "LLM"
+    ],
+    "keywords": [
+      "数字孪生",
+      "Lyapunov优化",
+      "LLM",
+      "In-Context Learning",
+      "MARL",
+      "任务卸载",
+      "资源分配"
+    ],
+    "summary": "Lyapunov 将长期队列稳定约束转为每轮可解问题，LLM in-context learning 零训练替代 MARL 做任务卸载——两个工具的协作比各自单独使用更有范式意义。",
+    "problem": "MARL 每次换场景需要重新训练，泛化差。LLM 推理时延高，不适合毫秒级实时调度。",
+    "method": "Lyapunov 漂移+惩罚把长期队列稳定转为每轮短期决策，LLM 从 MARL 生成的 case set 中检索相似案例进行 in-context 推理。",
+    "takeaway": "LLM 替代 DRL 适合秒级决策场景（任务卸载），不适合毫秒级实时控制。Lyapunov 简化后的决策空间降低了 LLM 推理难度。",
+    "citation": "Wu, Q., Xie, Y., Fan, P., Qin, D., Wang, K., Cheng, N., and Letaief, K. B. Large Language Model-Based Task Offloading and Resource Allocation for Digital Twin Edge Computing Networks. IEEE Trans. Mobile Comput., 25(7), Jul. 2026.",
+    "links": []
+  },
+  {
+    "id": "611-split-ft",
+    "articleNo": "611",
+    "articleDate": "2026-06-11",
+    "order": 29,
+    "title": "Split Fine-Tuning：拆分 LLM + 激活压缩 + 双时间尺度资源管理",
+    "type": "论文精读",
+    "level": "进阶",
+    "venue": "IEEE JSTSP",
+    "venueGroup": "IEEE JSTSP",
+    "paperYear": "2025",
+    "paperName": "Split Fine-Tuning for Large Language Models in Wireless Networks",
+    "authors": "Songge Zhang, Guoliang Cheng, Wen Wu, Xinyu Huang, Lingyang Song, Xuemin Shen",
+    "cover": "",
+    "topics": [
+      "fine-tuning",
+      "resource",
+      "data-heterogeneity"
+    ],
+    "topicLabels": [
+      "拆分微调",
+      "LoRA",
+      "资源管理"
+    ],
+    "keywords": [
+      "Split Learning",
+      "LoRA微调",
+      "激活压缩",
+      "Augmented Lagrangian",
+      "SQP",
+      "双时间尺度"
+    ],
+    "summary": "将 LLM 拆分到设备端和服务端、用 Top-K 稀疏+随机量化+无损编码级联压缩中间激活、通过 Augmented Lagrangian + SQP 双时间尺度求解 MINLP。",
+    "problem": "移动设备显存不足运行完整 LLM，拆分后中间激活通信量可达 2.81GB/epoch。",
+    "method": "SFT 拆分 Transformer 层+并行设备端训练，Top-K 稀疏→随机量化→Golomb 编码压缩，P→P1(AL)+P2(SQP)双时间尺度分解求解。",
+    "takeaway": "拆分+压缩+双时间尺度优化的组合是解决移动端 LLM 微调瓶颈的系统方案。PL 条件下的收敛上界与压缩参数之间的定量关系仍是开放问题。",
+    "citation": "Zhang, S., Cheng, G., Wu, W., Huang, X., Song, L., and Shen, X. Split Fine-Tuning for Large Language Models in Wireless Networks. IEEE J. Sel. Topics Signal Process., 19(7), Oct. 2025.",
+    "links": []
+  },
+  {
+    "id": "614-cmab-stackelberg",
+    "articleNo": "614",
+    "articleDate": "2026-06-14",
+    "order": 30,
+    "title": "CMAB + Stackelberg：联邦学习客户端质量发现与收敛保证激励",
+    "type": "论文精读",
+    "level": "进阶",
+    "venue": "IEEE TMC",
+    "venueGroup": "IEEE TMC",
+    "paperYear": "2026",
+    "paperName": "Learning to Incentivize: Convergence-Guaranteed Federated Learning via Client Quality Discovery",
+    "authors": "Jiajun Wang, Jianxiong Guo, Juncheng Wang, Xingjian Ding, Deying Li, Weili Wu",
+    "cover": "",
+    "topics": [
+      "resource",
+      "data-heterogeneity",
+      "fine-tuning"
+    ],
+    "topicLabels": [
+      "CMAB",
+      "Stackelberg",
+      "激励机制"
+    ],
+    "keywords": [
+      "客户端选择",
+      "数据质量",
+      "梯度差异",
+      "CMAB",
+      "Stackelberg博弈",
+      "FL收敛",
+      "激励机制"
+    ],
+    "summary": "梯度差异 δ_i^t(理论等价 EMD)度量数据质量→CMAB 在线选择高质量客户端→FL 收敛上界嵌入 Stackelberg 效用函数→逆向归纳+KKT 证明非凸均衡存在唯一。",
+    "problem": "聚合器无法评估客户端数据质量，高质量客户端缺乏贡献数据的激励，现有激励机制不与 FL 收敛理论挂钩。",
+    "method": "CUCB 探索-利用选择客户端，Stackelberg 博弈中聚合器效用嵌入收敛上界，逆向归纳+KKT 条件证明均衡存在唯一(跟随者闭式+领导者 Newton 法)。",
+    "takeaway": "三层理论(bandit regret + FL convergence + game equilibrium)通过 δ_i^t 接口变量耦合。非凸均衡的证明路径比闭式解本身更有方法论迁移价值。",
+    "citation": "Wang, J., Guo, J., Wang, J., Ding, X., Li, D., and Wu, W. Learning to Incentivize: Convergence-Guaranteed Federated Learning via Client Quality Discovery. IEEE Trans. Mobile Comput., 25(5), pp. 6767-6783, May 2026.",
+    "links": []
   }
 ];
 
@@ -1066,7 +1333,8 @@ const routes = [
     "paperIds": [
       "512-edge-ai",
       "513-lora-edge",
-      "514-lyapunov-intro"
+      "514-lyapunov-intro",
+      "610-llm-dt-lyapunov"
     ]
   },
   {
@@ -1136,7 +1404,14 @@ const routes = [
       "531-fed-hello",
       "61-aircomp-lora-disaster",
       "62-eh-quantization",
-      "63-freezing-power"
+      "63-freezing-power",
+      "64-sfl-imbalance",
+      "65-zorba",
+      "66-fedkrso",
+      "67-aircomp-dp",
+      "610-llm-dt-lyapunov",
+      "611-split-ft",
+      "614-cmab-stackelberg"
     ]
   }
 ];
