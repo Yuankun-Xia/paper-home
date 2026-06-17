@@ -1267,6 +1267,51 @@ const papers = [
     "takeaway": "三层理论(bandit regret + FL convergence + game equilibrium)通过 δ_i^t 接口变量耦合。非凸均衡的证明路径比闭式解本身更有方法论迁移价值。",
     "citation": "Wang, J., Guo, J., Wang, J., Ding, X., Li, D., and Wu, W. Learning to Incentivize: Convergence-Guaranteed Federated Learning via Client Quality Discovery. IEEE Trans. Mobile Comput., 25(5), pp. 6767-6783, May 2026.",
     "links": []
+  },
+  {
+    "id": "617-fedkd",
+    "articleNo": "617",
+    "articleDate": "2026-06-17",
+    "order": 31,
+    "title": "FedKD：Tucker 张量分解 + 对抗蒸馏，大模型与小模型如何联合联邦微调",
+    "type": "论文精读",
+    "level": "进阶",
+    "venue": "IEEE TMC",
+    "venueGroup": "IEEE TMC",
+    "paperYear": "2026",
+    "paperName": "FedKD: A Fine-Grained Parameter-Efficient Federated Co-Tuning Framework With Knowledge Decoupling for Large and Small Foundation Models",
+    "authors": "Min Gao, Haifeng Zheng, Jiayuan Lin, Xinxin Feng, Youjia Chen",
+    "cover": "assets/cover-617.png",
+    "topics": [
+      "fine-tuning",
+      "resource",
+      "data-heterogeneity"
+    ],
+    "topicLabels": [
+      "FedFM",
+      "Tucker",
+      "知识解耦"
+    ],
+    "keywords": [
+      "Tucker分解",
+      "知识解耦",
+      "对抗蒸馏",
+      "云边协同",
+      "模型异构",
+      "PTLoRA",
+      "KDMD"
+    ],
+    "summary": "perTucker 张量分解显式分离全局/局部知识（layer-sharing 保跨层一致性）→ KDMD 两阶段对抗蒸馏隐式解耦（判别器 + GRL 过滤节点特有知识）→ 同时解决模型异构（云大边小）和数据异构（模态+类别）",
+    "problem": "FedFM 面临模型异构（云大边小）和数据异构的双重挑战。FedAvg 失效（参数不共享），知识蒸馏传递纠缠知识（通用+节点特有+噪声）反而恶化泛化。",
+    "method": "PTLoRA 将 L 层权重堆叠为三维张量，perTucker 分解为全局+局部组件（layer-sharing 保一致性）。KDMD：边→云对抗蒸馏（判别器 D + GRL 过滤节点特有知识），云→边 KL 蒸馏弥补模型差距。三块交替优化，backbone 全程冻结。",
+    "takeaway": "FedKD 的本质是把 FedFM 的聚合从参数空间对齐（FedAvg）切换到知识空间对齐（蒸馏），对抗判别器过滤是使得知识解耦可行的关键——这可能是异构联邦的标配方案。",
+    "citation": "Gao, M., Zheng, H., Lin, J., Feng, X., and Chen, Y. FedKD: A Fine-Grained Parameter-Efficient Federated Co-Tuning Framework With Knowledge Decoupling for Large and Small Foundation Models. IEEE Trans. Mobile Comput., Early Access, 2026.",
+    "links": [
+      {
+        "label": "Code",
+        "url": "https://github.com/Aprilmin/FedKD"
+      }
+    ]
   }
 ];
 
@@ -1411,7 +1456,8 @@ const routes = [
       "67-aircomp-dp",
       "610-llm-dt-lyapunov",
       "611-split-ft",
-      "614-cmab-stackelberg"
+      "614-cmab-stackelberg",
+      "617-fedkd"
     ]
   }
 ];
