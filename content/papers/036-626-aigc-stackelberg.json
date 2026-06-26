@@ -1,0 +1,38 @@
+{
+  "id": "626-aigc-stackelberg",
+  "articleNo": "626",
+  "articleDate": "2026-06-26",
+  "order": 35,
+  "title": "Stackelberg + PPO：车载边缘 AIGC 的信息不对称激励定价",
+  "type": "论文精读",
+  "level": "进阶",
+  "venue": "IEEE TVT",
+  "venueGroup": "IEEE TVT",
+  "paperYear": "2026",
+  "paperName": "A Learning-Based Incentive Mechanism for Mobile AIGC Service in Vehicular Edge Computing",
+  "authors": "Xiangyu Li, Honglong Chen, Zhichen Ni, Haiyang Sun, Yubin Yang, Liantao Wu, Feng Xia",
+  "cover": "assets/cover-626.png",
+  "topics": [
+    "resource",
+    "data-heterogeneity"
+  ],
+  "topicLabels": [
+    "AIGC",
+    "Stackelberg",
+    "PPO"
+  ],
+  "keywords": [
+    "AIGC",
+    "车载边缘计算",
+    "Stackelberg博弈",
+    "PPO",
+    "信息不对称",
+    "激励定价"
+  ],
+  "summary": "停车车辆闲置 GPU/CPU 作移动 AIGC 服务器→Stackelberg: 边服务器定(p_n,q_n)计算+通信奖励→车辆决定(f_m,n,r_m,n)→完全信息均衡唯一→PVRP(PPO)学定价, 私有参数不暴露。",
+  "problem": "边服务器 AIGC 推理过载、车辆闲置算力未被利用、车辆私有参数(dwell time/算力)不愿披露。",
+  "method": "多阶段 Stackelberg(计算+通信双维定价+线性配对概率 ρ_m,n=p_n/Σp_k)→PPO(Gaussian policy+Eq.46 奖励+Eq.47 学习目标)。",
+  "takeaway": "AIGC 场景特有的通信回传定价 q_n 是增量。Stackelberg+PPO vs CMAB+Stackelberg(614): bandit 显式推断参数 vs PPO 隐式映射策略。",
+  "citation": "Li, X., Chen, H., Ni, Z., Sun, H., Yang, Y., Wu, L., and Xia, F. A Learning-Based Incentive Mechanism for Mobile AIGC Service in Vehicular Edge Computing. IEEE Trans. Vehicular Technology, Early Access, 2026.",
+  "links": []
+}

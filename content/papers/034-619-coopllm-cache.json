@@ -1,0 +1,43 @@
+{
+  "id": "619-coopllm-cache",
+  "articleNo": "619",
+  "articleDate": "2026-06-18",
+  "order": 33,
+  "title": "CoopLLM-Cache：LLM 做多基站协作缓存——SFT+GRPO 两阶段对齐 + 零样本迁移",
+  "type": "论文精读",
+  "level": "进阶",
+  "venue": "IEEE TMC",
+  "venueGroup": "IEEE TMC",
+  "paperYear": "2026",
+  "paperName": "Cooperative Edge Caching with Large Language Model in Wireless Networks",
+  "authors": "Ning Yang, Wentao Wang, Lingtao Ouyang, Haijun Zhang",
+  "cover": "assets/cover-619.png",
+  "topics": [
+    "resource",
+    "intro"
+  ],
+  "topicLabels": [
+    "LLM决策",
+    "边缘缓存",
+    "GRPO"
+  ],
+  "keywords": [
+    "LLM Agent",
+    "边缘缓存",
+    "SFT",
+    "GRPO",
+    "冻结轨迹评估",
+    "零样本迁移"
+  ],
+  "summary": "LLM 作多基站协作缓存控制器：状态→文本 prompt→结构化替换指令→严格解析校验。SFT 专家轨迹+GRPO 机会感知奖励→命中率达穷举 98.9%(0.610 vs 0.617)，零样本迁移四维度。",
+  "problem": "多基站缓存决策耦合、DRL 换场景必重训、文本接口天然支持变长输入。",
+  "method": "SFT(QLoRA r=64, 仅满缓存样本)→GRPO(前瞻价值 H_H + Delta 增益 + 格式/机会惩罚 + 组内归一化)。Qwen2.5-7B-Instruct。",
+  "takeaway": "LLM 替代 DRL 的根源是文本接口的输入结构不变性而非推理能力差异。SFT 提供语法后 GRPO 才能生效——非法率零→非零 Delta 信号。",
+  "citation": "Yang, N., Wang, W., Ouyang, L., and Zhang, H. Cooperative Edge Caching with Large Language Model in Wireless Networks. IEEE Trans. Mobile Comput., Early Access, 2026.",
+  "links": [
+    {
+      "label": "Code",
+      "url": "https://github.com/gracefulning/CoopLLM-Cache"
+    }
+  ]
+}

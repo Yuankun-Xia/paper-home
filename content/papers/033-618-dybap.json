@@ -1,0 +1,38 @@
+{
+  "id": "618-dybap",
+  "articleNo": "618",
+  "articleDate": "2026-06-18",
+  "order": 32,
+  "title": "DyBAP：动态批处理 + 自适应划分——端-边-云三级 LLM 推理部署",
+  "type": "论文精读",
+  "level": "进阶",
+  "venue": "IEEE TMC",
+  "venueGroup": "IEEE TMC",
+  "paperYear": "2026",
+  "paperName": "Joint Optimization of Dynamic Batching and Adaptive Partitioning for Distributed LLMs Inference in Mobile Edge Computing",
+  "authors": "Tong Zheng, Yuanguo Bi, Guangjie Han, Tianao Xiang, Lexi Xu, Qiang He, Liang Zhao",
+  "cover": "assets/cover-618.png",
+  "topics": [
+    "fine-tuning",
+    "resource"
+  ],
+  "topicLabels": [
+    "LLM推理",
+    "边缘部署",
+    "MARL"
+  ],
+  "keywords": [
+    "LLM推理",
+    "动态批处理",
+    "自适应划分",
+    "MARL",
+    "Pipeline并行",
+    "端边云协作"
+  ],
+  "summary": "GPU 幂律拟合 + CPU Amdahl 修正建模计算延迟→动态批融合自适应控制 batch→MARL 逐 block 决策→延迟-17.94%，内存-11.12%。",
+  "problem": "LLM 边缘推理：batch size 悖论、block 分配 NP-hard、移动性使问题在线化。",
+  "method": "动态批融合（效益-成本在线决策）+ MARL 块感知分区（POMDP+移动感知+渐进信用分配+PPO/GAE）。",
+  "takeaway": "batch size 和 partition 耦合——先松弛内存约束再优化延迟的分层策略在高维整数规划中实用。MARL 替代 MILP 是移动场景的合理选择。",
+  "citation": "Zheng, T., Bi, Y., Han, G., Xiang, T., Xu, L., He, Q., and Zhao, L. DyBAP: Joint Optimization of Dynamic Batching and Adaptive Partitioning for Distributed LLMs Inference in MEC. IEEE Trans. Mobile Comput., 25(6), pp.8747-8763, Jun. 2026.",
+  "links": []
+}

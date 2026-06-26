@@ -1312,6 +1312,163 @@ const papers = [
         "url": "https://github.com/Aprilmin/FedKD"
       }
     ]
+  },
+  {
+    "id": "618-dybap",
+    "articleNo": "618",
+    "articleDate": "2026-06-18",
+    "order": 32,
+    "title": "DyBAP：动态批处理 + 自适应划分——端-边-云三级 LLM 推理部署",
+    "type": "论文精读",
+    "level": "进阶",
+    "venue": "IEEE TMC",
+    "venueGroup": "IEEE TMC",
+    "paperYear": "2026",
+    "paperName": "Joint Optimization of Dynamic Batching and Adaptive Partitioning for Distributed LLMs Inference in Mobile Edge Computing",
+    "authors": "Tong Zheng, Yuanguo Bi, Guangjie Han, Tianao Xiang, Lexi Xu, Qiang He, Liang Zhao",
+    "cover": "assets/cover-618.png",
+    "topics": [
+      "fine-tuning",
+      "resource"
+    ],
+    "topicLabels": [
+      "LLM推理",
+      "边缘部署",
+      "MARL"
+    ],
+    "keywords": [
+      "LLM推理",
+      "动态批处理",
+      "自适应划分",
+      "MARL",
+      "Pipeline并行",
+      "端边云协作"
+    ],
+    "summary": "GPU 幂律拟合 + CPU Amdahl 修正建模计算延迟→动态批融合自适应控制 batch→MARL 逐 block 决策→延迟-17.94%，内存-11.12%。",
+    "problem": "LLM 边缘推理：batch size 悖论、block 分配 NP-hard、移动性使问题在线化。",
+    "method": "动态批融合（效益-成本在线决策）+ MARL 块感知分区（POMDP+移动感知+渐进信用分配+PPO/GAE）。",
+    "takeaway": "batch size 和 partition 耦合——先松弛内存约束再优化延迟的分层策略在高维整数规划中实用。MARL 替代 MILP 是移动场景的合理选择。",
+    "citation": "Zheng, T., Bi, Y., Han, G., Xiang, T., Xu, L., He, Q., and Zhao, L. DyBAP: Joint Optimization of Dynamic Batching and Adaptive Partitioning for Distributed LLMs Inference in MEC. IEEE Trans. Mobile Comput., 25(6), pp.8747-8763, Jun. 2026.",
+    "links": []
+  },
+  {
+    "id": "619-coopllm-cache",
+    "articleNo": "619",
+    "articleDate": "2026-06-18",
+    "order": 33,
+    "title": "CoopLLM-Cache：LLM 做多基站协作缓存——SFT+GRPO 两阶段对齐 + 零样本迁移",
+    "type": "论文精读",
+    "level": "进阶",
+    "venue": "IEEE TMC",
+    "venueGroup": "IEEE TMC",
+    "paperYear": "2026",
+    "paperName": "Cooperative Edge Caching with Large Language Model in Wireless Networks",
+    "authors": "Ning Yang, Wentao Wang, Lingtao Ouyang, Haijun Zhang",
+    "cover": "assets/cover-619.png",
+    "topics": [
+      "resource",
+      "intro"
+    ],
+    "topicLabels": [
+      "LLM决策",
+      "边缘缓存",
+      "GRPO"
+    ],
+    "keywords": [
+      "LLM Agent",
+      "边缘缓存",
+      "SFT",
+      "GRPO",
+      "冻结轨迹评估",
+      "零样本迁移"
+    ],
+    "summary": "LLM 作多基站协作缓存控制器：状态→文本 prompt→结构化替换指令→严格解析校验。SFT 专家轨迹+GRPO 机会感知奖励→命中率达穷举 98.9%(0.610 vs 0.617)，零样本迁移四维度。",
+    "problem": "多基站缓存决策耦合、DRL 换场景必重训、文本接口天然支持变长输入。",
+    "method": "SFT(QLoRA r=64, 仅满缓存样本)→GRPO(前瞻价值 H_H + Delta 增益 + 格式/机会惩罚 + 组内归一化)。Qwen2.5-7B-Instruct。",
+    "takeaway": "LLM 替代 DRL 的根源是文本接口的输入结构不变性而非推理能力差异。SFT 提供语法后 GRPO 才能生效——非法率零→非零 Delta 信号。",
+    "citation": "Yang, N., Wang, W., Ouyang, L., and Zhang, H. Cooperative Edge Caching with Large Language Model in Wireless Networks. IEEE Trans. Mobile Comput., Early Access, 2026.",
+    "links": [
+      {
+        "label": "Code",
+        "url": "https://github.com/gracefulning/CoopLLM-Cache"
+      }
+    ]
+  },
+  {
+    "id": "620-lyapunov-qmix",
+    "articleNo": "620",
+    "articleDate": "2026-06-19",
+    "order": 34,
+    "title": "Lyapunov + QMIX：细粒度逐层划分 + 多智能体边缘推理加速",
+    "type": "论文精读",
+    "level": "进阶",
+    "venue": "IEEE TMC",
+    "venueGroup": "IEEE TMC",
+    "paperYear": "2026",
+    "paperName": "Adaptive Inference Acceleration with Fine-Grained Model Partitioning for Mobile Edge Intelligence",
+    "authors": "Peng Wang, Long Huang, Wen Sun, Yi Yang, Dusit Niyato, Dapeng Oliver Wu",
+    "cover": "assets/cover-620.png",
+    "topics": [
+      "resource",
+      "fine-tuning"
+    ],
+    "topicLabels": [
+      "Lyapunov",
+      "QMIX",
+      "推理加速"
+    ],
+    "keywords": [
+      "Lyapunov优化",
+      "QMIX",
+      "细粒度划分",
+      "多智能体RL",
+      "队列稳定",
+      "推理卸载"
+    ],
+    "summary": "逐层置信度分数 vs 阈值触发卸载→三层队列动力学→Lyapunov 漂移+惩罚(P1→P2, V=1 最优)→QMIX mixing network 协作求解→延迟降 68-72%，4 种 DNN 精度不变。",
+    "problem": "DNN 推理一刀切分、队列不稳定→实时性崩溃。Lyapunov 解耦长期约束、QMIX 解决多 agent 竞争。",
+    "method": "Lyapunov drift+penalty(V=1)+QMIX(mixing network 非负单调约束+经验回放+交替更新)。4 种 DNN(ResNet18/GoogleNet/AlexNet/VGG16)。",
+    "takeaway": "Lyapunov+MARL 共享范式(与 610 同)。QMIX 单调性在多重耦合场景下可能不成立。精度不变意味着无法作为调度优化的信号。",
+    "citation": "Wang, P., Huang, L., Sun, W., Yang, Y., Niyato, D., and Wu, D.O. Adaptive Inference Acceleration with Fine-Grained Model Partitioning for Mobile Edge Intelligence. IEEE Trans. Mobile Comput., Early Access, 2026.",
+    "links": []
+  },
+  {
+    "id": "626-aigc-stackelberg",
+    "articleNo": "626",
+    "articleDate": "2026-06-26",
+    "order": 35,
+    "title": "Stackelberg + PPO：车载边缘 AIGC 的信息不对称激励定价",
+    "type": "论文精读",
+    "level": "进阶",
+    "venue": "IEEE TVT",
+    "venueGroup": "IEEE TVT",
+    "paperYear": "2026",
+    "paperName": "A Learning-Based Incentive Mechanism for Mobile AIGC Service in Vehicular Edge Computing",
+    "authors": "Xiangyu Li, Honglong Chen, Zhichen Ni, Haiyang Sun, Yubin Yang, Liantao Wu, Feng Xia",
+    "cover": "assets/cover-626.png",
+    "topics": [
+      "resource",
+      "data-heterogeneity"
+    ],
+    "topicLabels": [
+      "AIGC",
+      "Stackelberg",
+      "PPO"
+    ],
+    "keywords": [
+      "AIGC",
+      "车载边缘计算",
+      "Stackelberg博弈",
+      "PPO",
+      "信息不对称",
+      "激励定价"
+    ],
+    "summary": "停车车辆闲置 GPU/CPU 作移动 AIGC 服务器→Stackelberg: 边服务器定(p_n,q_n)计算+通信奖励→车辆决定(f_m,n,r_m,n)→完全信息均衡唯一→PVRP(PPO)学定价, 私有参数不暴露。",
+    "problem": "边服务器 AIGC 推理过载、车辆闲置算力未被利用、车辆私有参数(dwell time/算力)不愿披露。",
+    "method": "多阶段 Stackelberg(计算+通信双维定价+线性配对概率 ρ_m,n=p_n/Σp_k)→PPO(Gaussian policy+Eq.46 奖励+Eq.47 学习目标)。",
+    "takeaway": "AIGC 场景特有的通信回传定价 q_n 是增量。Stackelberg+PPO vs CMAB+Stackelberg(614): bandit 显式推断参数 vs PPO 隐式映射策略。",
+    "citation": "Li, X., Chen, H., Ni, Z., Sun, H., Yang, Y., Wu, L., and Xia, F. A Learning-Based Incentive Mechanism for Mobile AIGC Service in Vehicular Edge Computing. IEEE Trans. Vehicular Technology, Early Access, 2026.",
+    "links": []
   }
 ];
 
@@ -1457,7 +1614,11 @@ const routes = [
       "610-llm-dt-lyapunov",
       "611-split-ft",
       "614-cmab-stackelberg",
-      "617-fedkd"
+      "617-fedkd",
+      "618-dybap",
+      "619-coopllm-cache",
+      "620-lyapunov-qmix",
+      "626-aigc-stackelberg"
     ]
   }
 ];
