@@ -1,7 +1,7 @@
 {
   "id": "72-hybridflow",
-  "articleNo": "72",
-  "articleDate": "2026-07-01",
+  "articleNo": "79",
+  "articleDate": "2026-07-09",
   "order": 37,
   "title": "HybridFlow：DAG分解+自适应路由——边云协作LLM推理的效费比最优",
   "type": "论文精读",
@@ -11,7 +11,7 @@
   "paperYear": "2026",
   "paperName": "HybridFlow: Resource-Adaptive Subtask Routing for Efficient Edge-Cloud LLM Inference",
   "authors": "Jiangwen Dong, Jiayu Li, Tianhang Zheng, Wanyu Lin",
-  "cover": "assets/cover-72.png",
+  "cover": "assets/cover-79.png",
   "topics": [
     "fine-tuning",
     "resource"

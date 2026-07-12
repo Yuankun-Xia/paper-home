@@ -1,0 +1,43 @@
+{
+  "id": "627-prince",
+  "articleNo": "627",
+  "articleDate": "2026-06-27",
+  "order": 40,
+  "title": "PRINCE：多租户 SFL + 拥堵博弈，FM 微调的收敛界驱动激励定价",
+  "type": "论文精读",
+  "level": "进阶",
+  "venue": "IEEE/ACM TON",
+  "venueGroup": "IEEE/ACM TON",
+  "paperYear": "2026",
+  "paperName": "Incentivizing Multi-Tenant Split Federated Learning for Foundation Models at the Network Edge",
+  "authors": "Songyuan Li, Jia Hu, Geyong Min, Haojun Huang",
+  "cover": "",
+  "topics": [
+    "fine-tuning",
+    "data-heterogeneity"
+  ],
+  "topicLabels": [
+    "多租户SFL",
+    "拥堵博弈",
+    "Stackelberg"
+  ],
+  "keywords": [
+    "多租户SFL",
+    "拥堵博弈",
+    "Stackelberg均衡",
+    "去偏聚合",
+    "收敛上界",
+    "PRINCE"
+  ],
+  "summary": "多租户SFL+去偏聚合(参与频率逆加权)+SFL收敛上界(量化q_i,j边际贡献)+拥堵博弈+Stackelberg均衡→四种FM(LLaMA/BERT/ViT/Whisper)加速最高3.07x。",
+  "problem": "多租户SFL:独立设备参与导致FM偏置、设备贡献事前不可知、租户间设备竞争。",
+  "method": "去偏聚合+收敛上界+拥堵博弈(势博弈有限改进性质)+多领导者多跟随者Stackelberg+PRINCE去中心化算法。",
+  "takeaway": "先bound再定价的完整闭环。拥堵博弈势函数天然保证均衡存在+better-response收敛。",
+  "citation": "Li, S., Hu, J., Min, G., and Huang, H. PRINCE: Incentivizing Multi-Tenant SFL for Foundation Models at the Network Edge. IEEE/ACM Trans. Networking, 34, 2026.",
+  "links": [
+    {
+      "label": "Code",
+      "url": "https://github.com/songyuanli/AERIA"
+    }
+  ]
+}

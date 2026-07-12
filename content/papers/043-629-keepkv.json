@@ -1,0 +1,43 @@
+{
+  "id": "629-keepkv",
+  "articleNo": "629",
+  "articleDate": "2026-06-29",
+  "order": 42,
+  "title": "KeepKV：单步无损KV Cache压缩,Electoral Votes+ZIP-Merging",
+  "type": "论文精读",
+  "level": "进阶",
+  "venue": "AAAI",
+  "venueGroup": "AAAI",
+  "paperYear": "2026",
+  "paperName": "KeepKV: Achieving Periodic Lossless KV Cache Compression for Efficient LLM Inference",
+  "authors": "Yuxuan Tian, Zihan Wang, Yebo Peng et al.",
+  "cover": "",
+  "topics": [
+    "fine-tuning",
+    "resource"
+  ],
+  "topicLabels": [
+    "KV Cache",
+    "无损压缩",
+    "Attention Sag"
+  ],
+  "keywords": [
+    "KV Cache",
+    "无损压缩",
+    "Electoral Votes",
+    "ZIP-Merging",
+    "Attention Sag",
+    "LLM推理"
+  ],
+  "summary": "凸组合merging→Attention Sag→Electoral Votes(修正分数权重)+ZIP-Merging(对数缩放kr)→单步无损+EMA多步扩展→10%预算维持质量,吞吐>2x。",
+  "problem": "KV cache增长到320GB(LLaMA3-70B),eviction永久丢失信息,merging有Attention Sag。",
+  "method": "Electoral Votes(p_r=p_e+p_c)+ZIP-Merging(对数缩放k_r,动态w_e=p_e s_e^t)+EMA预测s_t^i+周期性外存刷新。",
+  "takeaway": "KV Cache压缩从heuristic到guaranteed的方法论升级。单步无损→多步有界的理论保证。",
+  "citation": "Tian, Y., Wang, Z., Peng, Y. et al. KeepKV: Achieving Periodic Lossless KV Cache Compression. Proc. AAAI, 2026.",
+  "links": [
+    {
+      "label": "Code",
+      "url": "https://github.com/kkvcache/KeepKV"
+    }
+  ]
+}

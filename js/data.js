@@ -1472,8 +1472,8 @@ const papers = [
   },
   {
     "id": "72-hybridflow",
-    "articleNo": "72",
-    "articleDate": "2026-07-01",
+    "articleNo": "79",
+    "articleDate": "2026-07-09",
     "order": 37,
     "title": "HybridFlow：DAG分解+自适应路由——边云协作LLM推理的效费比最优",
     "type": "论文精读",
@@ -1483,7 +1483,7 @@ const papers = [
     "paperYear": "2026",
     "paperName": "HybridFlow: Resource-Adaptive Subtask Routing for Efficient Edge-Cloud LLM Inference",
     "authors": "Jiangwen Dong, Jiayu Li, Tianhang Zheng, Wanyu Lin",
-    "cover": "assets/cover-72.png",
+    "cover": "assets/cover-79.png",
     "topics": [
       "fine-tuning",
       "resource"
@@ -1526,7 +1526,7 @@ const papers = [
     "paperYear": "2026",
     "paperName": "Don't Reinvent the Wheel, Just Realign the Spokes: Resource-Efficient Federated Fine-Tuning via Rank-Wise Expert Assembly",
     "authors": "Yebo Wu, Jingguang Li, Zhijiang Guo, Li Li",
-    "cover": "assets/cover-710.png",
+    "cover": "",
     "topics": [
       "fine-tuning",
       "resource"
@@ -1568,7 +1568,7 @@ const papers = [
     "paperYear": "2026",
     "paperName": "Heterogeneous Customizable Personalized Federated Fine-Tuning Approach for Large Language Models",
     "authors": "Xin Tong, Baojiang Cui",
-    "cover": "assets/cover-712.png",
+    "cover": "",
     "topics": [
       "fine-tuning",
       "data-heterogeneity"
@@ -1594,6 +1594,135 @@ const papers = [
       {
         "label": "Code",
         "url": "https://github.com/tongxin-tx/Het-CPFLoRA"
+      }
+    ]
+  },
+  {
+    "id": "627-prince",
+    "articleNo": "627",
+    "articleDate": "2026-06-27",
+    "order": 40,
+    "title": "PRINCE：多租户 SFL + 拥堵博弈，FM 微调的收敛界驱动激励定价",
+    "type": "论文精读",
+    "level": "进阶",
+    "venue": "IEEE/ACM TON",
+    "venueGroup": "IEEE/ACM TON",
+    "paperYear": "2026",
+    "paperName": "Incentivizing Multi-Tenant Split Federated Learning for Foundation Models at the Network Edge",
+    "authors": "Songyuan Li, Jia Hu, Geyong Min, Haojun Huang",
+    "cover": "",
+    "topics": [
+      "fine-tuning",
+      "data-heterogeneity"
+    ],
+    "topicLabels": [
+      "多租户SFL",
+      "拥堵博弈",
+      "Stackelberg"
+    ],
+    "keywords": [
+      "多租户SFL",
+      "拥堵博弈",
+      "Stackelberg均衡",
+      "去偏聚合",
+      "收敛上界",
+      "PRINCE"
+    ],
+    "summary": "多租户SFL+去偏聚合(参与频率逆加权)+SFL收敛上界(量化q_i,j边际贡献)+拥堵博弈+Stackelberg均衡→四种FM(LLaMA/BERT/ViT/Whisper)加速最高3.07x。",
+    "problem": "多租户SFL:独立设备参与导致FM偏置、设备贡献事前不可知、租户间设备竞争。",
+    "method": "去偏聚合+收敛上界+拥堵博弈(势博弈有限改进性质)+多领导者多跟随者Stackelberg+PRINCE去中心化算法。",
+    "takeaway": "先bound再定价的完整闭环。拥堵博弈势函数天然保证均衡存在+better-response收敛。",
+    "citation": "Li, S., Hu, J., Min, G., and Huang, H. PRINCE: Incentivizing Multi-Tenant SFL for Foundation Models at the Network Edge. IEEE/ACM Trans. Networking, 34, 2026.",
+    "links": [
+      {
+        "label": "Code",
+        "url": "https://github.com/songyuanli/AERIA"
+      }
+    ]
+  },
+  {
+    "id": "628-prillm",
+    "articleNo": "628",
+    "articleDate": "2026-06-28",
+    "order": 41,
+    "title": "PriLLM：LLM路由定价——Stackelberg+数据标定+深度聚合,>95%最优利润",
+    "type": "论文精读",
+    "level": "进阶",
+    "venue": "AAAI",
+    "venueGroup": "AAAI",
+    "paperYear": "2026",
+    "paperName": "Pricing Online LLM Services with Data-Calibrated Stackelberg Routing Game",
+    "authors": "Zhendong Guo, Wenchao Bai, Jiahui Jin",
+    "cover": "",
+    "topics": [
+      "intro",
+      "resource"
+    ],
+    "topicLabels": [
+      "LLM路由",
+      "Stackelberg",
+      "深度聚合"
+    ],
+    "keywords": [
+      "LLM路由",
+      "Stackelberg博弈",
+      "数据标定",
+      "深度聚合",
+      "OpenRouter",
+      "PriLLM"
+    ],
+    "summary": "LLM路由平台Stackelberg博弈→Phase1数据标定学用户偏好(R^2=0.8982)→Phase2深度聚合网络压缩MPEC(O(K^m)→O(K))→>95%最优利润,<5%计算时间。",
+    "problem": "LLM路由市场动态定价:NP-hard MPEC,用户偏好不可观测,实时性要求。",
+    "method": "用户侧拥塞博弈Ci(Eq.1)+势函数Φ(F)(Eq.4-5)+Theorem1均衡唯一+Phase1 OpenRouter数据标定θ+Phase2深度聚合网络。",
+    "takeaway": "势博弈+数据标定+深度聚合的三层架构。user-perceived value b_j从数据中学习而非手工设定。",
+    "citation": "Guo, Z., Bai, W., and Jin, J. PriLLM: Pricing Online LLM Services with Data-Calibrated Stackelberg Routing Game. Proc. AAAI, 2026.",
+    "links": [
+      {
+        "label": "Code",
+        "url": "https://github.com/luck-seu/PriLLM"
+      }
+    ]
+  },
+  {
+    "id": "629-keepkv",
+    "articleNo": "629",
+    "articleDate": "2026-06-29",
+    "order": 42,
+    "title": "KeepKV：单步无损KV Cache压缩,Electoral Votes+ZIP-Merging",
+    "type": "论文精读",
+    "level": "进阶",
+    "venue": "AAAI",
+    "venueGroup": "AAAI",
+    "paperYear": "2026",
+    "paperName": "KeepKV: Achieving Periodic Lossless KV Cache Compression for Efficient LLM Inference",
+    "authors": "Yuxuan Tian, Zihan Wang, Yebo Peng et al.",
+    "cover": "",
+    "topics": [
+      "fine-tuning",
+      "resource"
+    ],
+    "topicLabels": [
+      "KV Cache",
+      "无损压缩",
+      "Attention Sag"
+    ],
+    "keywords": [
+      "KV Cache",
+      "无损压缩",
+      "Electoral Votes",
+      "ZIP-Merging",
+      "Attention Sag",
+      "LLM推理"
+    ],
+    "summary": "凸组合merging→Attention Sag→Electoral Votes(修正分数权重)+ZIP-Merging(对数缩放kr)→单步无损+EMA多步扩展→10%预算维持质量,吞吐>2x。",
+    "problem": "KV cache增长到320GB(LLaMA3-70B),eviction永久丢失信息,merging有Attention Sag。",
+    "method": "Electoral Votes(p_r=p_e+p_c)+ZIP-Merging(对数缩放k_r,动态w_e=p_e s_e^t)+EMA预测s_t^i+周期性外存刷新。",
+    "takeaway": "KV Cache压缩从heuristic到guaranteed的方法论升级。单步无损→多步有界的理论保证。",
+    "citation": "Tian, Y., Wang, Z., Peng, Y. et al. KeepKV: Achieving Periodic Lossless KV Cache Compression. Proc. AAAI, 2026.",
+    "links": [
+      {
+        "label": "Code",
+        "url": "https://github.com/kkvcache/KeepKV"
       }
     ]
   }
@@ -1748,7 +1877,10 @@ const routes = [
       "626-aigc-stackelberg",
       "72-hybridflow",
       "710-smartfed",
-      "712-hetcpflora"
+      "712-hetcpflora",
+      "627-prince",
+      "628-prillm",
+      "629-keepkv"
     ]
   }
 ];

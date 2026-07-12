@@ -1,0 +1,43 @@
+{
+  "id": "628-prillm",
+  "articleNo": "628",
+  "articleDate": "2026-06-28",
+  "order": 41,
+  "title": "PriLLM：LLM路由定价——Stackelberg+数据标定+深度聚合,>95%最优利润",
+  "type": "论文精读",
+  "level": "进阶",
+  "venue": "AAAI",
+  "venueGroup": "AAAI",
+  "paperYear": "2026",
+  "paperName": "Pricing Online LLM Services with Data-Calibrated Stackelberg Routing Game",
+  "authors": "Zhendong Guo, Wenchao Bai, Jiahui Jin",
+  "cover": "",
+  "topics": [
+    "intro",
+    "resource"
+  ],
+  "topicLabels": [
+    "LLM路由",
+    "Stackelberg",
+    "深度聚合"
+  ],
+  "keywords": [
+    "LLM路由",
+    "Stackelberg博弈",
+    "数据标定",
+    "深度聚合",
+    "OpenRouter",
+    "PriLLM"
+  ],
+  "summary": "LLM路由平台Stackelberg博弈→Phase1数据标定学用户偏好(R^2=0.8982)→Phase2深度聚合网络压缩MPEC(O(K^m)→O(K))→>95%最优利润,<5%计算时间。",
+  "problem": "LLM路由市场动态定价:NP-hard MPEC,用户偏好不可观测,实时性要求。",
+  "method": "用户侧拥塞博弈Ci(Eq.1)+势函数Φ(F)(Eq.4-5)+Theorem1均衡唯一+Phase1 OpenRouter数据标定θ+Phase2深度聚合网络。",
+  "takeaway": "势博弈+数据标定+深度聚合的三层架构。user-perceived value b_j从数据中学习而非手工设定。",
+  "citation": "Guo, Z., Bai, W., and Jin, J. PriLLM: Pricing Online LLM Services with Data-Calibrated Stackelberg Routing Game. Proc. AAAI, 2026.",
+  "links": [
+    {
+      "label": "Code",
+      "url": "https://github.com/luck-seu/PriLLM"
+    }
+  ]
+}
