@@ -1526,7 +1526,7 @@ const papers = [
     "paperYear": "2026",
     "paperName": "Don't Reinvent the Wheel, Just Realign the Spokes: Resource-Efficient Federated Fine-Tuning via Rank-Wise Expert Assembly",
     "authors": "Yebo Wu, Jingguang Li, Zhijiang Guo, Li Li",
-    "cover": "",
+    "cover": "assets/cover-710.png",
     "topics": [
       "fine-tuning",
       "resource"
@@ -1568,7 +1568,7 @@ const papers = [
     "paperYear": "2026",
     "paperName": "Heterogeneous Customizable Personalized Federated Fine-Tuning Approach for Large Language Models",
     "authors": "Xin Tong, Baojiang Cui",
-    "cover": "",
+    "cover": "assets/cover-712.png",
     "topics": [
       "fine-tuning",
       "data-heterogeneity"
