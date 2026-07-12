@@ -1469,6 +1469,176 @@ const papers = [
     "takeaway": "AIGC 场景特有的通信回传定价 q_n 是增量。Stackelberg+PPO vs CMAB+Stackelberg(614): bandit 显式推断参数 vs PPO 隐式映射策略。",
     "citation": "Li, X., Chen, H., Ni, Z., Sun, H., Yang, Y., Wu, L., and Xia, F. A Learning-Based Incentive Mechanism for Mobile AIGC Service in Vehicular Edge Computing. IEEE Trans. Vehicular Technology, Early Access, 2026.",
     "links": []
+  },
+  {
+    "id": "71-zeda",
+    "articleNo": "71",
+    "articleDate": "2026-07-01",
+    "order": 36,
+    "title": "ZEDA：注入零专家 + 自蒸馏——训练后的 MoE 跳过一半专家",
+    "type": "论文精读",
+    "level": "进阶",
+    "venue": "arXiv",
+    "venueGroup": "arXiv",
+    "paperYear": "2026",
+    "paperName": "Post-Trained MoE Can Skip Half Experts via Self-Distillation",
+    "authors": "Xingtai Lv, Li Sheng, Kaiyan Zhang, et al.",
+    "cover": "",
+    "topics": [
+      "fine-tuning",
+      "resource"
+    ],
+    "topicLabels": [
+      "MoE",
+      "推理加速",
+      "自蒸馏"
+    ],
+    "keywords": [
+      "MoE",
+      "零专家",
+      "SFT",
+      "OPD",
+      "自蒸馏",
+      "推理加速"
+    ],
+    "summary": "静态MoE注入零输出专家+两阶段自蒸馏(SFT→OPD)→路由学会自适应跳过专家→>50% FLOPs消除,~1.20x加速。",
+    "problem": "MoE所有token激活相同数量专家——简单token浪费计算。从头预训练动态MoE成本太高。",
+    "method": "注入零专家(输出恒为零)+SFT软着陆+OPD reverse-KL在线蒸馏+组级负载均衡L_GA(α=2,λ=0.1)。",
+    "takeaway": "零专家vs copy expert:零假设不引入偏差。SFT→OPD与619(CoopLLM-Cache SFT→GRPO)方法论同构。",
+    "citation": "Lv, X., Sheng, L., Zhang, K., et al. Post-Trained MoE Can Skip Half Experts via Self-Distillation. arXiv:2605.18643, 2026.",
+    "links": [
+      {
+        "label": "Code",
+        "url": "https://github.com/TsinghuaC3I/ZEDA"
+      }
+    ]
+  },
+  {
+    "id": "72-hybridflow",
+    "articleNo": "72",
+    "articleDate": "2026-07-01",
+    "order": 37,
+    "title": "HybridFlow：DAG分解+自适应路由——边云协作LLM推理的效费比最优",
+    "type": "论文精读",
+    "level": "进阶",
+    "venue": "ICML",
+    "venueGroup": "ICML",
+    "paperYear": "2026",
+    "paperName": "HybridFlow: Resource-Adaptive Subtask Routing for Efficient Edge-Cloud LLM Inference",
+    "authors": "Jiangwen Dong, Jiayu Li, Tianhang Zheng, Wanyu Lin",
+    "cover": "",
+    "topics": [
+      "fine-tuning",
+      "resource"
+    ],
+    "topicLabels": [
+      "LLM推理",
+      "DAG",
+      "自适应路由"
+    ],
+    "keywords": [
+      "DAG分解",
+      "自适应路由",
+      "边云协作",
+      "效费比",
+      "0-1背包",
+      "Lagrangian"
+    ],
+    "summary": "Planner分解查询为DAG→依赖触发并行调度→效费比建模+0-1背包+Lagrangian松弛→MLP预测(含C_used)→对偶变量自适应阈值→55.34%精度,17.48s延迟。",
+    "problem": "粗粒度路由+忽略依赖=双输。CoT全串行延迟高,SoT/PASTA强行并行正确性受损。",
+    "method": "EAG元prompt分解DAG+依赖触发调度+ui=qi/(ci+ε)效费比+0-1背包Lagrangian→ri=I(qi/ci>λ)+MLP预测ûi。",
+    "takeaway": "0-1背包→Lagrangian→对偶变量:路由问题的优化理论分析。DAG并行度上限由planner分解质量决定。",
+    "citation": "Dong, J., Li, J., Zheng, T., and Lin, W. HybridFlow: Resource-Adaptive Subtask Routing for Efficient Edge-Cloud LLM Inference. Proc. ICML, 2026.",
+    "links": [
+      {
+        "label": "Code",
+        "url": "https://github.com/WanyuGroup/ICML2026_HybridFlow"
+      }
+    ]
+  },
+  {
+    "id": "710-smartfed",
+    "articleNo": "710",
+    "articleDate": "2026-07-10",
+    "order": 38,
+    "title": "SMARTFED：LoRA仓库复用+秩级专家组装,联邦微调不用重训",
+    "type": "论文精读",
+    "level": "进阶",
+    "venue": "ICML",
+    "venueGroup": "ICML",
+    "paperYear": "2026",
+    "paperName": "Don't Reinvent the Wheel, Just Realign the Spokes: Resource-Efficient Federated Fine-Tuning via Rank-Wise Expert Assembly",
+    "authors": "Yebo Wu, Jingguang Li, Zhijiang Guo, Li Li",
+    "cover": "",
+    "topics": [
+      "fine-tuning",
+      "resource"
+    ],
+    "topicLabels": [
+      "LoRA复用",
+      "MoRE",
+      "EEQA"
+    ],
+    "keywords": [
+      "秩级专家",
+      "LoRA仓库",
+      "EEQA",
+      "联邦微调",
+      "ICML Spotlight"
+    ],
+    "summary": "LoRAHub检索已有LoRA→秩级分解M=Σr_n个专家→W_router Top-K稀疏激活(唯一可训练参)→EEQA按矩阵重要性自适应配额→+13.82%,3.95x加速,31.47x通信降低。",
+    "problem": "标准联邦LoRA从零训练数百轮通信。开源社区已有海量LoRA模块可复用。",
+    "method": "MoRE秩级分解(Eq.5)+Top-K路由(Eq.6-8)+s_Em=1-cos重要性(Eq.4)+α_j softmax配额(Eq.9-10)+Algorithm 1两阶段重分配。",
+    "takeaway": "从训练到组装:LoRA说不要训练全量,SMARTFED说不要训练LoRA——低秩的平方策略。",
+    "citation": "Wu, Y., Li, J., Guo, Z., and Li, L. Don't Reinvent the Wheel. Proc. ICML (Spotlight), 2026.",
+    "links": [
+      {
+        "label": "Code",
+        "url": "https://github.com/benmagnifico/SmartFed"
+      }
+    ]
+  },
+  {
+    "id": "712-hetcpflora",
+    "articleNo": "712",
+    "articleDate": "2026-07-12",
+    "order": 39,
+    "title": "Het-CPFLoRA：LoRA列/行解耦+SVD聚合,单适配器实现异构个性化联邦微调",
+    "type": "论文精读",
+    "level": "进阶",
+    "venue": "ICML",
+    "venueGroup": "ICML",
+    "paperYear": "2026",
+    "paperName": "Heterogeneous Customizable Personalized Federated Fine-Tuning Approach for Large Language Models",
+    "authors": "Xin Tong, Baojiang Cui",
+    "cover": "",
+    "topics": [
+      "fine-tuning",
+      "data-heterogeneity"
+    ],
+    "topicLabels": [
+      "个性化FL",
+      "LoRA解耦",
+      "SVD"
+    ],
+    "keywords": [
+      "LoRA解耦",
+      "个性化联邦学习",
+      "SVD聚合",
+      "OOD推理",
+      "异构客户端"
+    ],
+    "summary": "BA=B_sA_s+B_pA_p列/行解耦→切分比例ρ自定义个性化强度→单适配器消除双适配器冲突→满秩展开+SVD压缩聚合→OOD困惑度动态加权→+13.09%个性化,+1.91%泛化。",
+    "problem": "双适配器交替训练泛化/个性化目标冲突。不同客户端对个性化需求异构(医疗vs教育)。",
+    "method": "LoRA矩阵列/行解耦+ρ比例控制+满秩展开W_s=B_sA_s+SVD压缩+OOD perplexity动态加权。",
+    "takeaway": "LoRA解耦的第三种维度(column/row):与617(Tucker跨层)、710(rank级)构成完整矩阵。参数解耦先于目标解耦的策略。",
+    "citation": "Tong, X. and Cui, B. Heterogeneous Customizable Personalized Federated Fine-Tuning Approach for Large Language Models. Proc. ICML, 2026.",
+    "links": [
+      {
+        "label": "Code",
+        "url": "https://github.com/tongxin-tx/Het-CPFLoRA"
+      }
+    ]
   }
 ];
 
@@ -1618,7 +1788,11 @@ const routes = [
       "618-dybap",
       "619-coopllm-cache",
       "620-lyapunov-qmix",
-      "626-aigc-stackelberg"
+      "626-aigc-stackelberg",
+      "71-zeda",
+      "72-hybridflow",
+      "710-smartfed",
+      "712-hetcpflora"
     ]
   }
 ];

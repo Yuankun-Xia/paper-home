@@ -1,0 +1,42 @@
+{
+  "id": "712-hetcpflora",
+  "articleNo": "712",
+  "articleDate": "2026-07-12",
+  "order": 39,
+  "title": "Het-CPFLoRA：LoRA列/行解耦+SVD聚合,单适配器实现异构个性化联邦微调",
+  "type": "论文精读",
+  "level": "进阶",
+  "venue": "ICML",
+  "venueGroup": "ICML",
+  "paperYear": "2026",
+  "paperName": "Heterogeneous Customizable Personalized Federated Fine-Tuning Approach for Large Language Models",
+  "authors": "Xin Tong, Baojiang Cui",
+  "cover": "",
+  "topics": [
+    "fine-tuning",
+    "data-heterogeneity"
+  ],
+  "topicLabels": [
+    "个性化FL",
+    "LoRA解耦",
+    "SVD"
+  ],
+  "keywords": [
+    "LoRA解耦",
+    "个性化联邦学习",
+    "SVD聚合",
+    "OOD推理",
+    "异构客户端"
+  ],
+  "summary": "BA=B_sA_s+B_pA_p列/行解耦→切分比例ρ自定义个性化强度→单适配器消除双适配器冲突→满秩展开+SVD压缩聚合→OOD困惑度动态加权→+13.09%个性化,+1.91%泛化。",
+  "problem": "双适配器交替训练泛化/个性化目标冲突。不同客户端对个性化需求异构(医疗vs教育)。",
+  "method": "LoRA矩阵列/行解耦+ρ比例控制+满秩展开W_s=B_sA_s+SVD压缩+OOD perplexity动态加权。",
+  "takeaway": "LoRA解耦的第三种维度(column/row):与617(Tucker跨层)、710(rank级)构成完整矩阵。参数解耦先于目标解耦的策略。",
+  "citation": "Tong, X. and Cui, B. Heterogeneous Customizable Personalized Federated Fine-Tuning Approach for Large Language Models. Proc. ICML, 2026.",
+  "links": [
+    {
+      "label": "Code",
+      "url": "https://github.com/tongxin-tx/Het-CPFLoRA"
+    }
+  ]
+}

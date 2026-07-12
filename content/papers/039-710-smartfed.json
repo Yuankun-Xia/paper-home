@@ -1,0 +1,42 @@
+{
+  "id": "710-smartfed",
+  "articleNo": "710",
+  "articleDate": "2026-07-10",
+  "order": 38,
+  "title": "SMARTFED：LoRA仓库复用+秩级专家组装,联邦微调不用重训",
+  "type": "论文精读",
+  "level": "进阶",
+  "venue": "ICML",
+  "venueGroup": "ICML",
+  "paperYear": "2026",
+  "paperName": "Don't Reinvent the Wheel, Just Realign the Spokes: Resource-Efficient Federated Fine-Tuning via Rank-Wise Expert Assembly",
+  "authors": "Yebo Wu, Jingguang Li, Zhijiang Guo, Li Li",
+  "cover": "",
+  "topics": [
+    "fine-tuning",
+    "resource"
+  ],
+  "topicLabels": [
+    "LoRA复用",
+    "MoRE",
+    "EEQA"
+  ],
+  "keywords": [
+    "秩级专家",
+    "LoRA仓库",
+    "EEQA",
+    "联邦微调",
+    "ICML Spotlight"
+  ],
+  "summary": "LoRAHub检索已有LoRA→秩级分解M=Σr_n个专家→W_router Top-K稀疏激活(唯一可训练参)→EEQA按矩阵重要性自适应配额→+13.82%,3.95x加速,31.47x通信降低。",
+  "problem": "标准联邦LoRA从零训练数百轮通信。开源社区已有海量LoRA模块可复用。",
+  "method": "MoRE秩级分解(Eq.5)+Top-K路由(Eq.6-8)+s_Em=1-cos重要性(Eq.4)+α_j softmax配额(Eq.9-10)+Algorithm 1两阶段重分配。",
+  "takeaway": "从训练到组装:LoRA说不要训练全量,SMARTFED说不要训练LoRA——低秩的平方策略。",
+  "citation": "Wu, Y., Li, J., Guo, Z., and Li, L. Don't Reinvent the Wheel. Proc. ICML (Spotlight), 2026.",
+  "links": [
+    {
+      "label": "Code",
+      "url": "https://github.com/benmagnifico/SmartFed"
+    }
+  ]
+}

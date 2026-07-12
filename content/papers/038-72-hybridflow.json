@@ -1,0 +1,43 @@
+{
+  "id": "72-hybridflow",
+  "articleNo": "72",
+  "articleDate": "2026-07-01",
+  "order": 37,
+  "title": "HybridFlow：DAG分解+自适应路由——边云协作LLM推理的效费比最优",
+  "type": "论文精读",
+  "level": "进阶",
+  "venue": "ICML",
+  "venueGroup": "ICML",
+  "paperYear": "2026",
+  "paperName": "HybridFlow: Resource-Adaptive Subtask Routing for Efficient Edge-Cloud LLM Inference",
+  "authors": "Jiangwen Dong, Jiayu Li, Tianhang Zheng, Wanyu Lin",
+  "cover": "",
+  "topics": [
+    "fine-tuning",
+    "resource"
+  ],
+  "topicLabels": [
+    "LLM推理",
+    "DAG",
+    "自适应路由"
+  ],
+  "keywords": [
+    "DAG分解",
+    "自适应路由",
+    "边云协作",
+    "效费比",
+    "0-1背包",
+    "Lagrangian"
+  ],
+  "summary": "Planner分解查询为DAG→依赖触发并行调度→效费比建模+0-1背包+Lagrangian松弛→MLP预测(含C_used)→对偶变量自适应阈值→55.34%精度,17.48s延迟。",
+  "problem": "粗粒度路由+忽略依赖=双输。CoT全串行延迟高,SoT/PASTA强行并行正确性受损。",
+  "method": "EAG元prompt分解DAG+依赖触发调度+ui=qi/(ci+ε)效费比+0-1背包Lagrangian→ri=I(qi/ci>λ)+MLP预测ûi。",
+  "takeaway": "0-1背包→Lagrangian→对偶变量:路由问题的优化理论分析。DAG并行度上限由planner分解质量决定。",
+  "citation": "Dong, J., Li, J., Zheng, T., and Lin, W. HybridFlow: Resource-Adaptive Subtask Routing for Efficient Edge-Cloud LLM Inference. Proc. ICML, 2026.",
+  "links": [
+    {
+      "label": "Code",
+      "url": "https://github.com/WanyuGroup/ICML2026_HybridFlow"
+    }
+  ]
+}

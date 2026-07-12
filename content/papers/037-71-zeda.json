@@ -1,0 +1,43 @@
+{
+  "id": "71-zeda",
+  "articleNo": "71",
+  "articleDate": "2026-07-01",
+  "order": 36,
+  "title": "ZEDA：注入零专家 + 自蒸馏——训练后的 MoE 跳过一半专家",
+  "type": "论文精读",
+  "level": "进阶",
+  "venue": "arXiv",
+  "venueGroup": "arXiv",
+  "paperYear": "2026",
+  "paperName": "Post-Trained MoE Can Skip Half Experts via Self-Distillation",
+  "authors": "Xingtai Lv, Li Sheng, Kaiyan Zhang, et al.",
+  "cover": "",
+  "topics": [
+    "fine-tuning",
+    "resource"
+  ],
+  "topicLabels": [
+    "MoE",
+    "推理加速",
+    "自蒸馏"
+  ],
+  "keywords": [
+    "MoE",
+    "零专家",
+    "SFT",
+    "OPD",
+    "自蒸馏",
+    "推理加速"
+  ],
+  "summary": "静态MoE注入零输出专家+两阶段自蒸馏(SFT→OPD)→路由学会自适应跳过专家→>50% FLOPs消除,~1.20x加速。",
+  "problem": "MoE所有token激活相同数量专家——简单token浪费计算。从头预训练动态MoE成本太高。",
+  "method": "注入零专家(输出恒为零)+SFT软着陆+OPD reverse-KL在线蒸馏+组级负载均衡L_GA(α=2,λ=0.1)。",
+  "takeaway": "零专家vs copy expert:零假设不引入偏差。SFT→OPD与619(CoopLLM-Cache SFT→GRPO)方法论同构。",
+  "citation": "Lv, X., Sheng, L., Zhang, K., et al. Post-Trained MoE Can Skip Half Experts via Self-Distillation. arXiv:2605.18643, 2026.",
+  "links": [
+    {
+      "label": "Code",
+      "url": "https://github.com/TsinghuaC3I/ZEDA"
+    }
+  ]
+}
