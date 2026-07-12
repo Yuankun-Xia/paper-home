@@ -11,7 +11,7 @@
   "paperYear": "2026",
   "paperName": "Post-Trained MoE Can Skip Half Experts via Self-Distillation",
   "authors": "Xingtai Lv, Li Sheng, Kaiyan Zhang, et al.",
-  "cover": "",
+  "cover": "assets/cover-71.png",
   "topics": [
     "fine-tuning",
     "resource"

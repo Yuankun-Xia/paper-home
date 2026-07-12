@@ -1483,7 +1483,7 @@ const papers = [
     "paperYear": "2026",
     "paperName": "Post-Trained MoE Can Skip Half Experts via Self-Distillation",
     "authors": "Xingtai Lv, Li Sheng, Kaiyan Zhang, et al.",
-    "cover": "",
+    "cover": "assets/cover-71.png",
     "topics": [
       "fine-tuning",
       "resource"
@@ -1526,7 +1526,7 @@ const papers = [
     "paperYear": "2026",
     "paperName": "HybridFlow: Resource-Adaptive Subtask Routing for Efficient Edge-Cloud LLM Inference",
     "authors": "Jiangwen Dong, Jiayu Li, Tianhang Zheng, Wanyu Lin",
-    "cover": "",
+    "cover": "assets/cover-72.png",
     "topics": [
       "fine-tuning",
       "resource"

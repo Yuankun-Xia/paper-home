@@ -11,7 +11,7 @@
   "paperYear": "2026",
   "paperName": "HybridFlow: Resource-Adaptive Subtask Routing for Efficient Edge-Cloud LLM Inference",
   "authors": "Jiangwen Dong, Jiayu Li, Tianhang Zheng, Wanyu Lin",
-  "cover": "",
+  "cover": "assets/cover-72.png",
   "topics": [
     "fine-tuning",
     "resource"
