@@ -1,0 +1,39 @@
+{
+  "id": "1102-npugen",
+  "articleNo": "1102",
+  "articleDate": "2026-11-02",
+  "order": 46,
+  "title": "NPUGen：让 NPU 帮忙应对端侧长上下文 KV Cache",
+  "type": "论文精读",
+  "level": "进阶",
+  "venue": "MobiCom",
+  "venueGroup": "MobiCom",
+  "paperYear": "2026",
+  "paperName": "NPUGen: NPU as KV Generator for Stable Long-Context Mobile LLM Inference",
+  "authors": "Kun Wang",
+  "cover": "assets/cover-1102-npugen.png",
+  "topics": [
+    "edge-inference",
+    "resource"
+  ],
+  "topicLabels": [
+    "端侧推理",
+    "KV Cache"
+  ],
+  "keywords": [
+    "长上下文",
+    "NPU",
+    "缓存重建"
+  ],
+  "summary": "利用 NPU 重建所需 KV，缓解长上下文场景下的缓存读取瓶颈。",
+  "problem": "长上下文的 KV Cache 占用大量内存，零散的闪存读取可能造成卡顿。",
+  "method": "在论文针对的 CPU/GPU 解码流程中，利用相对空闲的 NPU 从隐藏状态重建 KV。",
+  "takeaway": "缓存卸载方案应权衡存储读取与异构计算的成本。",
+  "citation": "Kun Wang et al. NPUGen: NPU as KV Generator for Stable Long-Context Mobile LLM Inference. MobiCom, 2026.",
+  "links": [
+    {
+      "label": "论文",
+      "url": "https://doi.org/10.1145/3795866.3844480"
+    }
+  ]
+}

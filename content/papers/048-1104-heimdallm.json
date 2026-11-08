@@ -1,0 +1,40 @@
+{
+  "id": "1104-heimdallm",
+  "articleNo": "1104",
+  "articleDate": "2026-11-04",
+  "order": 48,
+  "title": "HeimdaLLM：手机做前向计算，云端怎样帮助联邦微调？",
+  "type": "论文精读",
+  "level": "进阶",
+  "venue": "KDD",
+  "venueGroup": "KDD",
+  "paperYear": "2026",
+  "paperName": "HeimdaLLM: Efficient Cloud-assisted Federated Fine-tuning with Zeroth-Order Rectification for LLMs",
+  "authors": "He Sun",
+  "cover": "assets/cover-1104-heimdallm.png",
+  "topics": [
+    "ondevice-tuning",
+    "collaboration",
+    "fine-tuning"
+  ],
+  "topicLabels": [
+    "云端协同",
+    "联邦微调"
+  ],
+  "keywords": [
+    "零阶优化",
+    "云端辅助",
+    "流水线"
+  ],
+  "summary": "通过云端引导修正客户端的零阶优化方向，协调设备和云端资源。",
+  "problem": "端侧零阶训练降低内存压力，但随机方向可能导致收敛效率低。",
+  "method": "客户端进行零阶优化，辅助云利用同领域数据提供引导，并结合流水线与传输控制。",
+  "takeaway": "设备与云端分工时，还需要控制额外传输和内存开销。",
+  "citation": "He Sun et al. HeimdaLLM: Efficient Cloud-assisted Federated Fine-tuning with Zeroth-Order Rectification for LLMs. KDD, 2026.",
+  "links": [
+    {
+      "label": "论文",
+      "url": "https://doi.org/10.1145/3770855.3817661"
+    }
+  ]
+}

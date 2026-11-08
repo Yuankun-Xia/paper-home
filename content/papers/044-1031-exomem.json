@@ -1,0 +1,43 @@
+{
+  "id": "1031-exomem",
+  "articleNo": "1031",
+  "articleDate": "2026-10-31",
+  "order": 44,
+  "title": "ExoMem：64GB 设备如何运行 72B 模型？",
+  "type": "论文精读",
+  "level": "进阶",
+  "venue": "MobiCom",
+  "venueGroup": "MobiCom",
+  "paperYear": "2026",
+  "paperName": "ExoMem: OS-Governed Memory for Local Large-LLM Inference on Mobile Edge Devices",
+  "authors": "Jun You",
+  "cover": "assets/cover-1031-exomem.png",
+  "topics": [
+    "edge-inference",
+    "resource"
+  ],
+  "topicLabels": [
+    "端侧推理",
+    "内存管理"
+  ],
+  "keywords": [
+    "按层加载",
+    "操作系统",
+    "边缘设备"
+  ],
+  "summary": "让操作系统管理权重内存生命周期，在有限内存下运行更大的模型。",
+  "problem": "框架缓存池和隐式拷贝可能阻碍内存及时回收，导致按层加载仍然内存不足。",
+  "method": "框架负责计算，由操作系统管理权重内存，将暂不用的权重变为可回收且可能复用的状态。",
+  "takeaway": "能够运行不等于实时：论文中 64GB 设备运行 72B 模型的生成速度很慢。",
+  "citation": "Jun You et al. ExoMem: OS-Governed Memory for Local Large-LLM Inference on Mobile Edge Devices. MobiCom, 2026.",
+  "links": [
+    {
+      "label": "论文",
+      "url": "https://doi.org/10.1145/3795866.3844471"
+    },
+    {
+      "label": "代码",
+      "url": "https://github.com/ExoMem-repository/Code"
+    }
+  ]
+}

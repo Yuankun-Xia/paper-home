@@ -1,0 +1,40 @@
+{
+  "id": "1106-fwdllm-plus",
+  "articleNo": "1106",
+  "articleDate": "2026-11-06",
+  "order": 50,
+  "title": "FwdLLM+：多台设备如何只做前向计算协同微调？",
+  "type": "论文精读",
+  "level": "进阶",
+  "venue": "IEEE TMC",
+  "venueGroup": "IEEE TMC",
+  "paperYear": "2026",
+  "paperName": "FwdLLM+: Accelerating Forward-Only FedLLM With Low-Rank Perturbations",
+  "authors": "Chen Peng",
+  "cover": "assets/cover-1106-fwdllm-plus.png",
+  "topics": [
+    "ondevice-tuning",
+    "collaboration",
+    "fine-tuning"
+  ],
+  "topicLabels": [
+    "联邦微调",
+    "零阶优化"
+  ],
+  "keywords": [
+    "低秩扰动",
+    "前向训练",
+    "设备协同"
+  ],
+  "summary": "在联邦前向式大模型训练中引入低秩扰动，降低优化和通信开销。",
+  "problem": "设备资源有限，随机扰动得到的更新方向也可能波动较大。",
+  "method": "在 FwdLLM 基础上结合低秩扰动和联邦聚合。",
+  "takeaway": "多设备训练需要同时考虑客户端计算、通信与优化方向质量。",
+  "citation": "Chen Peng et al. FwdLLM+: Accelerating Forward-Only FedLLM With Low-Rank Perturbations. IEEE TMC, 2026.",
+  "links": [
+    {
+      "label": "论文",
+      "url": "https://doi.org/10.1109/TMC.2026.3672496"
+    }
+  ]
+}

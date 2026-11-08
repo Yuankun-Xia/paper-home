@@ -1,0 +1,39 @@
+{
+  "id": "1030-tz-llm",
+  "articleNo": "1030",
+  "articleDate": "2026-10-30",
+  "order": 43,
+  "title": "TZ-LLM：大模型在设备上运行，如何保护模型参数？",
+  "type": "论文精读",
+  "level": "进阶",
+  "venue": "EuroSys",
+  "venueGroup": "EuroSys",
+  "paperYear": "2026",
+  "paperName": "TZ-LLM: Protecting On-Device Large Language Models with Arm TrustZone",
+  "authors": "Xunjie Wang",
+  "cover": "assets/cover-1030-tz-llm.png",
+  "topics": [
+    "security",
+    "edge-inference"
+  ],
+  "topicLabels": [
+    "可信执行环境",
+    "端侧推理"
+  ],
+  "keywords": [
+    "Arm TrustZone",
+    "模型保护",
+    "NPU"
+  ],
+  "summary": "端侧大模型部署需要保护模型参数，同时兼顾可信执行环境的内存限制和推理效率。",
+  "problem": "可信内存有限，模型执行和加速器访问带来额外开销。",
+  "method": "结合 Arm TrustZone 与分阶段处理，协调可信内存和 NPU 计算。",
+  "takeaway": "端侧安全设计需要同时考虑保护边界、内存约束与硬件加速。",
+  "citation": "Xunjie Wang et al. TZ-LLM: Protecting On-Device Large Language Models with Arm TrustZone. EuroSys, 2026.",
+  "links": [
+    {
+      "label": "论文",
+      "url": "https://doi.org/10.1145/3767295.3769334"
+    }
+  ]
+}

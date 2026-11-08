@@ -57,7 +57,7 @@ function textForSearch(paper) {
 
 const { createApp } = Vue;
 const runtimeMessage = document.getElementById("runtimeMessage");
-const featuredTopicIds = ["intro", "lora", "lyapunov", "sfl", "resource", "fine-tuning", "rank", "data-heterogeneity"];
+const featuredTopicIds = ["edge-inference", "collaboration", "ondevice-tuning", "security", "intro", "lora", "lyapunov", "sfl", "resource", "fine-tuning", "rank", "data-heterogeneity"];
 
 createApp({
   data() {

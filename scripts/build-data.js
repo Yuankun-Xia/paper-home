@@ -8,6 +8,10 @@ const outputPath = path.join(root, "js", "data.js");
 const topicDefinitions = [
   { id: "all", label: "全部" },
   { id: "intro", label: "入门" },
+  { id: "edge-inference", label: "端侧推理" },
+  { id: "collaboration", label: "多设备协同" },
+  { id: "ondevice-tuning", label: "端侧微调" },
+  { id: "security", label: "端侧安全" },
   { id: "lora", label: "LoRA" },
   { id: "lyapunov", label: "Lyapunov" },
   { id: "sfl", label: "SFL" },
@@ -22,6 +26,24 @@ const topicDefinitions = [
 ];
 
 const routes = [
+  {
+    id: "edge-llm",
+    title: "边缘大模型推理线",
+    description: "从内存管理、缓存与模型保护，读到多设备协同推理。",
+    topicIds: ["edge-inference"]
+  },
+  {
+    id: "device-collaboration",
+    title: "设备协同线",
+    description: "关注多设备推理、云端辅助与异构资源协作。",
+    topicIds: ["collaboration"]
+  },
+  {
+    id: "device-tuning",
+    title: "端侧适配线",
+    description: "从零阶微调、知识编辑到联邦训练。",
+    topicIds: ["ondevice-tuning"]
+  },
   {
     id: "starter",
     title: "入门路线",

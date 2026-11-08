@@ -1725,6 +1725,408 @@ const papers = [
         "url": "https://github.com/kkvcache/KeepKV"
       }
     ]
+  },
+  {
+    "id": "1030-tz-llm",
+    "articleNo": "1030",
+    "articleDate": "2026-10-30",
+    "order": 43,
+    "title": "TZ-LLM：大模型在设备上运行，如何保护模型参数？",
+    "type": "论文精读",
+    "level": "进阶",
+    "venue": "EuroSys",
+    "venueGroup": "EuroSys",
+    "paperYear": "2026",
+    "paperName": "TZ-LLM: Protecting On-Device Large Language Models with Arm TrustZone",
+    "authors": "Xunjie Wang",
+    "cover": "assets/cover-1030-tz-llm.png",
+    "topics": [
+      "security",
+      "edge-inference"
+    ],
+    "topicLabels": [
+      "可信执行环境",
+      "端侧推理"
+    ],
+    "keywords": [
+      "Arm TrustZone",
+      "模型保护",
+      "NPU"
+    ],
+    "summary": "端侧大模型部署需要保护模型参数，同时兼顾可信执行环境的内存限制和推理效率。",
+    "problem": "可信内存有限，模型执行和加速器访问带来额外开销。",
+    "method": "结合 Arm TrustZone 与分阶段处理，协调可信内存和 NPU 计算。",
+    "takeaway": "端侧安全设计需要同时考虑保护边界、内存约束与硬件加速。",
+    "citation": "Xunjie Wang et al. TZ-LLM: Protecting On-Device Large Language Models with Arm TrustZone. EuroSys, 2026.",
+    "links": [
+      {
+        "label": "论文",
+        "url": "https://doi.org/10.1145/3767295.3769334"
+      }
+    ]
+  },
+  {
+    "id": "1031-exomem",
+    "articleNo": "1031",
+    "articleDate": "2026-10-31",
+    "order": 44,
+    "title": "ExoMem：64GB 设备如何运行 72B 模型？",
+    "type": "论文精读",
+    "level": "进阶",
+    "venue": "MobiCom",
+    "venueGroup": "MobiCom",
+    "paperYear": "2026",
+    "paperName": "ExoMem: OS-Governed Memory for Local Large-LLM Inference on Mobile Edge Devices",
+    "authors": "Jun You",
+    "cover": "assets/cover-1031-exomem.png",
+    "topics": [
+      "edge-inference",
+      "resource"
+    ],
+    "topicLabels": [
+      "端侧推理",
+      "内存管理"
+    ],
+    "keywords": [
+      "按层加载",
+      "操作系统",
+      "边缘设备"
+    ],
+    "summary": "让操作系统管理权重内存生命周期，在有限内存下运行更大的模型。",
+    "problem": "框架缓存池和隐式拷贝可能阻碍内存及时回收，导致按层加载仍然内存不足。",
+    "method": "框架负责计算，由操作系统管理权重内存，将暂不用的权重变为可回收且可能复用的状态。",
+    "takeaway": "能够运行不等于实时：论文中 64GB 设备运行 72B 模型的生成速度很慢。",
+    "citation": "Jun You et al. ExoMem: OS-Governed Memory for Local Large-LLM Inference on Mobile Edge Devices. MobiCom, 2026.",
+    "links": [
+      {
+        "label": "论文",
+        "url": "https://doi.org/10.1145/3795866.3844471"
+      },
+      {
+        "label": "代码",
+        "url": "https://github.com/ExoMem-repository/Code"
+      }
+    ]
+  },
+  {
+    "id": "1101-prism",
+    "articleNo": "1101",
+    "articleDate": "2026-11-01",
+    "order": 45,
+    "title": "Prism：不做反向传播，手机如何微调大模型？",
+    "type": "论文精读",
+    "level": "进阶",
+    "venue": "MobiCom",
+    "venueGroup": "MobiCom",
+    "paperYear": "2026",
+    "paperName": "Prism: Efficient Zeroth-Order Fine-Tuning for On-Device LLMs",
+    "authors": "Yongjian Fu",
+    "cover": "assets/cover-1101-prism.png",
+    "topics": [
+      "ondevice-tuning",
+      "resource"
+    ],
+    "topicLabels": [
+      "端侧微调",
+      "零阶优化"
+    ],
+    "keywords": [
+      "手机",
+      "前向计算",
+      "随机扰动"
+    ],
+    "summary": "通过零阶优化减少反向传播带来的训练内存负担，并优化端侧微调效率。",
+    "problem": "免反向传播后，扰动生成和多次前向计算仍可能成为瓶颈。",
+    "method": "从扰动生成、前向精度和方向筛选三个方面优化零阶微调。",
+    "takeaway": "免反向传播并不意味着没有计算成本，需要联合优化整个前向流程。",
+    "citation": "Yongjian Fu et al. Prism: Efficient Zeroth-Order Fine-Tuning for On-Device LLMs. MobiCom, 2026.",
+    "links": [
+      {
+        "label": "论文",
+        "url": "https://doi.org/10.1145/3795866.3844151"
+      }
+    ]
+  },
+  {
+    "id": "1102-npugen",
+    "articleNo": "1102",
+    "articleDate": "2026-11-02",
+    "order": 46,
+    "title": "NPUGen：让 NPU 帮忙应对端侧长上下文 KV Cache",
+    "type": "论文精读",
+    "level": "进阶",
+    "venue": "MobiCom",
+    "venueGroup": "MobiCom",
+    "paperYear": "2026",
+    "paperName": "NPUGen: NPU as KV Generator for Stable Long-Context Mobile LLM Inference",
+    "authors": "Kun Wang",
+    "cover": "assets/cover-1102-npugen.png",
+    "topics": [
+      "edge-inference",
+      "resource"
+    ],
+    "topicLabels": [
+      "端侧推理",
+      "KV Cache"
+    ],
+    "keywords": [
+      "长上下文",
+      "NPU",
+      "缓存重建"
+    ],
+    "summary": "利用 NPU 重建所需 KV，缓解长上下文场景下的缓存读取瓶颈。",
+    "problem": "长上下文的 KV Cache 占用大量内存，零散的闪存读取可能造成卡顿。",
+    "method": "在论文针对的 CPU/GPU 解码流程中，利用相对空闲的 NPU 从隐藏状态重建 KV。",
+    "takeaway": "缓存卸载方案应权衡存储读取与异构计算的成本。",
+    "citation": "Kun Wang et al. NPUGen: NPU as KV Generator for Stable Long-Context Mobile LLM Inference. MobiCom, 2026.",
+    "links": [
+      {
+        "label": "论文",
+        "url": "https://doi.org/10.1145/3795866.3844480"
+      }
+    ]
+  },
+  {
+    "id": "1103-cfmoe",
+    "articleNo": "1103",
+    "articleDate": "2026-11-03",
+    "order": 47,
+    "title": "CFMoE：端侧 MoE 如何减少专家加载和内存压力？",
+    "type": "论文精读",
+    "level": "进阶",
+    "venue": "MobiCom",
+    "venueGroup": "MobiCom",
+    "paperYear": "2026",
+    "paperName": "CFMoE: Cache-Friendly Mixture of Experts Model Serving System on Edge Devices",
+    "authors": "Haoyu Zhang",
+    "cover": "assets/cover-1103-cfmoe.png",
+    "topics": [
+      "edge-inference",
+      "resource"
+    ],
+    "topicLabels": [
+      "端侧推理",
+      "MoE"
+    ],
+    "keywords": [
+      "专家缓存",
+      "路由局部性",
+      "闪存"
+    ],
+    "summary": "联合设计专家路由和缓存策略，降低边缘设备上的 MoE 服务资源开销。",
+    "problem": "专家虽然稀疏激活，但频繁在闪存和内存之间加载仍会产生等待。",
+    "method": "通过离线微调改善路由局部性，并针对不同推理阶段设计缓存策略。",
+    "takeaway": "MoE 的端侧效率同时受计算稀疏性和专家访问模式影响。",
+    "citation": "Haoyu Zhang et al. CFMoE: Cache-Friendly Mixture of Experts Model Serving System on Edge Devices. MobiCom, 2026.",
+    "links": [
+      {
+        "label": "论文",
+        "url": "https://doi.org/10.1145/3795866.3844455"
+      },
+      {
+        "label": "代码",
+        "url": "https://github.com/CFMoE/CFMoE.github.io"
+      }
+    ]
+  },
+  {
+    "id": "1104-heimdallm",
+    "articleNo": "1104",
+    "articleDate": "2026-11-04",
+    "order": 48,
+    "title": "HeimdaLLM：手机做前向计算，云端怎样帮助联邦微调？",
+    "type": "论文精读",
+    "level": "进阶",
+    "venue": "KDD",
+    "venueGroup": "KDD",
+    "paperYear": "2026",
+    "paperName": "HeimdaLLM: Efficient Cloud-assisted Federated Fine-tuning with Zeroth-Order Rectification for LLMs",
+    "authors": "He Sun",
+    "cover": "assets/cover-1104-heimdallm.png",
+    "topics": [
+      "ondevice-tuning",
+      "collaboration",
+      "fine-tuning"
+    ],
+    "topicLabels": [
+      "云端协同",
+      "联邦微调"
+    ],
+    "keywords": [
+      "零阶优化",
+      "云端辅助",
+      "流水线"
+    ],
+    "summary": "通过云端引导修正客户端的零阶优化方向，协调设备和云端资源。",
+    "problem": "端侧零阶训练降低内存压力，但随机方向可能导致收敛效率低。",
+    "method": "客户端进行零阶优化，辅助云利用同领域数据提供引导，并结合流水线与传输控制。",
+    "takeaway": "设备与云端分工时，还需要控制额外传输和内存开销。",
+    "citation": "He Sun et al. HeimdaLLM: Efficient Cloud-assisted Federated Fine-tuning with Zeroth-Order Rectification for LLMs. KDD, 2026.",
+    "links": [
+      {
+        "label": "论文",
+        "url": "https://doi.org/10.1145/3770855.3817661"
+      }
+    ]
+  },
+  {
+    "id": "1105-mobiedit",
+    "articleNo": "1105",
+    "articleDate": "2026-11-05",
+    "order": 49,
+    "title": "MobiEdit：手机上的 AI 怎样记住新信息？",
+    "type": "论文精读",
+    "level": "进阶",
+    "venue": "ICLR",
+    "venueGroup": "ICLR",
+    "paperYear": "2026",
+    "paperName": "MobiEdit: Resource-efficient Knowledge Editing for Personalized On-device LLMs",
+    "authors": "Zhenyan Lu",
+    "cover": "assets/cover-1105-mobiedit.png",
+    "topics": [
+      "ondevice-tuning",
+      "resource"
+    ],
+    "topicLabels": [
+      "端侧微调",
+      "知识编辑"
+    ],
+    "keywords": [
+      "个性化",
+      "前向估计",
+      "量化"
+    ],
+    "summary": "面向手机上的个性化知识编辑，减少反向传播与训练资源开销。",
+    "problem": "每次更新一条事实都进行完整微调成本高，传统知识编辑也可能依赖反向传播。",
+    "method": "使用前向梯度估计，并结合量化、提前停止和中间结果复用。",
+    "takeaway": "知识编辑关注具体事实的更新，不能直接等同于完整模型微调。",
+    "citation": "Zhenyan Lu et al. MobiEdit: Resource-efficient Knowledge Editing for Personalized On-device LLMs. ICLR, 2026.",
+    "links": [
+      {
+        "label": "论文",
+        "url": "https://proceedings.iclr.cc/paper_files/paper/2026/hash/2b35d186908df6fa14a51ba1cae9dc4e-Abstract-Conference.html"
+      }
+    ]
+  },
+  {
+    "id": "1106-fwdllm-plus",
+    "articleNo": "1106",
+    "articleDate": "2026-11-06",
+    "order": 50,
+    "title": "FwdLLM+：多台设备如何只做前向计算协同微调？",
+    "type": "论文精读",
+    "level": "进阶",
+    "venue": "IEEE TMC",
+    "venueGroup": "IEEE TMC",
+    "paperYear": "2026",
+    "paperName": "FwdLLM+: Accelerating Forward-Only FedLLM With Low-Rank Perturbations",
+    "authors": "Chen Peng",
+    "cover": "assets/cover-1106-fwdllm-plus.png",
+    "topics": [
+      "ondevice-tuning",
+      "collaboration",
+      "fine-tuning"
+    ],
+    "topicLabels": [
+      "联邦微调",
+      "零阶优化"
+    ],
+    "keywords": [
+      "低秩扰动",
+      "前向训练",
+      "设备协同"
+    ],
+    "summary": "在联邦前向式大模型训练中引入低秩扰动，降低优化和通信开销。",
+    "problem": "设备资源有限，随机扰动得到的更新方向也可能波动较大。",
+    "method": "在 FwdLLM 基础上结合低秩扰动和联邦聚合。",
+    "takeaway": "多设备训练需要同时考虑客户端计算、通信与优化方向质量。",
+    "citation": "Chen Peng et al. FwdLLM+: Accelerating Forward-Only FedLLM With Low-Rank Perturbations. IEEE TMC, 2026.",
+    "links": [
+      {
+        "label": "论文",
+        "url": "https://doi.org/10.1109/TMC.2026.3672496"
+      }
+    ]
+  },
+  {
+    "id": "1107-cosei",
+    "articleNo": "1107",
+    "articleDate": "2026-11-07",
+    "order": 51,
+    "title": "CoSEI：一台设备装不下的大模型，多台设备如何协同推理？",
+    "type": "论文精读",
+    "level": "进阶",
+    "venue": "IEEE TMC",
+    "venueGroup": "IEEE TMC",
+    "paperYear": "2026",
+    "paperName": "Scaling LLMs Via Collaboration: Efficient LLM Inference Across Resource-Constrained Devices",
+    "authors": "Fei Zeng",
+    "cover": "assets/cover-1107-cosei.png",
+    "topics": [
+      "edge-inference",
+      "collaboration",
+      "resource"
+    ],
+    "topicLabels": [
+      "多设备协同",
+      "端侧推理"
+    ],
+    "keywords": [
+      "分布式推理",
+      "模型切分",
+      "设备同步"
+    ],
+    "summary": "把资源受限设备联合起来，共同执行一个大模型的推理。",
+    "problem": "模型切分后，通信、同步等待和负载不均可能抵消协同收益。",
+    "method": "联合考虑算子划分与设备同步，并在 llama.cpp 上实现原型。",
+    "takeaway": "设备数量增加并不必然加速，模型划分与通信代价需要一起评估。",
+    "citation": "Fei Zeng et al. Scaling LLMs Via Collaboration: Efficient LLM Inference Across Resource-Constrained Devices. IEEE TMC, 2026.",
+    "links": [
+      {
+        "label": "论文",
+        "url": "https://doi.org/10.1109/TMC.2026.3733238"
+      }
+    ]
+  },
+  {
+    "id": "1108-hfedmoe",
+    "articleNo": "1108",
+    "articleDate": "2026-11-08",
+    "order": 52,
+    "title": "HFedMoE：资源不同的设备怎样协同微调 MoE？",
+    "type": "论文精读",
+    "level": "进阶",
+    "venue": "IEEE TMC",
+    "venueGroup": "IEEE TMC",
+    "paperYear": "2026",
+    "paperName": "HFedMoE: Resource-aware Heterogeneous Federated Learning with Mixture-of-Experts",
+    "authors": "Zihan Fang",
+    "cover": "assets/cover-1108-hfedmoe.png",
+    "topics": [
+      "collaboration",
+      "fine-tuning",
+      "resource"
+    ],
+    "topicLabels": [
+      "多设备协同",
+      "MoE"
+    ],
+    "keywords": [
+      "联邦学习",
+      "异构资源",
+      "专家选择"
+    ],
+    "summary": "让资源异构的设备参与 MoE 联邦训练，并处理各设备专家选择不一致的问题。",
+    "problem": "设备算力和本地数据不同，专家选择与服务器聚合都面临挑战。",
+    "method": "评估专家重要性，按设备资源选择专家，并区别聚合专家和门控网络。",
+    "takeaway": "资源异构与数据异构需要联合考虑；论文包含仿真和设备原型评估。",
+    "citation": "Zihan Fang et al. HFedMoE: Resource-aware Heterogeneous Federated Learning with Mixture-of-Experts. IEEE TMC, 2026.",
+    "links": [
+      {
+        "label": "论文",
+        "url": "https://doi.org/10.1109/TMC.2026.3725213"
+      }
+    ]
   }
 ];
 
@@ -1736,6 +2138,22 @@ const topicDefinitions = [
   {
     "id": "intro",
     "label": "入门"
+  },
+  {
+    "id": "edge-inference",
+    "label": "端侧推理"
+  },
+  {
+    "id": "collaboration",
+    "label": "多设备协同"
+  },
+  {
+    "id": "ondevice-tuning",
+    "label": "端侧微调"
+  },
+  {
+    "id": "security",
+    "label": "端侧安全"
   },
   {
     "id": "lora",
@@ -1784,6 +2202,40 @@ const topicDefinitions = [
 ];
 
 const routes = [
+  {
+    "id": "edge-llm",
+    "title": "边缘大模型推理线",
+    "description": "从内存管理、缓存与模型保护，读到多设备协同推理。",
+    "paperIds": [
+      "1030-tz-llm",
+      "1031-exomem",
+      "1102-npugen",
+      "1103-cfmoe",
+      "1107-cosei"
+    ]
+  },
+  {
+    "id": "device-collaboration",
+    "title": "设备协同线",
+    "description": "关注多设备推理、云端辅助与异构资源协作。",
+    "paperIds": [
+      "1104-heimdallm",
+      "1106-fwdllm-plus",
+      "1107-cosei",
+      "1108-hfedmoe"
+    ]
+  },
+  {
+    "id": "device-tuning",
+    "title": "端侧适配线",
+    "description": "从零阶微调、知识编辑到联邦训练。",
+    "paperIds": [
+      "1101-prism",
+      "1104-heimdallm",
+      "1105-mobiedit",
+      "1106-fwdllm-plus"
+    ]
+  },
   {
     "id": "starter",
     "title": "入门路线",
@@ -1880,7 +2332,14 @@ const routes = [
       "712-hetcpflora",
       "627-prince",
       "628-prillm",
-      "629-keepkv"
+      "629-keepkv",
+      "1031-exomem",
+      "1101-prism",
+      "1102-npugen",
+      "1103-cfmoe",
+      "1105-mobiedit",
+      "1107-cosei",
+      "1108-hfedmoe"
     ]
   }
 ];

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>边缘联邦大模型论文导航</title>
-  <meta name="description" content="公众号论文解读入口：边缘智能、联邦学习、LoRA、Lyapunov 优化与 Split Federated Learning。">
+  <meta name="description" content="公众号论文解读入口：端侧大模型推理、多设备协同、联邦微调与资源优化。">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -22,13 +22,13 @@
           <span>Edge AI · Federated Learning · Resource Optimization</span>
         </span>
       </a>
-      <div class="meta">更新：2026.06.14 · 公众号论文解读入口</div>
+      <div class="meta">更新：2026.11.08 · 公众号论文解读入口</div>
     </header>
 
     <section class="intro" aria-labelledby="page-title">
       <div>
         <h1 id="page-title">边缘联邦大模型论文库</h1>
-        <p class="lead">这里整理公众号中已经拆解的论文和方法笔记。主线从端侧大模型为什么需要联邦微调开始，延伸到 LoRA/LoRA Dropout、异构 rank、Lyapunov 在线优化、底座量化、模块剪枝、知识图谱驱动的客户端选择和多任务资源配置。</p>
+        <p class="lead">这里整理边缘大模型、联邦学习与资源优化方向的论文和方法笔记。从端侧推理、模型保护和多设备协同，到零阶微调、知识编辑、LoRA 与在线资源调度，一起梳理问题、方法和实验发现。</p>
       </div>
       <div class="stats" aria-label="论文导航统计">
         <div class="stat"><b>{{ stats.total }}</b><span>篇文章与论文笔记</span></div>
@@ -63,8 +63,8 @@
         <option v-for="year in yearOptions" :key="year" :value="year">{{ year }}</option>
       </select>
       <select class="select" v-model="state.sort" aria-label="排序方式">
-        <option value="article-asc">按发布顺序</option>
-        <option value="article-desc">最新发布优先</option>
+        <option value="article-asc">按文章日期顺序</option>
+        <option value="article-desc">最新文章日期优先</option>
         <option value="paper-year-desc">论文年份优先</option>
         <option value="title-asc">按标题排序</option>
       </select>
@@ -148,7 +148,7 @@
             </div>
             <div class="card-body">
               <div class="meta-row">
-                <span>{{ formatDate(paper.articleDate) }} 发布</span>
+                <span>文章日期 {{ formatDate(paper.articleDate) }}</span>
                 <span>{{ paper.type }}</span>
               </div>
               <div class="labels">

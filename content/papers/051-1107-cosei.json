@@ -1,0 +1,40 @@
+{
+  "id": "1107-cosei",
+  "articleNo": "1107",
+  "articleDate": "2026-11-07",
+  "order": 51,
+  "title": "CoSEI：一台设备装不下的大模型，多台设备如何协同推理？",
+  "type": "论文精读",
+  "level": "进阶",
+  "venue": "IEEE TMC",
+  "venueGroup": "IEEE TMC",
+  "paperYear": "2026",
+  "paperName": "Scaling LLMs Via Collaboration: Efficient LLM Inference Across Resource-Constrained Devices",
+  "authors": "Fei Zeng",
+  "cover": "assets/cover-1107-cosei.png",
+  "topics": [
+    "edge-inference",
+    "collaboration",
+    "resource"
+  ],
+  "topicLabels": [
+    "多设备协同",
+    "端侧推理"
+  ],
+  "keywords": [
+    "分布式推理",
+    "模型切分",
+    "设备同步"
+  ],
+  "summary": "把资源受限设备联合起来，共同执行一个大模型的推理。",
+  "problem": "模型切分后，通信、同步等待和负载不均可能抵消协同收益。",
+  "method": "联合考虑算子划分与设备同步，并在 llama.cpp 上实现原型。",
+  "takeaway": "设备数量增加并不必然加速，模型划分与通信代价需要一起评估。",
+  "citation": "Fei Zeng et al. Scaling LLMs Via Collaboration: Efficient LLM Inference Across Resource-Constrained Devices. IEEE TMC, 2026.",
+  "links": [
+    {
+      "label": "论文",
+      "url": "https://doi.org/10.1109/TMC.2026.3733238"
+    }
+  ]
+}

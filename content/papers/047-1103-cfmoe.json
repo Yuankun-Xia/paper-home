@@ -1,0 +1,43 @@
+{
+  "id": "1103-cfmoe",
+  "articleNo": "1103",
+  "articleDate": "2026-11-03",
+  "order": 47,
+  "title": "CFMoE：端侧 MoE 如何减少专家加载和内存压力？",
+  "type": "论文精读",
+  "level": "进阶",
+  "venue": "MobiCom",
+  "venueGroup": "MobiCom",
+  "paperYear": "2026",
+  "paperName": "CFMoE: Cache-Friendly Mixture of Experts Model Serving System on Edge Devices",
+  "authors": "Haoyu Zhang",
+  "cover": "assets/cover-1103-cfmoe.png",
+  "topics": [
+    "edge-inference",
+    "resource"
+  ],
+  "topicLabels": [
+    "端侧推理",
+    "MoE"
+  ],
+  "keywords": [
+    "专家缓存",
+    "路由局部性",
+    "闪存"
+  ],
+  "summary": "联合设计专家路由和缓存策略，降低边缘设备上的 MoE 服务资源开销。",
+  "problem": "专家虽然稀疏激活，但频繁在闪存和内存之间加载仍会产生等待。",
+  "method": "通过离线微调改善路由局部性，并针对不同推理阶段设计缓存策略。",
+  "takeaway": "MoE 的端侧效率同时受计算稀疏性和专家访问模式影响。",
+  "citation": "Haoyu Zhang et al. CFMoE: Cache-Friendly Mixture of Experts Model Serving System on Edge Devices. MobiCom, 2026.",
+  "links": [
+    {
+      "label": "论文",
+      "url": "https://doi.org/10.1145/3795866.3844455"
+    },
+    {
+      "label": "代码",
+      "url": "https://github.com/CFMoE/CFMoE.github.io"
+    }
+  ]
+}

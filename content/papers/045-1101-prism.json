@@ -1,0 +1,39 @@
+{
+  "id": "1101-prism",
+  "articleNo": "1101",
+  "articleDate": "2026-11-01",
+  "order": 45,
+  "title": "Prism：不做反向传播，手机如何微调大模型？",
+  "type": "论文精读",
+  "level": "进阶",
+  "venue": "MobiCom",
+  "venueGroup": "MobiCom",
+  "paperYear": "2026",
+  "paperName": "Prism: Efficient Zeroth-Order Fine-Tuning for On-Device LLMs",
+  "authors": "Yongjian Fu",
+  "cover": "assets/cover-1101-prism.png",
+  "topics": [
+    "ondevice-tuning",
+    "resource"
+  ],
+  "topicLabels": [
+    "端侧微调",
+    "零阶优化"
+  ],
+  "keywords": [
+    "手机",
+    "前向计算",
+    "随机扰动"
+  ],
+  "summary": "通过零阶优化减少反向传播带来的训练内存负担，并优化端侧微调效率。",
+  "problem": "免反向传播后，扰动生成和多次前向计算仍可能成为瓶颈。",
+  "method": "从扰动生成、前向精度和方向筛选三个方面优化零阶微调。",
+  "takeaway": "免反向传播并不意味着没有计算成本，需要联合优化整个前向流程。",
+  "citation": "Yongjian Fu et al. Prism: Efficient Zeroth-Order Fine-Tuning for On-Device LLMs. MobiCom, 2026.",
+  "links": [
+    {
+      "label": "论文",
+      "url": "https://doi.org/10.1145/3795866.3844151"
+    }
+  ]
+}

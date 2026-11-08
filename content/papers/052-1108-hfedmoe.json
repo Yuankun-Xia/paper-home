@@ -1,0 +1,40 @@
+{
+  "id": "1108-hfedmoe",
+  "articleNo": "1108",
+  "articleDate": "2026-11-08",
+  "order": 52,
+  "title": "HFedMoE：资源不同的设备怎样协同微调 MoE？",
+  "type": "论文精读",
+  "level": "进阶",
+  "venue": "IEEE TMC",
+  "venueGroup": "IEEE TMC",
+  "paperYear": "2026",
+  "paperName": "HFedMoE: Resource-aware Heterogeneous Federated Learning with Mixture-of-Experts",
+  "authors": "Zihan Fang",
+  "cover": "assets/cover-1108-hfedmoe.png",
+  "topics": [
+    "collaboration",
+    "fine-tuning",
+    "resource"
+  ],
+  "topicLabels": [
+    "多设备协同",
+    "MoE"
+  ],
+  "keywords": [
+    "联邦学习",
+    "异构资源",
+    "专家选择"
+  ],
+  "summary": "让资源异构的设备参与 MoE 联邦训练，并处理各设备专家选择不一致的问题。",
+  "problem": "设备算力和本地数据不同，专家选择与服务器聚合都面临挑战。",
+  "method": "评估专家重要性，按设备资源选择专家，并区别聚合专家和门控网络。",
+  "takeaway": "资源异构与数据异构需要联合考虑；论文包含仿真和设备原型评估。",
+  "citation": "Zihan Fang et al. HFedMoE: Resource-aware Heterogeneous Federated Learning with Mixture-of-Experts. IEEE TMC, 2026.",
+  "links": [
+    {
+      "label": "论文",
+      "url": "https://doi.org/10.1109/TMC.2026.3725213"
+    }
+  ]
+}

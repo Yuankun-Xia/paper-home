@@ -1,0 +1,39 @@
+{
+  "id": "1105-mobiedit",
+  "articleNo": "1105",
+  "articleDate": "2026-11-05",
+  "order": 49,
+  "title": "MobiEdit：手机上的 AI 怎样记住新信息？",
+  "type": "论文精读",
+  "level": "进阶",
+  "venue": "ICLR",
+  "venueGroup": "ICLR",
+  "paperYear": "2026",
+  "paperName": "MobiEdit: Resource-efficient Knowledge Editing for Personalized On-device LLMs",
+  "authors": "Zhenyan Lu",
+  "cover": "assets/cover-1105-mobiedit.png",
+  "topics": [
+    "ondevice-tuning",
+    "resource"
+  ],
+  "topicLabels": [
+    "端侧微调",
+    "知识编辑"
+  ],
+  "keywords": [
+    "个性化",
+    "前向估计",
+    "量化"
+  ],
+  "summary": "面向手机上的个性化知识编辑，减少反向传播与训练资源开销。",
+  "problem": "每次更新一条事实都进行完整微调成本高，传统知识编辑也可能依赖反向传播。",
+  "method": "使用前向梯度估计，并结合量化、提前停止和中间结果复用。",
+  "takeaway": "知识编辑关注具体事实的更新，不能直接等同于完整模型微调。",
+  "citation": "Zhenyan Lu et al. MobiEdit: Resource-efficient Knowledge Editing for Personalized On-device LLMs. ICLR, 2026.",
+  "links": [
+    {
+      "label": "论文",
+      "url": "https://proceedings.iclr.cc/paper_files/paper/2026/hash/2b35d186908df6fa14a51ba1cae9dc4e-Abstract-Conference.html"
+    }
+  ]
+}
